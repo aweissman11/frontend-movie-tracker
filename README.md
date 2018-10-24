@@ -5,7 +5,7 @@
 
 * What are your learning goals for this project? What drives us in this project?
 Laura: Learn redux and get more comfortable in React
-Kevin: Learn the react transitions module and Redux
+Kevin: Learn the react transitions module and Redux and do this project in SCSS
 Aaron: Hammer home OOP principles, improve refactoring abilities, learn Redux
 
 * What is your collaboration style? How do you feel about pair programming vs. divide-and-conquer approaches?
@@ -17,7 +17,6 @@ Aaron: Loves it all
 Laura: Give me all the feedback. Don't hold back. Slack is easy
 Kevin: Give me all the feedback. Don't hold back. Slack is easy
 Aaron: Give me all the feedback. Don't hold back. Slack is easy
-
 
 * How would you describe your work style?
 Laura: Does not like to work late at night. Wants to get it done by 7/8. Weekends are fine
