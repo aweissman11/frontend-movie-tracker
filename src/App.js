@@ -4,7 +4,10 @@ import fetchCall from './utilities/fetchCall';
 import { apiKey } from './utilities/apiKey';
 // import * as Cleaners from './utilities/cleaners';
 import SingleMovie from './components/SingleMovie/'
+import Login from './components/Login'
+
 import { connect } from 'react-redux';
+import { NavLink, Switch, Route } from 'react-router-dom';
 
 import { getMovieList } from './actions';
 
@@ -28,7 +31,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.posters() }
+      <Switch>
+        <Route to='/login' component={Login} />
+      </Switch>
+      {/* <Link exact path to='/home'>
+          { this.posters() }
+      </Link>           */}
         <p>test</p>
       </div>
     );
