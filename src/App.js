@@ -1,28 +1,54 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import fetchCall from './utilities/fetchCall';
+import { apiKey } from './utilities/apiKey';
+// import * as Cleaners from './utilities/cleaners';
+import SingleMovie from './components/SingleMovie/'
+import Login from './components/Login'
+
+import { connect } from 'react-redux';
+import { NavLink, Switch, Route } from 'react-router-dom';
+
+import { getMovieList } from './actions';
 
 class App extends Component {
+
+  async componentDidMount() {
+    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2018-10-23`)
+    this.props.setFetchedMovies(filmObject.results)
+  }
+
+  posters = () => {
+    if (this.props.movies.length > 1) {
+      return this.props.movies.map( movie => (
+        <SingleMovie key={movie.title} {...movie} />
+        ))
+    } else {
+      return ''
+    }
+  }
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <Switch>
+        <Route to='/login' component={Login} />
+      </Switch>
+      {/* <Link exact path to='/home'>
+          { this.posters() }
+      </Link>           */}
+        <p>test</p>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  movies: state.movies
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setFetchedMovies: (data) => dispatch(getMovieList(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
