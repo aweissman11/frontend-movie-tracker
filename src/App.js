@@ -4,12 +4,13 @@ import fetchCall from './utilities/fetchCall';
 // import * as Cleaners from './utilities/cleaners';
 import Login from './components/Login';
 import MoviesList from './components/MoviesList';
+import { getMovieList } from './actions';
 
 // import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="App">
@@ -31,5 +32,12 @@ class App extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  movies: state.movies
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  setFetchedMovies: (data) => dispatch(getMovieList(data))
+})
 
 export default App;

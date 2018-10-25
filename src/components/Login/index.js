@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
 
-class Login extends Component {
+export class Login extends Component {
   constructor() {
     super()
     this.state = {
