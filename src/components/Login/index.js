@@ -18,8 +18,12 @@ class Login extends Component {
 
   handleSubmit = async(e) => {
     e.preventDefault();
-    const response = await backEndFetches.checkUserList(this.state)
-    console.log('response:', response);
+    try {
+      const response = await backEndFetches.checkUserList(this.state)
+      console.log(response)
+    } catch(error) {
+      console.log(error)
+    }
   }
 
   render() {

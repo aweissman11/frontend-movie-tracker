@@ -1,17 +1,15 @@
-export const checkUserList = async (userData) => {
+export const checkUserList = async (data) => {
   const url = 'http://localhost:3000/api/users'
-  console.log('userData:', userData);
 
   const optionsObject = {
-    method: "POST",
+    method: "POST", 
+    body: JSON.stringify(data),
+    credentials: "same-origin", 
     headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(userData),
-    credentials: "same-origin"
+        "Content-Type": "application/json",
+    }
   }
 
   const response = await fetch(url, optionsObject);
-    
-  return response;
+  return await response.json();
 }
