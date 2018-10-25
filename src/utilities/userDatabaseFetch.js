@@ -6,7 +6,7 @@ export const checkUserList = async (data) => {
     body: JSON.stringify(data),
     credentials: "same-origin", 
     headers: {
-        "Content-Type": "application/json",
+      "Content-Type": "application/json",
     }
   }
 
