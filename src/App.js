@@ -4,6 +4,7 @@ import fetchCall from './utilities/fetchCall';
 // import * as Cleaners from './utilities/cleaners';
 import Login from './components/Login';
 import MoviesList from './components/MoviesList';
+import Loading from './components/Loading';
 import { getMovieList } from './actions';
 
 // import { connect } from 'react-redux';
@@ -14,6 +15,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
+        <Loading />
         <Route
           exact path='/'
           component={Login}
