@@ -4,7 +4,7 @@ import './Loading.css'
 
 const Loading = () => {
   return(
-  <div class='triangle'>
+  <div className='triangle'>
     <h3>MT</h3>
   </div>
   )
