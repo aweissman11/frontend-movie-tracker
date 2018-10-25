@@ -6,7 +6,7 @@ import { getMovieList } from '../../actions';
 import { apiKey } from '../../utilities/apiKey';
 
 import SingleMovie from '../SingleMovie';
-
+import LogButton from '../LogButton'
 
 
 class MoviesList extends Component {
@@ -30,6 +30,7 @@ class MoviesList extends Component {
   render() {
       return (
         <div>
+          <LogButton />
           {this.getMovies()}
         </div>
     )
@@ -38,7 +39,8 @@ class MoviesList extends Component {
 
 
 const mapStateToProps = (state) => ({
-  movies: state.movies
+  movies: state.movies,
+  user: state.user
 })
 
 const mapDispatchToProps = (dispatch) => ({
