@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getUserLoggedIn } from '../../actions'
 
 import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
 
@@ -29,7 +31,7 @@ export class Login extends Component {
     try {
       const response = await userDatabaseFetch.checkUserList({ email, password })
       console.log(response)
-      
+      await this.props.logUserIn(response.data.id, response.data.name)
     } catch(error) {
       console.log(error)
     }
@@ -122,4 +124,12 @@ export class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+  user: state.user 
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
