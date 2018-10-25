@@ -1,11 +1,9 @@
 export const checkUserList = async (data) => {
-  const url = 'http://localhost:3000/api/users/new'
-
-  const weee = {email: 'brian@aol.com', password: 'password', name: 'brian'}
+  const url = 'http://localhost:3000/api/users'
 
   const optionsObject = {
     method: "POST", 
-    body: JSON.stringify(weee),
+    body: JSON.stringify(data),
     credentials: "same-origin", 
     headers: {
         "Content-Type": "application/json",
