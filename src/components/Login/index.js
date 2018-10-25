@@ -13,7 +13,9 @@ export class Login extends Component {
       email: '',
       password: '',
       confirmPassword: '',
-      newUserInputsVisible: false
+      newUserInputsVisible: false,
+      loginError: '',
+      signUpError: '',
     }
   }
   
@@ -23,11 +25,26 @@ export class Login extends Component {
     })
   }
 
+  removeWarning = () => {
+    this.setState({
+      loginError: '',
+      signUpError: ''
+    })
+  }
+
   newUserWarning = () => {
+    this.setState({
+      signUpError: 'sign-up-error-active'
+    })
+    setTimeOut(this.removeWarning(), 5000)
     console.log('email has already been used')
   }
 
   userNamePassWordWarning = () => {
+    this.setState({
+      loginError: 'login-error-active'
+    })
+    setTimeOut(this.removeWarning(), 5000)
     console.log('username and password do not match')
   }
   
