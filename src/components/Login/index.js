@@ -13,7 +13,9 @@ export class Login extends Component {
       email: '',
       password: '',
       confirmPassword: '',
-      newUserInputsVisible: false
+      newUserInputsVisible: false,
+      loginError: '',
+      signUpError: '',
     }
   }
   
@@ -21,6 +23,29 @@ export class Login extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+  }
+
+  removeWarning = () => {
+    this.setState({
+      loginError: '',
+      signUpError: ''
+    })
+  }
+
+  newUserWarning = () => {
+    this.setState({
+      signUpError: 'sign-up-error-active'
+    })
+    setTimeOut(this.removeWarning(), 5000)
+    console.log('email has already been used')
+  }
+
+  userNamePassWordWarning = () => {
+    this.setState({
+      loginError: 'login-error-active'
+    })
+    setTimeOut(this.removeWarning(), 5000)
+    console.log('username and password do not match')
   }
   
   submitLogin = async (e) => {
@@ -30,10 +55,12 @@ export class Login extends Component {
 
     try {
       const response = await userDatabaseFetch.checkUserList({ email, password })
-      console.log(response)
+
       await this.props.logUserIn(response.data.id, response.data.name)
+      console.log(response)
     } catch(error) {
       console.log(error)
+      this.userNamePassWordWarning()
     }
     this.setState({
       email: '',
@@ -53,8 +80,11 @@ export class Login extends Component {
     try {
       const response = await userDatabaseFetch.createNewUser({ name, email, password })
       console.log(response)
+      if (response.error) {
+        this.newUserWarning()
+      }
     } catch(error) {
-      console.log(error)
+      console.log(error.message)
     }
 
     // this is where we need to navigate the user to the MovieList page
