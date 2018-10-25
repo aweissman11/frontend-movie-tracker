@@ -1,17 +1,17 @@
-export const checkUserList = async (userData) => {
-  const url = 'http://localhost:3000/api/users'
-  console.log('userData:', userData);
+export const checkUserList = async (data) => {
+  const url = 'http://localhost:3000/api/users/new'
+
+  const weee = {email: 'brian@aol.com', password: 'password', name: 'brian'}
 
   const optionsObject = {
-    method: "POST",
+    method: "POST", 
+    body: JSON.stringify(weee),
+    credentials: "same-origin", 
     headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(userData),
-    credentials: "same-origin"
+        "Content-Type": "application/json",
+    }
   }
 
   const response = await fetch(url, optionsObject);
-    
-  return response;
+  return await response.json();
 }
