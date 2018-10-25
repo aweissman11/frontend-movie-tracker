@@ -22,6 +22,10 @@ export class Login extends Component {
       [e.target.name]: e.target.value
     })
   }
+
+  newUserWarning = () => {
+    console.log('email has already been used')
+  }
   
   submitLogin = async (e) => {
     e.preventDefault();
@@ -53,8 +57,11 @@ export class Login extends Component {
     try {
       const response = await userDatabaseFetch.createNewUser({ name, email, password })
       console.log(response)
+      if (response.error) {
+        this.newUserWarning()
+      }
     } catch(error) {
-      console.log(error)
+      console.log(error.message)
     }
 
     // this is where we need to navigate the user to the MovieList page
