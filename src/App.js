@@ -15,7 +15,6 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Loading />
         <Route
           exact path='/'
           component={Login}
@@ -35,7 +34,7 @@ export class App extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  movies: state.movies
+  movies: state.movies,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
