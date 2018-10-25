@@ -26,6 +26,10 @@ export class Login extends Component {
   newUserWarning = () => {
     console.log('email has already been used')
   }
+
+  userNamePassWordWarning = () => {
+    console.log('username and password do not match')
+  }
   
   submitLogin = async (e) => {
     e.preventDefault();
@@ -34,10 +38,12 @@ export class Login extends Component {
 
     try {
       const response = await userDatabaseFetch.checkUserList({ email, password })
-      console.log(response)
+
       await this.props.logUserIn(response.data.id, response.data.name)
+      console.log(response)
     } catch(error) {
       console.log(error)
+      this.userNamePassWordWarning()
     }
     this.setState({
       email: '',
