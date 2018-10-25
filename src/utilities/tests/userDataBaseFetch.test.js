@@ -2,7 +2,7 @@ import fetchCall from '../userDatabaseFetch';
 import { checkUserList } from '../../utilities/userDatabaseFetch';
 
 
-describe('userDatBaseFetch', () => {
+describe('userDataBaseFetch', () => {
   const url = 'http://localhost:3000/api/users'
   const mockData = {email: 'kevin@yo.com', password: 'password'}
 
