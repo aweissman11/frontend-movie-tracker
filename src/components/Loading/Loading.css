@@ -8,8 +8,9 @@
   background: transparent;
   animation: spin-triangle 5s infinite;
 }
+
 .triangle h3 {
-  top: -60px;
+  top: -55px;
   left: -63px;
   position: absolute;
   font-family: 'Open Sans', sans-serif;
