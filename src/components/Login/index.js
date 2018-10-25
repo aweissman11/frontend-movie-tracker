@@ -32,21 +32,14 @@ export class Login extends Component {
     })
   }
 
-  newUserWarning = () => {
-    this.setState({
-      signUpError: 'sign-up-error-active'
+  userWarning = async (type, warning) => {
+    await this.setState({
+      [type]: warning
     })
-    setTimeOut(this.removeWarning(), 5000)
-    console.log('email has already been used')
+    await setTimeout(this.removeWarning, 5000)
+    console.log(warning)
   }
 
-  userNamePassWordWarning = () => {
-    this.setState({
-      loginError: 'login-error-active'
-    })
-    setTimeOut(this.removeWarning(), 5000)
-    console.log('username and password do not match')
-  }
   
   submitLogin = async (e) => {
     e.preventDefault();
@@ -60,7 +53,7 @@ export class Login extends Component {
       console.log(response)
     } catch(error) {
       console.log(error)
-      this.userNamePassWordWarning()
+      this.userWarning('loginError', 'login-error-active')
     }
     this.setState({
       email: '',
@@ -81,7 +74,7 @@ export class Login extends Component {
       const response = await userDatabaseFetch.createNewUser({ name, email, password })
       console.log(response)
       if (response.error) {
-        this.newUserWarning()
+        this.userWarning('signUpError', 'sign-up-error-active')
       }
     } catch(error) {
       console.log(error.message)
@@ -134,20 +127,22 @@ export class Login extends Component {
             className='create-user-btn'
             onClick={this.createNewUser}
           >
-            Submit new user
+            Submit New User
           </button>
           <input
             className='login-submit'
             type='submit'
             value='Login'
           ></input>
-          <button>Create new user</button>
+          <button>Sign Up</button>
           <Link to='/release-date'>
             <button>Skip login</button>
           </Link>
           <Link to='/login'>
             <button>Already a user</button>
           </Link>
+          <div className={`login ${this.state.loginError}`}></div>
+          <div className={`sign up ${this.state.signUpError}`}></div>
         </form>
       )
     }
