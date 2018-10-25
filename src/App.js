@@ -11,7 +11,7 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 
 import { getMovieList } from './actions';
 
-class App extends Component {
+export class App extends Component {
 
   async componentDidMount() {
     const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2018-10-23`)
@@ -43,11 +43,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   movies: state.movies
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data))
 })
 
