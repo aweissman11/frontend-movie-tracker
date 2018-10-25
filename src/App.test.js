@@ -2,9 +2,14 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import { App, mapDispatchToProps, mapStateToProps } from './App';
 import { getMovieList } from './actions';
+import { shallow } from 'enzyme';
 
 describe('App', () => {
   // React component tests
+  describe('App Component', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot()
+  })
 
   describe('mapStateToProps', () => {
     it('should map the state to props', () => {
