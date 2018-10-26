@@ -21,8 +21,10 @@ export class Login extends Component {
         <main className='login-page'>
           <div className='right-side'></div>
           <Logo />
-          <LoginForm />
-          <SignUpForm />
+          <section className='login-signup-wrapper'>
+            <LoginForm />
+            <SignUpForm />
+          </section>
           <footer className='login-footer'>
             <p>about</p>
             <p>terms</p>

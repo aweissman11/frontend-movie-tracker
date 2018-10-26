@@ -1,16 +1,21 @@
-.signup-hide {
-  display: none;
-}
-
 .sign-up-form {
-  position: relative;
+  padding-top: 2.5rem;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 350px;
-  height: 500px;
-  margin: 0 auto;
+  height: 100%;
+  margin: 0;
   font-family: 'Open Sans', sans-serif;
   align-self: center;
   background: #fff;
-  box-shadow: 0px 0px 5px #D1D1D1;
+  transition: .75s;
+}
+
+.signup-hide {
+  left: 350px;
+  top: 0;
 }
 
 .sign-up-form input,
@@ -31,7 +36,6 @@
 }
 
 .sign-up-form h1 {
-  margin-top: 3rem;
   margin-bottom: 14px;
 }
 
