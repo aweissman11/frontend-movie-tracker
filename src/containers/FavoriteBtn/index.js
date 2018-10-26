@@ -13,16 +13,6 @@ export class FavoriteBtn extends Component {
     }
   }
 
-  // async componentDidMount() {
-  //   if (this.props.user.id) {
-  //     const favorites = await this.getFavorites();
-  //     this.props.setFavorites(favorites)
-  //     if (favorites.data.find(favorite => favorite.movie_id === this.props.movieId)) {
-  //       this.setState({ isFavorite: true })
-  //     }
-  //   }
-  // }
-
   toggleFavorite = async (movieId) => {
     const { movies, user, favorites } = this.props;
     if (!user.id) {
@@ -32,12 +22,16 @@ export class FavoriteBtn extends Component {
         try {
           await userDataBaseFetch.addFavorite(this.formatFavorite(movies, user, movieId));
           this.setState({ isFavorite: true })
+          const newFavorites = [...favorites, this.formatFavorite(movies, user, movieId)]
+          this.props.setFavorites(newFavorites);
           console.log('add favorite')
         } catch(error) {
           console.error(error);
         }
       } else {
         await this.removeFavorite(user.id, movieId);
+        const newFavorites = favorites.filter( favorite => favorite.movie_id !== movieId)
+        this.props.setFavorites(newFavorites);
         this.setState({ isFavorite: false })
         console.log('remove favorite')
       }
@@ -79,4 +73,9 @@ export class FavoriteBtn extends Component {
 
 const mapStateToProps = ({movies, user, favorites}) => ({movies, user, favorites});
 
-export default connect(mapStateToProps, null)(FavoriteBtn);
+
+const mapDispatchToProps = (dispatch) => ({
+  setFavorites: (data) => dispatch(updateFavorites(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteBtn);
