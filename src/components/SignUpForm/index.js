@@ -39,27 +39,6 @@ export class SignUpForm extends Component {
     console.log(warning)
   }
 
-  
-  submitLogin = async (e) => {
-    e.preventDefault();
-
-    const { email, password } = this.state;
-
-    try {
-      const response = await userDatabaseFetch.checkUserList({ email, password })
-
-      await this.props.logUserIn(response.data.id, response.data.name)
-      console.log(response)
-    } catch(error) {
-      console.log(error)
-      this.userWarning('loginError', 'login-error-active')
-    }
-    this.setState({
-      email: '',
-      password: ''
-    })
-  }
-
   showNewUserInputs = (e) => {
     e.preventDefault();
     this.setState({ newUserInputsVisible: !this.state.newUserInputsVisible })
@@ -82,7 +61,6 @@ export class SignUpForm extends Component {
     // this is where we need to navigate the user to the MovieList page
     // I think our default could be by release-date, so we could navigate them there
     this.setState({ newUserInputsVisible: false })
-
   }
 
   render() {
