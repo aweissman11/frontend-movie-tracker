@@ -40,7 +40,6 @@ export class LoginForm extends Component {
 
   submitLogin = async (e) => {
     e.preventDefault();
-    console.log('fires')
 
     const { email, password } = this.state;
 
@@ -53,12 +52,6 @@ export class LoginForm extends Component {
       console.log(error)
       this.userWarning('loginError', 'login-error-active')
     }
-    this.setState({
-      email: '',
-      password: ''
-    })
-
-
   }
 
   render() {
