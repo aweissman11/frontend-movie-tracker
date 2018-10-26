@@ -12,7 +12,7 @@ import LogButton from '../LogButton'
 class MoviesList extends Component {
 
   async componentDidMount() {
-    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2018-10-23`)
+    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=2018-10-23`)
     this.props.setFetchedMovies(filmObject.results)
   }
 
