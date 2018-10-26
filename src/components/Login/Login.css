@@ -23,11 +23,15 @@
 .login-footer p {
   margin: 1rem;
   color: #6CC4EE;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
 }
 
 .login-copyright {
+  font-family: 'Open Sans', sans-serif;
   position: absolute;
   bottom: .5rem;
   right: 1.5rem;
   color: #fff;
+  font-weight: 700;
 }
