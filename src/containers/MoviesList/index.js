@@ -21,15 +21,6 @@ class MoviesList extends Component {
     }
   }
 
-  async componentDidUpdate() {
-    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=2018-10-23`)
-    this.props.setFetchedMovies(filmObject.results)
-    if (this.props.user.id) {
-      const favorites = await this.getFavorites();
-      this.props.setFavorites(favorites.data)
-    }
-  }
-
   getFavorites = async () => {
     const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
     return await fetchCall(url)    
