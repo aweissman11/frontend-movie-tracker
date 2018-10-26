@@ -1,0 +1,20 @@
+.login-page {
+  display: grid;
+}
+
+.login-form {
+  align-self: center;
+  margin: auto;
+  max-width: 400px;
+  max-height: 700px;
+}
+
+.login-form h1 {
+  text-align: center;
+}
+
+.login-form input,
+.login-form button {
+  display: block;
+  margin: auto;
+}
