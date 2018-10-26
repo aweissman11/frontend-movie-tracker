@@ -1,0 +1,161 @@
+.sign-up-form {
+  padding-top: 2.5rem;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100%;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  align-self: center;
+  background: #fff;
+  transition: .5s;
+}
+
+.signup-hide {
+  left: 350px;
+  top: 0;
+}
+
+.sign-up-form input,
+.sign-up-form button {
+  display: block;
+  margin: auto;
+}
+
+.sign-up-form h1,
+.sign-up-form h4 {
+  text-align: center;
+  color: #6CC4EE;
+}
+
+.sign-up-form h1 span {
+  background: #6CC4EE;
+  color: #fff;
+}
+
+.sign-up-form h1 {
+  margin-bottom: 14px;
+}
+
+.sign-up-form h4 {
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+.sign-up-form input,
+.sign-up-form button {
+  width: 215px;
+  height: 30px;
+}
+
+.sign-up-form .email-input,
+.sign-up-form .password-input,
+.sign-up-form .sign-up-submit {
+  margin: 1rem auto;
+}
+
+.sign-up-form .email-input,
+.sign-up-form .password-input,
+.sign-up-form .password-confirm-input,
+.sign-up-form .name-input {
+  box-sizing: border-box;
+  border: 2px solid #D1D1D1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding-left: 2rem;
+}
+
+.sign-up-form .email-input:placeholder,
+.sign-up-form .password-input:placeholder {
+  color: #D1D1D1;
+}
+
+.sign-up-form .email-icon,
+.sign-up-form .password-icon,
+.sign-up-form .password-confirm-icon,
+.sign-up-form .user-icon {
+  width: 16px;
+  left: 75px;
+  position: absolute;
+}
+
+.sign-up-form .user-icon {
+  top: 189px;
+}
+
+.sign-up-form .email-icon {
+  top: 235px;
+}
+
+.sign-up-form .password-icon {
+  top: 281px;
+}
+
+.sign-up-form .password-confirm-icon {
+  top: 326px;
+}
+
+.sign-up-form .create-user-btn {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  background: #6CC4EE;
+  border: none;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 12px;
+  transition: .2s;
+}
+
+.sign-up-form .skip-sign-up {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-decoration: none;
+}
+
+.sign-up-form .skip-sign-up-button {
+  border: none;
+  color: #6CC4EE;
+  font-size: 12px;
+  text-decoration: none;
+  transition: .2s;
+  border-radius: 20px;
+}
+
+.sign-up-form .create-user-btn:hover {
+  color: #6CC4EE;
+  background: #fff;
+  box-shadow: 0 0 4px #6CC4EE;
+}
+
+.sign-up-form .skip-sign-up-button:hover {
+  color: #fff;
+  background: #6CC4EE;
+}
+
+.signup-error-wrapper {
+  position: absolute;
+  width: 350px;
+  top: 400px;
+  background: #fff;
+  right: 0;
+  left: 350px;
+  transition: .25s;
+  opacity: 0;
+}
+
+.signup-error-wrapper p {
+  font-size: 12px;
+  text-align: center;
+}
+
+.sign-up-error-active {
+  opacity: 1;
+  left: 0;
+  right: 0;
+}
+

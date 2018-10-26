@@ -1,0 +1,171 @@
+.login-form {
+  padding-top: 2.5rem;
+  box-sizing: border-box;
+  position: absolute;
+  width: 350px;
+  height: 100%;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  align-self: center;
+  background: #fff;
+  transition: .5s;
+  top: 0;
+  right: 0;
+}
+
+.login-hide {
+  right: 350px;
+}
+
+.login-form input,
+.login-form button {
+  display: block;
+  margin: auto;
+}
+
+.login-form h1,
+.login-form h4 {
+  text-align: center;
+  color: #6CC4EE;
+}
+
+.login-form h1 span {
+  background: #6CC4EE;
+  color: #fff;
+}
+
+.login-form h1 {
+  margin-bottom: 14px;
+}
+
+.login-form h4 {
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+.login-form input,
+.login-form button {
+  width: 215px;
+  height: 30px;
+}
+
+.login-form .email-input,
+.login-form .password-input,
+.login-form .login-submit {
+  margin: 1rem auto;
+}
+
+.login-form .email-input,
+.login-form .password-input {
+  box-sizing: border-box;
+  border: 2px solid #D1D1D1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  padding-left: 2rem;
+}
+
+.login-form .email-input:placeholder,
+.login-form .password-input:placeholder {
+  color: #D1D1D1;
+}
+
+.login-form .email-icon,
+.login-form .password-icon {
+  width: 16px;
+  left: 75px;
+  position: absolute;
+}
+
+.login-form .email-icon {
+  top: 189px;
+}
+
+.login-form .password-icon {
+  top: 234px;
+}
+
+.login-form .login-submit {
+  margin-bottom: 0;
+  background: #6CC4EE;
+  border: none;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.login-form .sign-up-button {
+  background: transparent;
+  border: none;
+  color: #6CC4EE;
+  border-radius: 20px;
+  transition: .2s;
+  margin-top: .5rem;
+}
+
+.login-social-wrapper {
+  width: 200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.login-social {
+  display: block;
+  margin: 2rem;
+  color: #6CC4EE;
+  font-size: 40px;
+  transition: .2s;
+}
+
+.login-social:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.login-form .skip-login {
+  position: absolute;
+  border: none;
+  color: #6CC4EE;
+  border-radius: 20px;
+  font-size: 12px;
+  text-decoration: none;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  transition: .2s;
+}
+
+.login-form .login-submit:hover {
+  color: #6CC4EE;
+  background: #fff;
+  box-shadow: 0 0 4px #6CC4EE;
+}
+
+.login-form .skip-login:hover,
+.login-form .sign-up-button:hover {
+  color: #fff;
+  background: #6CC4EE;
+}
+
+.login-error-wrapper {
+  position: absolute;
+  width: 350px;
+  top: 308px;
+  background: #fff;
+  left: -350px;
+  right: 0;
+  transition: .25s;
+  opacity: 0;
+}
+
+.login-error-wrapper p {
+  font-size: 12px;
+  text-align: center;
+}
+
+.login-error-active {
+  opacity: 1;
+  left: 0;
+}

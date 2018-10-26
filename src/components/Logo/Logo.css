@@ -1,0 +1,21 @@
+.logo {
+  left: 2rem;
+  top: 2rem;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 60px solid #6CC4EE;
+  background: transparent;
+}
+
+.logo h3 {
+  top: -60px;
+  left: -63px;
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
+  font-weight: 800;
+  color: #fff;
+}

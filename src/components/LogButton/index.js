@@ -6,10 +6,10 @@ import { NavLink } from 'react-router-dom'
 const LogButton = (props) => {
   return (
     <NavLink to='/login'>
-    {props.user.name && 
-     <button onClick={props.logOut()}>Log out</button> 
+    {props.user.id && 
+     <button onClick={props.logOut}>Log out</button> 
     }
-    {!props.user.name && 
+    {!props.user.id && 
       <button>Login</button>
     }
     </NavLink>
