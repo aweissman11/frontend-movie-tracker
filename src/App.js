@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import fetchCall from './utilities/fetchCall';
 // import * as Cleaners from './utilities/cleaners';
-import Login from './components/Login';
-import MoviesList from './components/MoviesList';
+import Login from './containers/Login';
+import MoviesList from './containers/MoviesList';
 import Loading from './components/Loading';
 import { getMovieList } from './actions';
 

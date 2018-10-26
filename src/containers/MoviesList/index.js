@@ -5,7 +5,7 @@ import fetchCall from '../../utilities/fetchCall';
 import { getMovieList } from '../../actions';
 import { apiKey } from '../../utilities/apiKey';
 
-import SingleMovie from '../SingleMovie';
+import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton'
 
 
