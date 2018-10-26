@@ -71,14 +71,20 @@ export class SignUpForm extends Component {
     } else {
       return (
         <form onSubmit={this.createNewUser} className={`sign-up-form ${this.props.showSignup}`}>
-          <h1>Movie Tracker</h1>
+          <h1><span>movie</span>Tracker</h1>
+          <h4>for the love of film</h4>
           <input
             className='name-input'
             onChange={this.handleChange}
             value={this.state.name}
             name='name'
-            placeholder='What is your Name?'
+            placeholder='Name'
             /> 
+          <img 
+            src='./user.png' 
+            alt='user' 
+            className='user-icon'
+          />
           <input
             className='email-input'
             onChange={this.handleChange}
@@ -86,6 +92,11 @@ export class SignUpForm extends Component {
             name='email'
             placeholder='email'
             ></input>
+          <img 
+            src='./email.png' 
+            alt='mail' 
+            className='email-icon'
+          />
           <input
             className='password-input'
             onChange={this.handleChange}
@@ -94,6 +105,16 @@ export class SignUpForm extends Component {
             name='password'
             placeholder='password'
           ></input>
+          <img 
+            src='./password.png' 
+            alt='lock' 
+            className='password-icon'
+          />
+          <img 
+            src='./password.png' 
+            alt='lock' 
+            className='password-confirm-icon'
+          />
           <input
             className='password-confirm-input'
             onChange={this.handleChange}
@@ -107,8 +128,13 @@ export class SignUpForm extends Component {
             type='submit'
             value='Sign Up'
           ></input>
-          <Link to='/login'>
-            <button onClick={this.props.displayLogin}>Already a user</button>
+          <Link 
+            className='skip-sign-up'
+            to='/login'
+          >
+            <button 
+              className='skip-sign-up-button'
+              onClick={this.props.displayLogin}>Already a user</button>
           </Link>
           <div className={`sign up ${this.state.signUpError}`}></div>
         </form>
