@@ -40,6 +40,7 @@ export class LoginForm extends Component {
 
   submitLogin = async (e) => {
     e.preventDefault();
+    console.log('fires')
 
     const { email, password } = this.state;
 
@@ -56,11 +57,13 @@ export class LoginForm extends Component {
       email: '',
       password: ''
     })
+
+
   }
 
   render() {
     return (
-      <form onSubmit={this.submitLogin} className={`login-form ${this.props.showLogin}`}>
+      <form onSubmit={(e) => {this.submitLogin(e)}} className={`login-form ${this.props.showLogin}`}>
         <h1><span>movie</span>Tracker</h1>
         <h4>for the love of film</h4>
         <input
@@ -94,8 +97,12 @@ export class LoginForm extends Component {
           value='login'
         ></input>
         <button 
-          onClick={this.props.displaySignUp}
+          onClick={(e) => {
+            e.preventDefault()
+            this.props.displaySignUp()
+          }}
           className='sign-up-button'
+          name='sign-up-button'
         >
           signup
         </button>
