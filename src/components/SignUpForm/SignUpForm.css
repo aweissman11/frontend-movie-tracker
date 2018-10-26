@@ -10,7 +10,7 @@
   font-family: 'Open Sans', sans-serif;
   align-self: center;
   background: #fff;
-  transition: .75s;
+  transition: .5s;
 }
 
 .signup-hide {
@@ -106,6 +106,7 @@
   color: #fff;
   border-radius: 20px;
   font-size: 12px;
+  transition: .2s;
 }
 
 .sign-up-form .skip-sign-up {
@@ -121,6 +122,19 @@
   color: #6CC4EE;
   font-size: 12px;
   text-decoration: none;
+  transition: .2s;
+  border-radius: 20px;
+}
+
+.sign-up-form .create-user-btn:hover {
+  color: #6CC4EE;
+  background: #fff;
+  box-shadow: 0 0 4px #6CC4EE;
+}
+
+.sign-up-form .skip-sign-up-button:hover {
+  color: #fff;
+  background: #6CC4EE;
 }
 
 

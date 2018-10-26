@@ -53,3 +53,11 @@
 .login-page *:focus {
   outline: none;
 }
+
+.login-page .login-submit:hover,
+.login-page .sign-up-button:hover,
+.login-page .skip-login:hover,
+.login-page .create-user-btn:hover,
+.login-page .skip-sign-up-button:hover {
+  cursor: pointer;
+}
