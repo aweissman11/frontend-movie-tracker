@@ -78,7 +78,7 @@ export class SignUpForm extends Component {
             onChange={this.handleChange}
             value={this.state.name}
             name='name'
-            placeholder='Name'
+            placeholder='name'
             /> 
           <img 
             src='./user.png' 
@@ -126,7 +126,7 @@ export class SignUpForm extends Component {
           <input
             className='create-user-btn'
             type='submit'
-            value='Sign Up'
+            value='sign up'
           ></input>
           <Link 
             className='skip-sign-up'
@@ -134,7 +134,7 @@ export class SignUpForm extends Component {
           >
             <button 
               className='skip-sign-up-button'
-              onClick={this.props.displayLogin}>Already a user</button>
+              onClick={this.props.displayLogin}>already a user</button>
           </Link>
           <div className={`sign up ${this.state.signUpError}`}></div>
         </form>

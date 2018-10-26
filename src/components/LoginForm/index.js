@@ -68,7 +68,7 @@ export class LoginForm extends Component {
           onChange={this.handleChange}
           value={this.state.email}
           name='email'
-          placeholder='Email'
+          placeholder='email'
         ></input>
         <img 
           src='./email.png' 
@@ -81,7 +81,7 @@ export class LoginForm extends Component {
           type='password'
           value={this.state.password}
           name='password'
-          placeholder='Password'
+          placeholder='password'
         ></input>
         <img 
           src='./password.png' 
