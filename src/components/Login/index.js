@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import LoginForm from '../LoginForm';
 import SignUpForm from '../SignUpForm';
 import Logo from '../Logo';
+import { connect } from 'react-redux';
 
 import './Login.css'
 
@@ -14,8 +15,8 @@ export class Login extends Component {
   }
 
   render() {
-    if (this.state.isLoggedIn) {
-      return (<Redirect exact path='/release-date' />)
+    if (this.props.user.id) {
+      return (<Redirect to='/release-date' />)
     } else {
       return (
         <main className='login-page'>
@@ -39,4 +40,8 @@ export class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps, null)(Login);
