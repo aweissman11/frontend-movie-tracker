@@ -21,4 +21,31 @@ describe('actions', () => {
 
     expect(result).toEqual(expected);
   })
+
+  it('should have a type of GET_USER_LOGGED_IN', () => {
+    const id = 1
+    const name = 'Laura'
+    
+    const expected = {
+      type: 'GET_USER_LOGGED_IN',
+      user: {
+        name: 'Laura',
+        id: 1
+      }
+    }
+
+    const result = Actions.getUserLoggedIn(id, name);
+
+    expect(result).toEqual(expected);
+  })
+
+  it('should have a type of LOG_USER_OUT', () => {
+    const expected = {
+      type: 'LOG_USER_OUT'
+    }
+
+    const result = Actions.logUserOut();
+
+    expect(result).toEqual(expected);
+  })
 })
