@@ -136,7 +136,9 @@ export class SignUpForm extends Component {
               className='skip-sign-up-button'
               onClick={this.props.displayLogin}>already a user</button>
           </Link>
-          <div className={`sign up ${this.state.signUpError}`}></div>
+          <div className={`signup-error-wrapper ${this.state.signUpError}`}>
+            <p>email address already registered</p>
+          </div>
         </form>
       )
     }

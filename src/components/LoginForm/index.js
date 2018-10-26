@@ -47,7 +47,6 @@ export class LoginForm extends Component {
       const response = await userDatabaseFetch.checkUserList({ email, password })
 
       await this.props.logUserIn(response.data.id, response.data.name)
-      console.log(response)
     } catch(error) {
       console.log(error)
       this.userWarning('loginError', 'login-error-active')
@@ -106,7 +105,9 @@ export class LoginForm extends Component {
         <Link to='/release-date'>
           <button className='skip-login'>skip login</button>
         </Link>
-        <div className={`login ${this.state.loginError}`}></div>
+        <div className={`login-error-wrapper ${this.state.loginError}`}>
+          <p className='login-error-text'>incorrect email/password combination</p>
+        </div>
       </form>
     )
   }

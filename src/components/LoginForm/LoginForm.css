@@ -17,8 +17,6 @@
   right: 350px;
 }
 
-
-
 .login-form input,
 .login-form button {
   display: block;
@@ -149,4 +147,25 @@
 .login-form .sign-up-button:hover {
   color: #fff;
   background: #6CC4EE;
+}
+
+.login-error-wrapper {
+  position: absolute;
+  width: 350px;
+  top: 308px;
+  background: #fff;
+  left: -350px;
+  right: 0;
+  transition: .25s;
+  opacity: 0;
+}
+
+.login-error-wrapper p {
+  font-size: 12px;
+  text-align: center;
+}
+
+.login-error-active {
+  opacity: 1;
+  left: 0;
 }
