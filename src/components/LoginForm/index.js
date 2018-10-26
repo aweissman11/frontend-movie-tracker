@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserLoggedIn } from '../../actions'
+import { displaySignUp } from '../../actions';
 
 import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
 
@@ -57,7 +58,7 @@ export class LoginForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.submitLogin} className='login-form'>
+      <form onSubmit={this.submitLogin} className={`login-form ${this.props.showLogin}`}>
         <h1>Movie Tracker</h1>
         <input
           className='email-input'
@@ -79,12 +80,9 @@ export class LoginForm extends Component {
           type='submit'
           value='Login'
         ></input>
-        <button>Sign Up</button>
+        <button onClick={this.props.displaySignUp}>Sign Up</button>
         <Link to='/release-date'>
           <button>Skip login</button>
-        </Link>
-        <Link to='/login'>
-          <button>Already a user</button>
         </Link>
         <div className={`login ${this.state.loginError}`}></div>
       </form>
@@ -93,11 +91,13 @@ export class LoginForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user 
+  user: state.user,
+  showLogin: state.showLogin
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name))
+  logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
+  displaySignUp: () => dispatch(displaySignUp())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

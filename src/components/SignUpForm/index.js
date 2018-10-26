@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserLoggedIn } from '../../actions'
+import { displayLogin } from '../../actions';
 
 import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
 
@@ -14,7 +15,6 @@ export class SignUpForm extends Component {
       password: '',
       confirmPassword: '',
       newUserInputsVisible: false,
-      loginError: '',
       signUpError: '',
     }
   }
@@ -27,7 +27,6 @@ export class SignUpForm extends Component {
 
   removeWarning = () => {
     this.setState({
-      loginError: '',
       signUpError: ''
     })
   }
@@ -91,7 +90,7 @@ export class SignUpForm extends Component {
       return (<Redirect exact path='/release-date' />)
     } else {
       return (
-        <form onSubmit={this.submitLogin} className='sign-up-form'>
+        <form onSubmit={this.createNewUser} className={`sign-up-form ${this.props.showSignup}`}>
           <h1>Movie Tracker</h1>
           <input
             className='name-input'
@@ -123,25 +122,14 @@ export class SignUpForm extends Component {
             name='confirmPassword'
             placeholder='confirm password'
           ></input> 
-          <button
-            className='create-user-btn'
-            onClick={this.createNewUser}
-          >
-            Submit New User
-          </button>
           <input
-            className='login-submit'
+            className='create-user-btn'
             type='submit'
-            value='Login'
+            value='Sign Up'
           ></input>
-          <button>Sign Up</button>
-          <Link to='/release-date'>
-            <button>Skip login</button>
-          </Link>
           <Link to='/login'>
-            <button>Already a user</button>
+            <button onClick={this.props.displayLogin}>Already a user</button>
           </Link>
-          <div className={`login ${this.state.loginError}`}></div>
           <div className={`sign up ${this.state.signUpError}`}></div>
         </form>
       )
@@ -150,11 +138,13 @@ export class SignUpForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user 
+  user: state.user,
+  showSignup: state.showSignup
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name))
+  logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
+  displayLogin: () => dispatch(displayLogin())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm)

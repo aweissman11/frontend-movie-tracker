@@ -17,3 +17,15 @@ export const logUserOut = () => {
     type:  'LOG_USER_OUT'
   }
 }
+
+export const displayLogin = () => {
+  return {
+    type: 'DISPLAY_LOGIN'
+  }
+}
+
+export const displaySignUp = () => {
+  return {
+    type: 'DISPLAY_SIGN_UP'
+  }
+}
