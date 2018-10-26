@@ -3,8 +3,6 @@ import { Link, Redirect } from 'react-router-dom';
 import LoginForm from '../LoginForm';
 import SignUpForm from '../SignUpForm';
 
-import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
-
 export class Login extends Component {
   constructor() {
     super()
