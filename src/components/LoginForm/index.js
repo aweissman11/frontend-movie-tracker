@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getUserLoggedIn } from '../../actions'
 import { displaySignUp } from '../../actions';
 
+import './LoginForm.css'
+
 import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
 
 export class LoginForm extends Component {
@@ -59,30 +61,50 @@ export class LoginForm extends Component {
   render() {
     return (
       <form onSubmit={this.submitLogin} className={`login-form ${this.props.showLogin}`}>
-        <h1>Movie Tracker</h1>
+        <h1><span>movie</span>Tracker</h1>
+        <h4>for the love of film</h4>
         <input
           className='email-input'
           onChange={this.handleChange}
           value={this.state.email}
           name='email'
-          placeholder='email'
-          ></input>
+          placeholder='Email'
+        ></input>
+        <img 
+          src='./email.png' 
+          alt='mail' 
+          className='email-icon'
+        />
         <input
           className='password-input'
           onChange={this.handleChange}
           type='password'
           value={this.state.password}
           name='password'
-          placeholder='password'
+          placeholder='Password'
         ></input>
+        <img 
+          src='./password.png' 
+          alt='lock' 
+          className='password-icon'
+        />
         <input
           className='login-submit'
           type='submit'
-          value='Login'
+          value='login'
         ></input>
-        <button onClick={this.props.displaySignUp}>Sign Up</button>
+        <button 
+          onClick={this.props.displaySignUp}
+          className='sign-up-button'
+        >
+          signup
+        </button>
+        <section className='login-social-wrapper'>
+          <i className="fab fa-facebook login-social"></i>
+          <i className="fab fa-twitter login-social"></i>
+        </section>
         <Link to='/release-date'>
-          <button>Skip login</button>
+          <button className='skip-login'>skip login</button>
         </Link>
         <div className={`login ${this.state.loginError}`}></div>
       </form>

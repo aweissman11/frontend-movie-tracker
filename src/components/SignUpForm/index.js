@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getUserLoggedIn } from '../../actions'
 import { displayLogin } from '../../actions';
 
+import './SignUpForm.css';
+
 import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
 
 export class SignUpForm extends Component {

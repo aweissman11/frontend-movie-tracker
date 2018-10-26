@@ -1,20 +1,33 @@
 .login-page {
+  position: relative;
   display: grid;
+  height: 100vh;
 }
 
-.login-form {
-  align-self: center;
-  margin: auto;
-  max-width: 400px;
-  max-height: 700px;
+.right-side {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #6CC4EE;
+  height: 100vh;
+  width: 50%;
 }
 
-.login-form h1 {
-  text-align: center;
+.login-footer {
+  position: absolute;
+  display: flex;
+  bottom: .5rem;
+  left: .5rem;
 }
 
-.login-form input,
-.login-form button {
-  display: block;
-  margin: auto;
+.login-footer p {
+  margin: 1rem;
+  color: #6CC4EE;
+}
+
+.login-copyright {
+  position: absolute;
+  bottom: .5rem;
+  right: 1.5rem;
+  color: #fff;
 }
