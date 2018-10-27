@@ -77,7 +77,7 @@ export class Filters extends Component {
           <option value={null}>RATING</option>
           {this.getRatingOptions()}
         </select>
-        <a>Sort by:</a>
+        <span>Sort by:</span>
         <select onChange={this.handleSelect} name='sort' className='sort-by-slct'>
           <option value={null}>SORT BY</option>
           {this.getSortOptions()}
