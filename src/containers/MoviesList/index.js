@@ -18,7 +18,6 @@ class MoviesList extends Component {
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
       localStorage.setItem('userInfo', JSON.stringify({
-        favorites: favorites.data,
         user: this.props.user
       }))
       this.props.setFavorites(favorites.data)
