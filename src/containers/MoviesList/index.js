@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import fetchCall from '../../utilities/fetchCall';
-import { getMovieList, updateFavorites } from '../../actions';
+import { getMovieList, updateFavorites, getUserLoggedIn } from '../../actions';
 import { apiKey } from '../../utilities/apiKey';
 
 import SingleMovie from '../../components/SingleMovie';
@@ -17,8 +17,16 @@ class MoviesList extends Component {
     this.props.setFetchedMovies(filmObject.results)
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
-      console.log('favorites:', favorites);
+      localStorage.setItem('userInfo', JSON.stringify({
+        favorites: favorites.data,
+        user: this.props.user
+      }))
       this.props.setFavorites(favorites.data)
+    }
+
+    if (localStorage.getItem('userInfo')) {
+      const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+      this.props.logIn(userInfo.user.id, userInfo.user.name)
     }
   }
 
@@ -71,7 +79,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
-  setFavorites: (data) => dispatch(updateFavorites(data))
+  setFavorites: (data) => dispatch(updateFavorites(data)),
+  logIn: (id, name) => dispatch(getUserLoggedIn(id, name))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
