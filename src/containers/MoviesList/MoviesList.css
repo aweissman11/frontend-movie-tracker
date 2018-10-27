@@ -1,7 +1,7 @@
 .movies-list {
   height: 100%;
   display: grid;
-  grid-template-rows: 70px 1fr 70px;
+  grid-template-rows: 70px 1fr 50px;
 }
 
 .movies-wrapper {
@@ -52,6 +52,8 @@
   font-size: 18px;
 }
 
+/* -- MOVIE SCROLL FOOTER -- */
+
 .movies-list footer {
   position: relative;
   width: 100vw;
@@ -63,13 +65,14 @@
   display: grid;
   grid-template-columns: 33% 33% 33%;
   width: 100%;
-  height: 70px;
+  height: 50px;
   display: flex;
   align-items: center;
 }
 
 .logo-footer-section {
   display: flex;
+  margin-left: 1rem;
 }
 
 .movies-list footer .logo {
@@ -77,20 +80,20 @@
   top: 0;
   left: 0;  
   margin-left: 1rem;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 30px solid #6CC4EE;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 20px solid #6CC4EE;
 }
 
 .movies-list footer .logo h3 {
-  top: -31px;
-  left: -32px;
-  font-size: 19px;
+  top: -21px;
+  left: -21px;
+  font-size: 12px;
 }
 
 .movies-list footer h1 {
   margin-left: 2rem;
-  font-size: 16px;
+  font-size: 12px;
   text-align: center;
   color: #6CC4EE;
 }
@@ -104,16 +107,16 @@
   display: flex;
   width: 300px;
   margin: auto;
-  height: 70px;
+  height: 50px;
   align-items: center;
   justify-content: center;  
 }
 
 .scroll-social {
   display: block;
-  margin: 2rem;
+  margin: 2rem auto;
   color: #6CC4EE;
-  font-size: 40px;
+  font-size: 25px;
   transition: .2s;
 }
 
@@ -125,4 +128,20 @@
 .footer-copyright {
   color: #6CC4EE;
   margin-right: 2rem;
+  font-size: 10px;
+}
+
+/* -- MOVIE SCROLL HEADER -- */
+.movies-list header .header-wrapper {
+  position: fixed;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  height: 70px;
+}
+
+.movies-list header .search-form {
+  justify-self: end;
+  margin-right: 1rem;
 }
