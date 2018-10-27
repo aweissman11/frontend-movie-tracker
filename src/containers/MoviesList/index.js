@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import fetchCall from '../../utilities/fetchCall';
-import { getMovieList, updateFavorites, getUserLoggedIn } from '../../actions';
+import { updateFavorites, getUserLoggedIn } from '../../actions';
 import { apiKey } from '../../utilities/apiKey';
-
+import { getMovieList } from '../../actions/thunkActions/movieListThunk'
 import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
 import Logo from '../../components/Logo';
@@ -16,9 +16,13 @@ import './MoviesList.css'
 class MoviesList extends Component {
 
   async componentDidMount() {
+<<<<<<< HEAD
     const today = this.getTodaysDate();
     const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}`);
     this.props.setFetchedMovies(filmObject.results);
+=======
+    await this.props.setFetchedMovies(this.props.movies.results)
+>>>>>>> Add thunk for fetchAllMovies fetch call
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
       localStorage.setItem('userInfo', JSON.stringify({
@@ -34,6 +38,7 @@ class MoviesList extends Component {
     }
   }
 
+<<<<<<< HEAD
   getTodaysDate = () => {
     const today = new Date();
     let dd = today.getDate();
@@ -51,11 +56,16 @@ class MoviesList extends Component {
   getFavorites = async () => { 
     const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`;
     return await fetchCall(url);
+=======
+  getFavorites = async () => {
+    const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
+    return await fetchCall(url)    
+>>>>>>> Add thunk for fetchAllMovies fetch call
   }
 
-  getMovies = () => {
-    if (this.props.movies.length > 1) {
-      return this.props.movies.map( movie => (
+  getMovies =  () => {
+    if (this.props.movies.results) {
+      return this.props.movies.results.map( movie => (
         <SingleMovie key={movie.title} {...movie} />
         ));
     } else {
@@ -63,6 +73,12 @@ class MoviesList extends Component {
     }
   }
 
+  films = async () => {
+    const filmDisplay = await this.props.movies.results.map( movie => { 
+      console.log(movie.title)
+      return movie
+    })
+  }
 
   render() {
       return (
@@ -100,7 +116,6 @@ class MoviesList extends Component {
     );
   }
 }
-
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
