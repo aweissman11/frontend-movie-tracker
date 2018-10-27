@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { logUserOut } from '../../actions'
 import { NavLink } from 'react-router-dom'
 
-const LogButton = (props) => {
+export const LogButton = (props) => {
   return (
     <NavLink to='/login'>
     {props.user.id && 
