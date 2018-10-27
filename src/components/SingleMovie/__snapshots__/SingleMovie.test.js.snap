@@ -3,7 +3,12 @@
 exports[`SingleMovie should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <SingleMovie />,
+  Symbol(enzyme.__unrendered__): <SingleMovie
+    id="100"
+    poster_path="test_path"
+    release_date="2018-01-01"
+    title="test-title"
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -18,32 +23,34 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h2 />,
-        <Connect(FavoriteBtn) />,
-        <img
-          src="https://image.tmdb.org/t/p/w400_and_h600_bestv2undefined"
+        <Connect(FavoriteBtn)
+          movieId="100"
         />,
+        <img
+          alt="test-title"
+          src="https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path"
+        />,
+        <section
+          className="movie-poster-text"
+        >
+          <h2>
+            test-title
+          </h2>
+          <h3>
+            2018
+          </h3>
+        </section>,
       ],
+      "className": "single-movie-wrapper",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "h2",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "movieId": undefined,
+          "movieId": "100",
         },
         "ref": null,
         "rendered": null,
@@ -54,12 +61,54 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "alt": undefined,
-          "src": "https://image.tmdb.org/t/p/w400_and_h600_bestv2undefined",
+          "alt": "test-title",
+          "src": "https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path",
         },
         "ref": null,
         "rendered": null,
         "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h2>
+              test-title
+            </h2>,
+            <h3>
+              2018
+            </h3>,
+          ],
+          "className": "movie-poster-text",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "test-title",
+            },
+            "ref": null,
+            "rendered": "test-title",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "2018",
+            },
+            "ref": null,
+            "rendered": "2018",
+            "type": "h3",
+          },
+        ],
+        "type": "section",
       },
     ],
     "type": "div",
@@ -71,32 +120,34 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h2 />,
-          <Connect(FavoriteBtn) />,
-          <img
-            src="https://image.tmdb.org/t/p/w400_and_h600_bestv2undefined"
+          <Connect(FavoriteBtn)
+            movieId="100"
           />,
+          <img
+            alt="test-title"
+            src="https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path"
+          />,
+          <section
+            className="movie-poster-text"
+          >
+            <h2>
+              test-title
+            </h2>
+            <h3>
+              2018
+            </h3>
+          </section>,
         ],
+        "className": "single-movie-wrapper",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": undefined,
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "h2",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "movieId": undefined,
+            "movieId": "100",
           },
           "ref": null,
           "rendered": null,
@@ -107,12 +158,54 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "alt": undefined,
-            "src": "https://image.tmdb.org/t/p/w400_and_h600_bestv2undefined",
+            "alt": "test-title",
+            "src": "https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path",
           },
           "ref": null,
           "rendered": null,
           "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h2>
+                test-title
+              </h2>,
+              <h3>
+                2018
+              </h3>,
+            ],
+            "className": "movie-poster-text",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "test-title",
+              },
+              "ref": null,
+              "rendered": "test-title",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "2018",
+              },
+              "ref": null,
+              "rendered": "2018",
+              "type": "h3",
+            },
+          ],
+          "type": "section",
         },
       ],
       "type": "div",
