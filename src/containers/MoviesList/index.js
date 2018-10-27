@@ -16,7 +16,10 @@ import './MoviesList.css'
 class MoviesList extends Component {
 
   async componentDidMount() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b15939e7e366ddca00442d4f4c95585b1f657f9
     await this.props.setFetchedMovies(this.props.movies.results)
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
@@ -32,7 +35,11 @@ class MoviesList extends Component {
       this.props.logIn(userInfo.user.id, userInfo.user.name);
     }
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 3b15939e7e366ddca00442d4f4c95585b1f657f9
   getFavorites = async () => {
     const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
     return await fetchCall(url)    

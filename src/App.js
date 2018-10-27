@@ -6,6 +6,7 @@ import MoviesList from './containers/MoviesList';
 import Loading from './components/Loading';
 import './App.css'
 import { getMovieList } from './actions/thunkActions/movieListThunk'
+
 // import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 
