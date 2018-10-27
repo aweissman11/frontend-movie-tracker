@@ -12,13 +12,28 @@ import LogButton from '../LogButton'
 class MoviesList extends Component {
 
   async componentDidMount() {
-    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=2018-10-23`)
+    const today = this.getTodaysDate()
+    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}`)
     this.props.setFetchedMovies(filmObject.results)
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
       console.log('favorites:', favorites);
       this.props.setFavorites(favorites.data)
     }
+  }
+
+  getTodaysDate = () => {
+    const today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+    return `${mm}-${dd}-${yyyy}`;
   }
 
   getFavorites = async () => {
