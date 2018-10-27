@@ -104,13 +104,13 @@ class MoviesList extends Component {
 }
 
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   movies: state.movies,
   user: state.user,
   favorites: state.favorites
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
   setFavorites: (data) => dispatch(updateFavorites(data)),
   logIn: (id, name) => dispatch(getUserLoggedIn(id, name))
