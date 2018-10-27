@@ -3,11 +3,17 @@ import { connect } from 'react-redux';
 import { logUserOut } from '../../actions'
 import { NavLink } from 'react-router-dom'
 
-const LogButton = (props) => {
+export const LogButton = (props) => {
+  
+  const logOutUser = () => {
+    props.logOut();
+    localStorage.removeItem('userInfo') 
+  }
+  
   return (
     <NavLink to='/login'>
     {props.user.id && 
-     <button onClick={props.logOut}>Log out</button> 
+     <button onClick={() => logOutUser()}>Log out</button> 
     }
     {!props.user.id && 
       <button>Login</button>
@@ -16,11 +22,11 @@ const LogButton = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logUserOut()) 
 })
 

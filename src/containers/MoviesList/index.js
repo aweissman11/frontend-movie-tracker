@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import fetchCall from '../../utilities/fetchCall';
-import { getMovieList, updateFavorites } from '../../actions';
+import { getMovieList, updateFavorites, getUserLoggedIn } from '../../actions';
 import { apiKey } from '../../utilities/apiKey';
 
 import SingleMovie from '../../components/SingleMovie';
@@ -15,13 +15,36 @@ import './MoviesList.css'
 class MoviesList extends Component {
 
   async componentDidMount() {
-    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=2018-10-23`)
+    const today = this.getTodaysDate()
+    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}`)
     this.props.setFetchedMovies(filmObject.results)
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
-      console.log('favorites:', favorites);
+      localStorage.setItem('userInfo', JSON.stringify({
+        favorites: favorites.data,
+        user: this.props.user
+      }))
       this.props.setFavorites(favorites.data)
     }
+
+    if (localStorage.getItem('userInfo')) {
+      const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+      this.props.logIn(userInfo.user.id, userInfo.user.name)
+    }
+  }
+
+  getTodaysDate = () => {
+    const today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+    if(mm<10) {
+        mm = '0'+mm
+    } 
+    return `${mm}-${dd}-${yyyy}`;
   }
 
   getFavorites = async () => {
@@ -67,7 +90,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
-  setFavorites: (data) => dispatch(updateFavorites(data))
+  setFavorites: (data) => dispatch(updateFavorites(data)),
+  logIn: (id, name) => dispatch(getUserLoggedIn(id, name))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
