@@ -26,8 +26,11 @@ ShallowWrapper {
       "activeClassName": "active",
       "aria-current": "page",
       "children": Array [
-        <button>
-          Log out
+        <button
+          className="login-logout-btn"
+          onClick={[Function]}
+        >
+          log out
         </button>,
         false,
       ],
@@ -40,11 +43,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Log out",
-          "onClick": undefined,
+          "children": "log out",
+          "className": "login-logout-btn",
+          "onClick": [Function],
         },
         "ref": null,
-        "rendered": "Log out",
+        "rendered": "log out",
         "type": "button",
       },
       false,
@@ -60,8 +64,11 @@ ShallowWrapper {
         "activeClassName": "active",
         "aria-current": "page",
         "children": Array [
-          <button>
-            Log out
+          <button
+            className="login-logout-btn"
+            onClick={[Function]}
+          >
+            log out
           </button>,
           false,
         ],
@@ -74,11 +81,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Log out",
-            "onClick": undefined,
+            "children": "log out",
+            "className": "login-logout-btn",
+            "onClick": [Function],
           },
           "ref": null,
-          "rendered": "Log out",
+          "rendered": "log out",
           "type": "button",
         },
         false,
@@ -129,8 +137,10 @@ ShallowWrapper {
       "aria-current": "page",
       "children": Array [
         undefined,
-        <button>
-          Login
+        <button
+          className="login-logout-btn"
+        >
+          login
         </button>,
       ],
       "to": "/login",
@@ -143,10 +153,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Login",
+          "children": "login",
+          "className": "login-logout-btn",
         },
         "ref": null,
-        "rendered": "Login",
+        "rendered": "login",
         "type": "button",
       },
     ],
@@ -162,8 +173,10 @@ ShallowWrapper {
         "aria-current": "page",
         "children": Array [
           undefined,
-          <button>
-            Login
+          <button
+            className="login-logout-btn"
+          >
+            login
           </button>,
         ],
         "to": "/login",
@@ -176,10 +189,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Login",
+            "children": "login",
+            "className": "login-logout-btn",
           },
           "ref": null,
-          "rendered": "Login",
+          "rendered": "login",
           "type": "button",
         },
       ],
