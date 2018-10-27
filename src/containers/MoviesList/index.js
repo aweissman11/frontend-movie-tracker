@@ -69,7 +69,12 @@ class MoviesList extends Component {
         <div className='movies-list'>
           <header>
             <section className='header-wrapper'>
-              <LogButton />
+              <section className='left-side-header-btns'>
+                <LogButton />
+                <button className='show-favorites'>
+                  favorites
+                </button>
+              </section>
               <SearchBar />
             </section>
           </header>

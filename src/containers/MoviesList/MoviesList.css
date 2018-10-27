@@ -60,7 +60,7 @@
 }
 
 .movies-list footer .footer-wrap {
-  border-top: 2px solid #d1d1d1;
+  /*border-top: 2px solid #d1d1d1;*/
   position: fixed;
   display: grid;
   grid-template-columns: 33% 33% 33%;
@@ -144,6 +144,26 @@
 .movies-list header .search-form {
   justify-self: end;
   margin-right: 1rem;
+}
+
+.movies-list header .login-logout-btn,
+.movies-list header .show-favorites {
+  background: #6CC4EE;
+  border: none;
+  width: 75px;
+  height: 30px;
+  border-radius: 15px;
+  margin-left: 1rem;
+  color: #fff;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.movies-list header .login-logout-btn:hover,
+.movies-list header .show-favorites:hover {
+  cursor: pointer;
+  color: #6CC4EE;
+  background: #fff;
 }
 
 /* -- MOVIE FAVORITE BUTTON -- */
