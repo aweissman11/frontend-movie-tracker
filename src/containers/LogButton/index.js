@@ -4,10 +4,16 @@ import { logUserOut } from '../../actions'
 import { NavLink } from 'react-router-dom'
 
 export const LogButton = (props) => {
+  
+  const logOutUser = () => {
+    props.logOut();
+    localStorage.removeItem('userInfo') 
+  }
+  
   return (
     <NavLink to='/login'>
     {props.user.id && 
-     <button onClick={props.logOut}>Log out</button> 
+     <button onClick={() => logOutUser()}>Log out</button> 
     }
     {!props.user.id && 
       <button>Login</button>
