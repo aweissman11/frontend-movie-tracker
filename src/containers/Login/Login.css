@@ -61,3 +61,45 @@
 .login-page .skip-sign-up-button:hover {
   cursor: pointer;
 }
+
+.login-form-logo-wrapper .logo {
+  display: block;
+  position: relative;
+  width: 60px;
+  margin: 0 auto 3rem;
+  display: none;
+}
+
+@media (max-width: 550px) {
+  .login-form {
+    padding: 0;
+  }
+  .login-signup-wrapper {
+    box-shadow: none;
+    padding-top: 0;
+  }
+  .right-side {
+    display: none;
+  }
+  .login-page footer {
+    display: none;
+  }
+
+  .login-form h1 {
+    margin-bottom: 0;
+  }
+
+  .login-form h4 {
+    display: none;
+  }
+  .login-page .logo {
+    display: none;
+  }
+  .login-form .login-form-logo-wrapper .logo {
+    display: block;
+  }
+
+
+
+
+}
