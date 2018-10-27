@@ -71,10 +71,10 @@ export class FavoriteBtn extends Component {
   }
 }
 
-const mapStateToProps = ({movies, user, favorites}) => ({movies, user, favorites});
+export const mapStateToProps = ({movies, user, favorites}) => ({movies, user, favorites});
 
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setFavorites: (data) => dispatch(updateFavorites(data))
 })
 
