@@ -29,3 +29,10 @@ export const displaySignUp = () => {
     type: 'DISPLAY_SIGN_UP'
   }
 }
+
+export const updateFavorites = (favorites) => {
+  return {
+    type: 'UPDATE_FAVORITES',
+    favorites
+  }
+}

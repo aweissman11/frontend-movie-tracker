@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login should match the snapshot 1`] = `
+exports[`SingleMovie should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Login />,
+  Symbol(enzyme.__unrendered__): <SingleMovie />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -18,8 +18,11 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Connect(LoginForm) />,
-        <Connect(SignUpForm) />,
+        <h2 />,
+        <Connect(FavoriteBtn) />,
+        <img
+          src="https://image.tmdb.org/t/p/w400_and_h600_bestv2undefined"
+        />,
       ],
     },
     "ref": null,
@@ -27,8 +30,21 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "class",
-        "props": Object {},
+        "props": Object {
+          "movieId": undefined,
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -36,14 +52,17 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
+        "nodeType": "host",
+        "props": Object {
+          "alt": undefined,
+          "src": "https://image.tmdb.org/t/p/w400_and_h600_bestv2undefined",
+        },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "img",
       },
     ],
-    "type": "main",
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -52,8 +71,11 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Connect(LoginForm) />,
-          <Connect(SignUpForm) />,
+          <h2 />,
+          <Connect(FavoriteBtn) />,
+          <img
+            src="https://image.tmdb.org/t/p/w400_and_h600_bestv2undefined"
+          />,
         ],
       },
       "ref": null,
@@ -61,8 +83,21 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "class",
-          "props": Object {},
+          "props": Object {
+            "movieId": undefined,
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -70,14 +105,17 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
+          "nodeType": "host",
+          "props": Object {
+            "alt": undefined,
+            "src": "https://image.tmdb.org/t/p/w400_and_h600_bestv2undefined",
+          },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "img",
         },
       ],
-      "type": "main",
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -2,18 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import fetchCall from '../../utilities/fetchCall';
-import { getMovieList } from '../../actions';
+import { getMovieList, updateFavorites } from '../../actions';
 import { apiKey } from '../../utilities/apiKey';
 
-import SingleMovie from '../SingleMovie';
+import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton'
 
 
 class MoviesList extends Component {
 
   async componentDidMount() {
-    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2018-10-23`)
+    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=2018-10-23`)
     this.props.setFetchedMovies(filmObject.results)
+    if (this.props.user.id) {
+      const favorites = await this.getFavorites();
+      console.log('favorites:', favorites);
+      this.props.setFavorites(favorites.data)
+    }
+  }
+
+  getFavorites = async () => {
+    const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
+    return await fetchCall(url)    
   }
 
   getMovies = () => {
@@ -40,11 +50,13 @@ class MoviesList extends Component {
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
-  user: state.user
+  user: state.user,
+  favorites: state.favorites
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  setFetchedMovies: (data) => dispatch(getMovieList(data))
+  setFetchedMovies: (data) => dispatch(getMovieList(data)),
+  setFavorites: (data) => dispatch(updateFavorites(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
