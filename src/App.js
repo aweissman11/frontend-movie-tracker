@@ -5,7 +5,7 @@ import fetchCall from './utilities/fetchCall';
 import Login from './containers/Login';
 import MoviesList from './containers/MoviesList';
 import Loading from './components/Loading';
-import { getMovieList } from './actions';
+import { getMovieList } from './actions/thunkActions/movieListThunk'
 
 // import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
