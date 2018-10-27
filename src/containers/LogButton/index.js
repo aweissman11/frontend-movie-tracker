@@ -13,10 +13,15 @@ export const LogButton = (props) => {
   return (
     <NavLink to='/login'>
     {props.user.id && 
-     <button onClick={() => logOutUser()}>Log out</button> 
+     <button 
+      onClick={() => logOutUser()}
+      className='login-logout-btn'
+    >log out</button> 
     }
     {!props.user.id && 
-      <button>Login</button>
+      <button
+        className='login-logout-btn'
+      >login</button>
     }
     </NavLink>
   )
