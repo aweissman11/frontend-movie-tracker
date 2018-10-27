@@ -7,6 +7,9 @@ import { apiKey } from '../../utilities/apiKey';
 
 import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton'
+import Logo from '../../components/Logo'
+
+import './MoviesList.css'
 
 
 class MoviesList extends Component {
@@ -39,9 +42,17 @@ class MoviesList extends Component {
 
   render() {
       return (
-        <div>
-          <LogButton />
-          {this.getMovies()}
+        <div className='movies-list'>
+          <header>
+            <LogButton />
+          </header>
+          <section className='movies-wrapper'>
+            <div className='movies-stripe'></div>
+            {this.getMovies()}
+          </section>
+          <footer>
+            <Logo />
+          </footer>
         </div>
     )
   }
