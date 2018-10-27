@@ -112,16 +112,12 @@ export const ratings = [
 
 export const sortOptions = [
   {
-    text: 'Most Popular',
-    value: 'popularity.asc'
-  },
-  {
     text: 'most popular',
-    value: 'popularity.asc'
+    value: 'popularity.desc'
   },
   {
     text: 'least popular',
-    value: 'popularity.desc'
+    value: 'popularity.asc'
   },
   {
     text: 'recently released',
