@@ -70,8 +70,11 @@
   display: none;
 }
 
+
+
 @media (max-width: 550px) {
-  .login-form {
+  .login-form,
+  .sign-up-form {
     padding: 0;
   }
   .login-signup-wrapper {
@@ -85,21 +88,20 @@
     display: none;
   }
 
-  .login-form h1 {
+  .login-form h1,
+  .sign-up-form h1 {
     margin-bottom: 0;
   }
 
-  .login-form h4 {
+  .login-form h4,
+  .sign-up-form h4 {
     display: none;
   }
   .login-page .logo {
     display: none;
   }
-  .login-form .login-form-logo-wrapper .logo {
+  .login-form-logo-wrapper .logo {
     display: block;
   }
-
-
-
 
 }
