@@ -43,13 +43,6 @@ class MoviesList extends Component {
     }
   }
 
-  films = async () => {
-    const filmDisplay = await this.props.movies.results.map( movie => { 
-      console.log(movie.title)
-      return movie
-    })
-  }
-
   render() {
       return (
         <div>
