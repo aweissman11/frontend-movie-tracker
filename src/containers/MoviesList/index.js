@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import fetchCall from '../../utilities/fetchCall';
+import * as Cleaners from '../../utilities/cleaners';
 import { getMovieList, updateFavorites, getUserLoggedIn } from '../../actions';
 import { apiKey } from '../../utilities/apiKey';
 
@@ -17,7 +18,7 @@ import './MoviesList.css'
 class MoviesList extends Component {
 
   async componentDidMount() {
-    const today = this.getTodaysDate();
+    const today = Cleaners.getTodaysDate();
     const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}`);
     this.props.setFetchedMovies(filmObject.results);
     if (this.props.user.id) {
@@ -32,20 +33,6 @@ class MoviesList extends Component {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       this.props.logIn(userInfo.user.id, userInfo.user.name);
     }
-  }
-
-  getTodaysDate = () => {
-    const today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth()+1;
-    let yyyy = today.getFullYear();
-    if(dd<10) {
-        dd = '0'+dd;
-    } 
-    if(mm<10) {
-        mm = '0'+mm;
-    } 
-    return `${mm}-${dd}-${yyyy}`;
   }
 
   getFavorites = async () => { 
@@ -104,13 +91,13 @@ class MoviesList extends Component {
 }
 
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   movies: state.movies,
   user: state.user,
   favorites: state.favorites
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
   setFavorites: (data) => dispatch(updateFavorites(data)),
   logIn: (id, name) => dispatch(getUserLoggedIn(id, name))

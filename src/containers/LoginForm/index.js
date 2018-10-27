@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserLoggedIn } from '../../actions'
 import { displaySignUp } from '../../actions';
@@ -119,12 +119,12 @@ export class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user,
   showLogin: state.showLogin
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
   displaySignUp: () => dispatch(displaySignUp())
 })
