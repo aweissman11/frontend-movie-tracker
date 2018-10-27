@@ -1,25 +1,26 @@
 .movies-list {
+  height: 100%;
   display: grid;
-  grid-template-rows: 160px 1fr 70px;
+  grid-template-rows: 70px 1fr 70px;
 }
 
 .movies-wrapper {
   align-self: center;
   position: relative;
   display: flex;
-  overflow: scroll;
 }
 
 .movies-stripe {
   position: fixed;
   height: 120px;
   width: 100%;
-  top: 270px;
+  align-self: center;
   background: #6CC4EE;
   z-index: 0;
 }
 
 .single-movie-wrapper {
+  position: relative;
   margin: 0 33px;
   z-index: 1;
 }
@@ -27,6 +28,19 @@
 .single-movie-wrapper img {
   height: 298px;
   width: 200px;
+}
+
+.single-movie-wrapper .favorite-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.single-movie-wrapper .movie-poster-text {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  right: 0;
 }
 
 .single-movie-wrapper h2,
@@ -39,10 +53,23 @@
 }
 
 .movies-list footer {
+  position: relative;
+  width: 100vw;
+}
+
+.movies-list footer .footer-wrap {
+  border-top: 2px solid #d1d1d1;
+  position: fixed;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  width: 100%;
+  height: 70px;
   display: flex;
   align-items: center;
-  border-top: 2px solid #d1d1d1;
-  position: relative;
+}
+
+.logo-footer-section {
+  display: flex;
 }
 
 .movies-list footer .logo {
@@ -59,4 +86,43 @@
   top: -31px;
   left: -32px;
   font-size: 19px;
+}
+
+.movies-list footer h1 {
+  margin-left: 2rem;
+  font-size: 16px;
+  text-align: center;
+  color: #6CC4EE;
+}
+
+.movies-list footer h1 span {
+  background: #6CC4EE;
+  color: #fff;
+}
+
+.scroll-social-wrapper {
+  display: flex;
+  width: 300px;
+  margin: auto;
+  height: 70px;
+  align-items: center;
+  justify-content: center;  
+}
+
+.scroll-social {
+  display: block;
+  margin: 2rem;
+  color: #6CC4EE;
+  font-size: 40px;
+  transition: .2s;
+}
+
+.scroll-social:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.footer-copyright {
+  color: #6CC4EE;
+  margin-right: 2rem;
 }

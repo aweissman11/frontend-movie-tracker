@@ -6,6 +6,7 @@ import Login from './containers/Login';
 import MoviesList from './containers/MoviesList';
 import Loading from './components/Loading';
 import { getMovieList } from './actions';
+import './App.css'
 
 // import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';

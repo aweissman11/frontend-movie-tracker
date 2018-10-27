@@ -74,7 +74,18 @@ class MoviesList extends Component {
             {this.getMovies()}
           </section>
           <footer>
-            <Logo />
+            <div className='footer-wrap'>
+              <section className='logo-footer-section'>
+                <Logo />
+                <h1><span>movie</span>Tracker</h1>
+              </section>
+              <section className='scroll-social-wrapper'>
+                <i className="fab fa-facebook scroll-social"></i>
+                <i className="fab fa-instagram scroll-social"></i>
+                <i className="fab fa-twitter scroll-social"></i>
+              </section>
+              <h3 className='footer-copyright'>© 2018 MovieTracker - All Rights Reserved</h3>
+            </div>
           </footer>
         </div>
     )
