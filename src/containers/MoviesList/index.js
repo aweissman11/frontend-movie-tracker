@@ -9,6 +9,7 @@ import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
 import Logo from '../../components/Logo';
 import SearchBar from '../../components/SearchBar';
+import Filters from '../../containers/Filters';
 
 import './MoviesList.css'
 
@@ -67,8 +68,10 @@ class MoviesList extends Component {
       return (
         <div className='movies-list'>
           <header>
+
             <section className='header-wrapper'>
               <section className='left-side-header-btns'>
+                <Filters />
                 <LogButton />
                 <button className='show-favorites'>
                   favorites
