@@ -6,22 +6,40 @@ export const getMoviePosterUrl = (movies) => {
   })
 }
 
+export const getTodaysDate = () => {
+  const today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth()+1;
+  let yyyy = today.getFullYear();
+  if(dd<10) {
+      dd = '0'+dd;
+  } 
+  if(mm<10) {
+      mm = '0'+mm;
+  } 
+  return `${mm}-${dd}-${yyyy}`;
+}
+
 export const getFilterUrl = (filterProperties) => {
-  let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US`
-  if (filterProperties.genre) {
-    url += `&with_genres=${filterProperties.genre}`
+  const today = getTodaysDate();
+
+  let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US?primary_release_date.lte=${today}&sort_by=popularity.desc`
+
+  const { genre, year, rating, sort } = filterProperties;
+  if (genre && genre !== 'GENRE') {
+    url += `&with_genres=${genre}`
   }
   
-  if (filterProperties.year) {
-    url += `&year=${filterProperties.year}`
+  if (year && year !== 'YEAR') {
+    url += `&year=${year}`
   }
 
-  if (filterProperties.rating) {
-    url += `&certification_country=US&certification=${filterProperties.rating}`
+  if (rating && rating !== 'RATING') {
+    url += `&certification_country=US&certification=${rating}`
   }
 
-  if (filterProperties.sort) {
-    url += `&sort_by=${filterProperties.sort}`
+  if (sort && sort !== 'SORT') {
+    url += `&sort_by=${sort}`
   }
 
   return url;
