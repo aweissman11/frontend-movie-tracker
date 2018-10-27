@@ -31,7 +31,7 @@ export const getFilterUrl = (filterProperties) => {
   }
   
   if (year && year !== 'YEAR') {
-    url += `&year=${year}`
+    url += `&primary_release_year=${year}`
   }
 
   if (rating && rating !== 'RATING') {
