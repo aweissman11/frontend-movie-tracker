@@ -2,7 +2,7 @@ import React from 'react';
 
 import FavoriteBtn from '../../containers/FavoriteBtn';
 
-const SingleMovie = (props) => (
+export const SingleMovie = (props) => (
   <div>
     <h2>{props.title}</h2>
     <FavoriteBtn movieId={props.id}/>
