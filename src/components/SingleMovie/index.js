@@ -5,7 +5,6 @@ import FavoriteBtn from '../../containers/FavoriteBtn';
 const SingleMovie = (props) => {
   const date = props.release_date;
   const year = date.split('').splice(0, 4).join('');
-  console.log(props);
   return (
   <div className='single-movie-wrapper'>
     <FavoriteBtn movieId={props.id}/>

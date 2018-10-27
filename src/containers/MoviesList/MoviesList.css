@@ -145,3 +145,23 @@
   justify-self: end;
   margin-right: 1rem;
 }
+
+/* -- MOVIE FAVORITE BUTTON -- */
+.favorite-btn {
+  border: none;
+  height: 20px;
+  width: 20px;
+  background: url(./images/star-grey.png);
+  background-size: contain;
+  transition: .3s;
+}
+
+.favorite-btn:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.favorite-btn.favorited {
+  background: url(./images/star-favorited.png);
+  background-size: contain;
+}

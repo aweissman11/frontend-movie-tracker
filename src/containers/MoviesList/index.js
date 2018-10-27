@@ -48,7 +48,7 @@ class MoviesList extends Component {
     return `${mm}-${dd}-${yyyy}`;
   }
 
-  getFavorites = async () => {
+  getFavorites = async () => { 
     const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`;
     return await fetchCall(url);
   }

@@ -13,6 +13,8 @@ export class FavoriteBtn extends Component {
     }
   }
 
+  favorited = '';
+
   toggleFavorite = async (movieId) => {
     const { movies, user, favorites } = this.props;
     if (!user.id) {
@@ -24,7 +26,6 @@ export class FavoriteBtn extends Component {
           this.setState({ isFavorite: true })
           const newFavorites = [...favorites, this.formatFavorite(movies, user, movieId)]
           this.props.setFavorites(newFavorites);
-          console.log('add favorite')
         } catch(error) {
           console.error(error);
         }
@@ -33,7 +34,6 @@ export class FavoriteBtn extends Component {
         const newFavorites = favorites.filter( favorite => favorite.movie_id !== movieId)
         this.props.setFavorites(newFavorites);
         this.setState({ isFavorite: false })
-        console.log('remove favorite')
       }
     }
   }
@@ -62,11 +62,17 @@ export class FavoriteBtn extends Component {
   }
 
   render() {
+    if (this.props.favorites.find((film => film.movie_id === this.props.movieId))) {
+      this.favorited = 'favorited';
+    } else {
+      this.favorited = ''
+    }
+
     return (
     <button
       onClick={() => this.toggleFavorite(this.props.movieId)}
-      className='favorite-btn'
-    >&hearts;</button>
+      className={`favorite-btn ${this.favorited}`}
+    ></button>
     )
   }
 }
