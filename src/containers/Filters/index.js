@@ -26,7 +26,7 @@ export class Filters extends Component {
   getYearOptions = () => {
     let years = [];
     for (let i = 1; i < 50; i++) {
-      years.push(2018 - i)
+      years.push(2019 - i)
     }
     return years.map( year => {
       return (<option value={year} >{year}</option>)
