@@ -48,4 +48,30 @@ describe('actions', () => {
 
     expect(result).toEqual(expected);
   })
+
+  it('should have a type UPDATE_FAVORITES', () => {
+    const favorites = [
+      {
+        title: 'Die Hard',
+        rating: 'R'
+      },
+      {
+        title: 'Die Hard 2',
+        rating: 'R'
+      },
+      {
+        title: 'Die Hard with a Vengeance',
+        rating: 'R'
+      }
+    ]
+    
+    const expected = {
+      type: 'UPDATE_FAVORITES',
+      favorites
+    }
+
+    const result = Actions.updateFavorites(favorites);
+
+    expect(result).toEqual(expected);
+  })
 })
