@@ -16,13 +16,8 @@ import './MoviesList.css'
 class MoviesList extends Component {
 
   async componentDidMount() {
-<<<<<<< HEAD
-    const today = this.getTodaysDate();
-    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}`);
-    this.props.setFetchedMovies(filmObject.results);
-=======
+
     await this.props.setFetchedMovies(this.props.movies.results)
->>>>>>> Add thunk for fetchAllMovies fetch call
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
       localStorage.setItem('userInfo', JSON.stringify({
@@ -37,30 +32,10 @@ class MoviesList extends Component {
       this.props.logIn(userInfo.user.id, userInfo.user.name);
     }
   }
-
-<<<<<<< HEAD
-  getTodaysDate = () => {
-    const today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth()+1;
-    let yyyy = today.getFullYear();
-    if(dd<10) {
-        dd = '0'+dd;
-    } 
-    if(mm<10) {
-        mm = '0'+mm;
-    } 
-    return `${mm}-${dd}-${yyyy}`;
-  }
-
-  getFavorites = async () => { 
-    const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`;
-    return await fetchCall(url);
-=======
+  
   getFavorites = async () => {
     const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
     return await fetchCall(url)    
->>>>>>> Add thunk for fetchAllMovies fetch call
   }
 
   getMovies =  () => {
