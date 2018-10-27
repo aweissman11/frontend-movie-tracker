@@ -19,7 +19,7 @@ export class Filters extends Component {
 
   getGenreOptions = () => {
     return genres.map( genre => {
-      return (<option value={genre.id} >{genre.name}</option>)
+      return (<option key={genre.id} value={genre.id} >{genre.name}</option>)
     })
   }
   
@@ -29,20 +29,20 @@ export class Filters extends Component {
       years.push(2019 - i)
     }
     return years.map( year => {
-      return (<option value={year} >{year}</option>)
+      return (<option key={year} value={year} >{year}</option>)
     })
   }
   
   getRatingOptions = () => {
     return ratings.map( rating => {
-      return (<option value={rating.certification} >{rating.certification}</option>)
+      return (<option key={rating.certification} value={rating.certification} >{rating.certification}</option>)
     })
     
   }
   
   getSortOptions = () => {
     return sortOptions.map( sortOption => {
-      return (<option value={sortOption.value} >{sortOption.text}</option>)
+      return (<option key={sortOption.value} value={sortOption.value} >{sortOption.text}</option>)
     })
   }
 
