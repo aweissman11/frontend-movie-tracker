@@ -16,11 +16,11 @@ export const LogButton = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logUserOut()) 
 })
 
