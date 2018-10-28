@@ -216,24 +216,6 @@ describe('FavoriteBtn', () => {
     });
   });
 
-  // describe('getFavorites', () => {
-  //   it('should call fetchCall with the appropriate parameters', async () => {
-  //     const mockFetchCall = jest.fn().mockImplementation(() => {
-  //       return Promise.resolve({});
-  //     });
-
-  //     await wrapper.setState({
-  //       fetchCall: mockFetchCall
-  //     });
-
-  //     await wrapper.instance().getFavorites()
-
-  //     expect(mockFetchCall).toHaveBeenCalledWith('http://localhost:3000/api/users/1/favorites');
-  //   });
-  // });
-
-
-
   it('should be isFavorited if it has been favorited', () => {
     
   })
