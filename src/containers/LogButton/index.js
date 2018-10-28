@@ -1,31 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logUserOut, updateFavorites } from '../../actions'
 import { NavLink } from 'react-router-dom'
 
-export const LogButton = (props) => {
+export class LogButton extends Component {
   
-  const logOutUser = () => {
-    props.logOut();
-    props.removeFavorites();
+  logOutUser = () => {
+    this.props.logOut();
+    this.props.removeFavorites();
     localStorage.removeItem('userInfo') 
   }
   
-  return (
-    <NavLink to='/login'>
-    {props.user.id && 
-     <button 
-      onClick={() => logOutUser()}
-      className='login-logout-btn'
-    >log out</button> 
-    }
-    {!props.user.id && 
-      <button
+  render() {
+    return (
+      <NavLink to='/login'>
+      {this.props.user.id && 
+       <button 
+        onClick={() => this.logOutUser()}
         className='login-logout-btn'
-      >login</button>
-    }
-    </NavLink>
-  )
+      >log out</button> 
+      }
+      {!this.props.user.id && 
+        <button
+          className='login-logout-btn'
+        >login</button>
+      }
+      </NavLink>
+    )
+  }
 }
 
 export const mapStateToProps = (state) => ({

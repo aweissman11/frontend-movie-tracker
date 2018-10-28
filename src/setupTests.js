@@ -13,13 +13,12 @@ class LocalStorage{
   }
 
   setItem = (key, value) => {
-    this.store[key] = value
-    console.log('firing')
-
+    this.store[key] = value;
   }
 
   removeItem = (key) => {
-    this.store[key] = undefined
+    delete this.store[key];
+    console.log('fires')
   }
 
   clear = () => {
