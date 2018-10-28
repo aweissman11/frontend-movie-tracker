@@ -57,7 +57,6 @@ export class Filters extends Component {
     e.preventDefault();
     
     const url = Cleaners.getFilterUrl(this.state)
-    console.log('url:', url);
     const movieData = await fetchCall(url)
     this.props.setFetchedMovies(movieData.results)
   }
