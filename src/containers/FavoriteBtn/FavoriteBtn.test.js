@@ -20,6 +20,17 @@ describe('FavoriteBtn', () => {
     genre_ids: [0, 1]
   }];
 
+  let formatedMovie = {
+    movie_id: 1,
+    user_id: 1,
+    title: 'mock title',
+    poster_path: 'mockpath',
+    release_date: 20180101,
+    vote_average: 5,
+    overview: 'mock overview',
+    genre_ids: [0, 1]
+  }
+
   let user = {id: 1}
 
   let favorites = [{
@@ -80,7 +91,7 @@ describe('FavoriteBtn', () => {
 
       await wrapper.instance().callAddFavorite(movies, user, favorites, 1);
 
-      expect(mockAddFavorite).toHaveBeenCalled()
+      expect(mockAddFavorite).toHaveBeenCalledWith(formatedMovie)
     });
   });
 
