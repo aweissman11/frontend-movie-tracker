@@ -72,12 +72,10 @@ describe('FavoriteBtn', () => {
   });
 
   describe('callAddFavorite', () => {
-    beforeEach(() => {
+    let mockAddFavorite;
 
-    });
-
-    it('should call fetch with the correct parameters', async () => {
-      const mockAddFavorite = jest.fn().mockImplementation(() => {
+    beforeEach(async () => {
+      mockAddFavorite = jest.fn().mockImplementation(() => {
         return Promise.resolve({})
       });
 
@@ -86,12 +84,19 @@ describe('FavoriteBtn', () => {
           addFavorite: mockAddFavorite
         }
       });
+    });
 
-      console.log(movies);
-
+    it('should call fetch with the correct parameters', async () => {
       await wrapper.instance().callAddFavorite(movies, user, favorites, 1);
 
       expect(mockAddFavorite).toHaveBeenCalledWith(formatedMovie)
+    });
+
+    it('should call formatFavorite with the correct parameters', async () => {
+      const mockFormatFavorite = jest.fn();
+      wrapper.instance().formatFavorite = mockFormatFavorite;
+
+      await wrapper.instance().callAddFavorite(movies, user, favorites, 1);
     });
   });
 
