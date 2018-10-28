@@ -11,7 +11,7 @@ export class FavoriteBtn extends Component {
     this.state = {
       isFavorite: false,
       userDataBaseFetch: userDataBaseFetch,
-      fetchCall: fetchCall()
+      fetchCall: fetchCall
     }
   }
 
@@ -32,7 +32,7 @@ export class FavoriteBtn extends Component {
     await this.removeFavorite(user.id, movieId);
     const newFavorites = favorites.filter( favorite => favorite.movie_id !== movieId)
     this.props.setFavorites(newFavorites);
-    this.setState({ isFavorite: false })
+    await this.setState({ isFavorite: false })
   }
 
   toggleFavorite = async (movieId) => {
@@ -66,10 +66,10 @@ export class FavoriteBtn extends Component {
     }
   }
 
-  getFavorites = async () => {
-    const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
-    return await this.state.fetchCall(url)    
-  }
+  // getFavorites = async () => {
+  //   const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
+  //   return await this.state.fetchCall(url)    
+  // }
 
   render() {
     if (this.props.favorites.find((film => film.movie_id === this.props.movieId))) {

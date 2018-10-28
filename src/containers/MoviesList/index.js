@@ -38,9 +38,7 @@ class MoviesList extends Component {
   }
 
   getMovies = () => {
-    console.log('Getmovies', this.props.movies.results)
     if (this.props.movies.results) {
-      console.log("getMovies:", this.props.movies.results)
       return this.props.movies.results.map( movie => (
         <SingleMovie key={movie.title} {...movie} />
         ));
