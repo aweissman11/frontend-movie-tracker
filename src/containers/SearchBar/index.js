@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-// import * as Cleaners from '../../utilities/cleaners';
-// import fetchCall from '../../utilities/fetchCall';
+import * as Cleaners from '../../utilities/cleaners';
+import fetchCall from '../../utilities/fetchCall';
 // import { genres, ratings, sortOptions } from './filtersInfo';
-// import { getMovieList } from '../../actions/thunkActions/movieListThunk';
+import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
 
 
 import './SearchBar.css';
@@ -27,8 +27,7 @@ class SearchBar extends Component {
 
   handleSubmitSearch = async (e) => {
     e.preventDefault();
-    console.log('searchInput:', this.state.searchInput);
-    
+    this.props.setFetchedMovies(this.state.searchInput)
   }
 
   render() {
@@ -52,7 +51,10 @@ class SearchBar extends Component {
       </form>
     )
   }
-
 }
 
-export default SearchBar;
+export const mapDispatchToProps = (dispatch) => ({
+  setFetchedMovies: (data) => dispatch(getMovieList(data)),
+});
+
+export default connect(null, mapDispatchToProps)(SearchBar);
