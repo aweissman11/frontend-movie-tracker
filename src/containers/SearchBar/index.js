@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as Cleaners from '../../utilities/cleaners';
-import fetchCall from '../../utilities/fetchCall';
-// import { genres, ratings, sortOptions } from './filtersInfo';
 import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
-
-
 import './SearchBar.css';
 
 class SearchBar extends Component {
@@ -16,7 +11,6 @@ class SearchBar extends Component {
     this.state = {
       searchInput: ''
     }
-
   }
 
   handleChange = (e) => {
