@@ -54,3 +54,15 @@ export const getFilterUrl = (filterProperties) => {
 export const getSearchUrl = (query) => {
   return `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`
 }
+
+export const getFavoritesInfo = async (IDs) => {
+  return Promise.all(IDs.map( async (id) => {
+    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US&append_to_response=release_date`
+    return await fetchCall(url)
+  }))
+}
+
+export const getCurrentFavorites = async (id) => { 
+  const url = `http://localhost:3000/api/users/${id}/favorites`;
+  return await fetchCall(url);
+}

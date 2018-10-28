@@ -6,7 +6,7 @@ export const getMovieList = () => {
       const movies = await Cleaners.movieList
       dispatch({
         type: 'GET_MOVIE_LIST',
-        movies: movies
+        movies
       })
     } catch(e) {
       dispatch({ type: 'ERROR'})
@@ -14,3 +14,16 @@ export const getMovieList = () => {
   }
 }
 
+export const updateFavorites = (id) => {
+  return async (dispatch) => {
+    try {
+      const favorites = await Cleaners.getCurrentFavorites(id);
+      dispatch({
+        type: 'UPDATE_FAVORITES',
+        favorites: favorites.data
+      })
+    } catch(e) {
+      dispatch({ type: 'ERROR'})
+    }
+  }
+}
