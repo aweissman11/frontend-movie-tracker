@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+
+// import * as Cleaners from '../../utilities/cleaners';
+// import fetchCall from '../../utilities/fetchCall';
+// import { genres, ratings, sortOptions } from './filtersInfo';
+// import { getMovieList } from '../../actions/thunkActions/movieListThunk';
+
 
 import './SearchBar.css';
 
@@ -18,11 +25,17 @@ class SearchBar extends Component {
     })
   }
 
+  handleSubmitSearch = async (e) => {
+    e.preventDefault();
+    console.log('searchInput:', this.state.searchInput);
+    
+  }
+
   render() {
     return(
       <form 
         className='search-form'
-        onSubmit={() => {}}
+        onSubmit={this.handleSubmitSearch}
       >
         <input 
           className='search-input'
