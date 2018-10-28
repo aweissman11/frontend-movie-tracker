@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import fetchCall from '../../utilities/fetchCall';
 import { getUserLoggedIn } from '../../actions';
 import { getMovieList, updateFavorites } from '../../actions/thunkActions/movieListThunk'
 import SingleMovie from '../../components/SingleMovie';
