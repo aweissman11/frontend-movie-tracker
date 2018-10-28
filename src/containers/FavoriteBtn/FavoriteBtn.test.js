@@ -7,7 +7,9 @@ import * as Actions from '../../actions';
 
 describe('FavoriteBtn', () => {
   let wrapper;
+
   let movies = [{
+    id: 1,
     movie_id: 1,
     user_id: 1,
     title: 'mock title',
@@ -17,9 +19,9 @@ describe('FavoriteBtn', () => {
     overview: 'mock overview',
     genre_ids: [0, 1]
   }];
-  let user = {
-    id: 1
-  }
+
+  let user = {id: 1}
+
   let favorites = [{
     movie_id: 1,
     user_id: 1,
@@ -31,11 +33,14 @@ describe('FavoriteBtn', () => {
     genre_ids: [0, 1]
   }];
 
+  const mockSetFavorites = jest.fn();
+
   beforeEach(() => {
     wrapper = shallow(<FavoriteBtn 
       user={user}
       movies={movies}
       favorites={favorites}
+      setFavorites={mockSetFavorites}
     />)
   })
   
@@ -67,13 +72,15 @@ describe('FavoriteBtn', () => {
 
       await wrapper.setState({
         userDataBaseFetch: {
-          addFavorite: mockAddFavorite()
+          addFavorite: mockAddFavorite
         }
       });
 
-      await wrapper.instance().callAddFavorite(movies, user, favorites, 2);
+      console.log(movies);
 
-      expect(mockAddFavorite).toHaveBeenCalledWith(movies)
+      await wrapper.instance().callAddFavorite(movies, user, favorites, 1);
+
+      expect(mockAddFavorite).toHaveBeenCalled()
     });
   });
 

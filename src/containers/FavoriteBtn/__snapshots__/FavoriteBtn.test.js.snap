@@ -28,6 +28,7 @@ ShallowWrapper {
             0,
             1,
           ],
+          "id": 1,
           "movie_id": 1,
           "overview": "mock overview",
           "poster_path": "mockpath",
@@ -38,6 +39,7 @@ ShallowWrapper {
         },
       ]
     }
+    setFavorites={[MockFunction]}
     user={
       Object {
         "id": 1,

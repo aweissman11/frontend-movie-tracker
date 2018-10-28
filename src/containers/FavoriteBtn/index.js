@@ -17,6 +17,7 @@ export class FavoriteBtn extends Component {
   favorited = '';
 
   callAddFavorite = async (movies, user, favorites, movieId) => {
+    console.log(this.state.userDatabaseFetch)
     try {
       await this.state.userDataBaseFetch.addFavorite(this.formatFavorite(movies, user, movieId));
       this.setState({ isFavorite: true })
@@ -48,7 +49,6 @@ export class FavoriteBtn extends Component {
   }
 
   removeFavorite = async (userId, movieId) => {
-    console.log('remove')
     await this.state.userDataBaseFetch.removeFavorite(userId, movieId)
   }
   
