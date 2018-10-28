@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-
+import fetchCall from './utilities/fetchCall';
+// import * as Cleaners from './utilities/cleaners';
 import Login from './containers/Login';
 import MoviesList from './containers/MoviesList';
-import { getMovieList } from './actions';
+import Loading from './components/Loading';
 import './App.css'
-
-// import { connect } from 'react-redux';
+import { getMovieList } from './actions/thunkActions/movieListThunk'
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 
 

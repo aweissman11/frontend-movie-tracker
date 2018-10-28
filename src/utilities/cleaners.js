@@ -1,10 +1,17 @@
-import { apiKey } from "./apiKey";
+
+ import fetchCall from './fetchCall'; 
+ import { apiKey } from './apiKey';
+
 
 export const getMoviePosterUrl = (movies) => {
   return movies.map( movie => {
     return movie.poster_path
   })
 }
+
+export const today = getTodaysDate()
+
+export const movieList = fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}`)
 
 export const getTodaysDate = () => {
   const today = new Date();

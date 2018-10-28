@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import fetchCall from '../../utilities/fetchCall';
-import * as Cleaners from '../../utilities/cleaners';
-import { getMovieList, updateFavorites, getUserLoggedIn } from '../../actions';
+import { updateFavorites, getUserLoggedIn } from '../../actions';
 import { apiKey } from '../../utilities/apiKey';
-
+import { getMovieList } from '../../actions/thunkActions/movieListThunk'
 import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
 import Logo from '../../components/Logo';
@@ -18,9 +17,6 @@ import './MoviesList.css'
 class MoviesList extends Component {
 
   async componentDidMount() {
-    const today = Cleaners.getTodaysDate();
-    const filmObject = await fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}`);
-    this.props.setFetchedMovies(filmObject.results);
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
       localStorage.setItem('userInfo', JSON.stringify({
@@ -49,7 +45,6 @@ class MoviesList extends Component {
       return '';
     }
   }
-
 
   render() {
       return (
