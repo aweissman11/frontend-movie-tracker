@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import * as Cleaners from '../../utilities/cleaners';
 import fetchCall from '../../utilities/fetchCall';
 import { genres, ratings, sortOptions } from './filtersInfo';
-import { getMovieList } from '../../actions/thunkActions/movieListThunk'
+import { getMovieList } from '../../actions/thunkActions/movieListThunk';
+
 
 export class Filters extends Component {
   constructor() {

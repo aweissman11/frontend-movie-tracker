@@ -4,7 +4,47 @@ exports[`FavoriteBtn should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <FavoriteBtn
-    toggleFavorite={[MockFunction]}
+    favorites={
+      Array [
+        Object {
+          "genre_ids": Array [
+            0,
+            1,
+          ],
+          "movie_id": 1,
+          "overview": "mock overview",
+          "poster_path": "mockpath",
+          "release_date": 20180101,
+          "title": "mock title",
+          "user_id": 1,
+          "vote_average": 5,
+        },
+      ]
+    }
+    movies={
+      Array [
+        Object {
+          "genre_ids": Array [
+            0,
+            1,
+          ],
+          "id": 1,
+          "movie_id": 1,
+          "overview": "mock overview",
+          "poster_path": "mockpath",
+          "release_date": 20180101,
+          "title": "mock title",
+          "user_id": 1,
+          "vote_average": 5,
+        },
+      ]
+    }
+    setFavorites={[MockFunction]}
+    user={
+      Object {
+        "id": 1,
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -19,12 +59,11 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "♥",
-      "className": "favorite-btn",
+      "className": "favorite-btn ",
       "onClick": [Function],
     },
     "ref": null,
-    "rendered": "♥",
+    "rendered": null,
     "type": "button",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -33,12 +72,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "♥",
-        "className": "favorite-btn",
+        "className": "favorite-btn ",
         "onClick": [Function],
       },
       "ref": null,
-      "rendered": "♥",
+      "rendered": null,
       "type": "button",
     },
   ],
