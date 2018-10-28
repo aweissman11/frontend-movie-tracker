@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getUserLoggedIn } from '../../actions'
 import { displayLogin } from '../../actions';
 
+import Logo from '../../components/Logo'
+
 import './SignUpForm.css';
 
 import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
@@ -73,6 +75,9 @@ export class SignUpForm extends Component {
         <form onSubmit={this.createNewUser} className={`sign-up-form ${this.props.showSignup}`}>
           <h1><span>movie</span>Tracker</h1>
           <h4>for the love of film</h4>
+          <div className='login-form-logo-wrapper'>
+            <Logo />
+          </div>
           <input
             className='name-input'
             onChange={this.handleChange}

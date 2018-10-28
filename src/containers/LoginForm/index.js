@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserLoggedIn } from '../../actions'
 import { displaySignUp } from '../../actions';
+
+import Logo from '../../components/Logo';
 
 import './LoginForm.css'
 
@@ -59,6 +61,9 @@ export class LoginForm extends Component {
       <form onSubmit={(e) => {this.submitLogin(e)}} className={`login-form ${this.props.showLogin}`}>
         <h1><span>movie</span>Tracker</h1>
         <h4>for the love of film</h4>
+        <div className='login-form-logo-wrapper'>
+          <Logo />
+        </div>
         <input
           className='email-input'
           onChange={this.handleChange}
@@ -114,12 +119,12 @@ export class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user,
   showLogin: state.showLogin
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
   displaySignUp: () => dispatch(displaySignUp())
 })

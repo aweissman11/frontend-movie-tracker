@@ -9,6 +9,7 @@ import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
 import Logo from '../../components/Logo';
 import SearchBar from '../../components/SearchBar';
+import Filters from '../../containers/Filters';
 
 import './MoviesList.css'
 
@@ -16,15 +17,9 @@ import './MoviesList.css'
 class MoviesList extends Component {
 
   async componentDidMount() {
-<<<<<<< HEAD
-
-=======
->>>>>>> 3b15939e7e366ddca00442d4f4c95585b1f657f9
-    await this.props.setFetchedMovies(this.props.movies.results)
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
       localStorage.setItem('userInfo', JSON.stringify({
-        favorites: favorites.data,
         user: this.props.user
       }));
       this.props.setFavorites(favorites.data);
@@ -35,19 +30,15 @@ class MoviesList extends Component {
       this.props.logIn(userInfo.user.id, userInfo.user.name);
     }
   }
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 3b15939e7e366ddca00442d4f4c95585b1f657f9
-  getFavorites = async () => {
-    const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
-    return await fetchCall(url)    
+  getFavorites = async () => { 
+    const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`;
+    return await fetchCall(url);
   }
 
-  getMovies =  () => {
-    if (this.props.movies.results) {
-      return this.props.movies.results.map( movie => (
+  getMovies = () => {
+    if (this.props.movies.length > 1) {
+      return this.props.movies.map( movie => (
         <SingleMovie key={movie.title} {...movie} />
         ));
     } else {
@@ -59,8 +50,10 @@ class MoviesList extends Component {
       return (
         <div className='movies-list'>
           <header>
+
             <section className='header-wrapper'>
               <section className='left-side-header-btns'>
+                <Filters />
                 <LogButton />
                 <button className='show-favorites'>
                   favorites
@@ -92,13 +85,14 @@ class MoviesList extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+
+export const mapStateToProps = (state) => ({
   movies: state.movies,
   user: state.user,
   favorites: state.favorites
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
   setFavorites: (data) => dispatch(updateFavorites(data)),
   logIn: (id, name) => dispatch(getUserLoggedIn(id, name))
