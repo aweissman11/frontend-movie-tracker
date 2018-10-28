@@ -124,7 +124,7 @@ describe('FavoriteBtn', () => {
 
   describe('callRemoveFavorite', () => {
     let mockRemoveFavorite;
-    
+
     beforeEach(() => {
       mockRemoveFavorite = jest.fn().mockImplementation(() => {
         return Promise.resolve({});
@@ -137,6 +137,19 @@ describe('FavoriteBtn', () => {
 
       expect(mockRemoveFavorite).toHaveBeenCalledWith(1, 1);
     });
+
+    it('should call setFavorites with the correct parameters', async () => {
+      await wrapper.instance().callRemoveFavorite(user, 1, favorites);
+
+      expect(mockSetFavorites).toHaveBeenCalledWith([]);
+    });
+
+    it('should set state when called', async () => {
+      await wrapper.instance().callRemoveFavorite(user, 1, favorites);
+
+      expect(wrapper.state().isFavorite).toEqual(false);
+    })
+
   });
 
 
