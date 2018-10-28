@@ -1,27 +1,6 @@
 import * as Actions from '../index';
 
 describe('actions', () => {
-  it('should have a type of GET_MOVIE_LIST', () => {
-    const movies = [
-      {
-        title: 'Die Hard',
-        rating: 'R'
-      },
-      {
-        title: 'Die Hard',
-        rating: 'R'
-      }
-    ]
-    const expected = {
-      type: 'GET_MOVIE_LIST',
-      movies
-    }
-
-    const result = Actions.getMovieList(movies)
-
-    expect(result).toEqual(expected);
-  })
-
   it('should have a type of GET_USER_LOGGED_IN', () => {
     const id = 1
     const name = 'Laura'
@@ -73,5 +52,21 @@ describe('actions', () => {
     const result = Actions.updateFavorites(favorites);
 
     expect(result).toEqual(expected);
+  })
+
+  it('should have a type DISPLAY_LOGIN', () => {
+    const expected = {type: 'DISPLAY_LOGIN'}
+
+    const result = Actions.displayLogin()
+
+    expect(result).toEqual(expected)
+  })
+
+  it('should have a type DISPLAY_SIGN_UP', () => {
+    const expected = {type: 'DISPLAY_SIGN_UP'}
+
+    const result = Actions.displaySignUp()
+
+    expect(result).toEqual(expected)
   })
 })
