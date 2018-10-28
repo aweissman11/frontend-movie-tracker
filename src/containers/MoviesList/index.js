@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import fetchCall from '../../utilities/fetchCall';
-import { updateFavorites, getUserLoggedIn } from '../../actions';
-import { getMovieList } from '../../actions/thunkActions/movieListThunk'
+import { getUserLoggedIn } from '../../actions';
+import { getMovieList, updateFavorites } from '../../actions/thunkActions/movieListThunk'
 import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
 import Logo from '../../components/Logo';
@@ -16,27 +16,27 @@ import './MoviesList.css'
 
 class MoviesList extends Component {
 
-  async componentDidMount() {
+  componentDidMount() {
     this.props.setFetchedMovies(this.props.movies)
-    if (this.props.user.id) {
-      const favorites = await this.getFavorites();
-      localStorage.setItem('userInfo', JSON.stringify({
-        user: this.props.user
-      }));
-      this.props.setFavorites(favorites.data);
-    }
-
+    
     if (localStorage.getItem('userInfo')) {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       this.props.logIn(userInfo.user.id, userInfo.user.name);
+      this.props.setFavorites(userInfo.user.id)
+    }
+    
+    if (this.props.user.id) {
+      this.props.setFavorites(this.props.user.id)
+      localStorage.setItem('userInfo', JSON.stringify({
+        user: this.props.user
+      }));
     }
   }
 
-  getFavorites = async () => { 
-    const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`;
-    return await fetchCall(url);
+  componentDidUpdate() {
+    
   }
-
+  
   getMovies = () => {
     if (this.props.movies.results) {
       return this.props.movies.results.map( movie => (
