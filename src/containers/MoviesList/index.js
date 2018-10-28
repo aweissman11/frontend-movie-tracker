@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import fetchCall from '../../utilities/fetchCall';
 import { updateFavorites, getUserLoggedIn } from '../../actions';
-import { apiKey } from '../../utilities/apiKey';
 import { getMovieList } from '../../actions/thunkActions/movieListThunk'
 import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
