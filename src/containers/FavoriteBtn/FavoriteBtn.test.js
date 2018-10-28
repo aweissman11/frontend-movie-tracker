@@ -98,6 +98,28 @@ describe('FavoriteBtn', () => {
 
       await wrapper.instance().callAddFavorite(movies, user, favorites, 1);
     });
+
+    it('should set state when callAddFavorite is called', async () => {
+      const mockFormatFavorite = jest.fn(() => {
+        return formatedMovie;
+      });
+      wrapper.instance().formatFavorite = mockFormatFavorite;
+
+      await wrapper.instance().callAddFavorite(movies, user, favorites, 1);
+
+      expect(wrapper.state().isFavorite).toEqual(true);
+    });
+
+    it('should call setFavorites', async () => {
+      const mockFormatFavorite = jest.fn(() => {
+        return formatedMovie;
+      });
+      wrapper.instance().formatFavorite = mockFormatFavorite;
+
+      await wrapper.instance().callAddFavorite(movies, user, favorites, 1); 
+
+      expect(mockSetFavorites).toHaveBeenCalledWith([formatedMovie, formatedMovie]);   
+    });
   });
 
 
