@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as Cleaners from '../../utilities/cleaners';
 import fetchCall from '../../utilities/fetchCall';
 import { genres, ratings, sortOptions } from './filtersInfo';
-import { getMovieList } from '../../actions/thunkActions/movieListThunk';
+import { getMovieList } from '../../actions/thunkActions/FiltersThunk';
 
 
 export class Filters extends Component {
@@ -53,12 +53,9 @@ export class Filters extends Component {
     this.setState({ [name]: value});
   }
 
-  handleSubmitFilters = async (e) => {
+  handleSubmitFilters = (e) => {
     e.preventDefault();
-    
-    const url = Cleaners.getFilterUrl(this.state)
-    const movieData = await fetchCall(url)
-    this.props.setFetchedMovies(movieData.results)
+    this.props.setFetchedMovies(this.state)
   }
 
   render() {
