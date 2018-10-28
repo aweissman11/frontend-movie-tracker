@@ -87,6 +87,10 @@ describe('FavoriteBtn', () => {
     });
 
     it('should call fetch with the correct parameters', async () => {
+      wrapper.instance().formatFavorite = jest.fn(() => {
+        return (formatedMovie);
+      });
+
       await wrapper.instance().callAddFavorite(movies, user, favorites, 1);
 
       expect(mockAddFavorite).toHaveBeenCalledWith(formatedMovie)
