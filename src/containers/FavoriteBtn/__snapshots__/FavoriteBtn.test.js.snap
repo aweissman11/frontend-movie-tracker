@@ -1,3 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FavoriteBtn should match the snapshot 1`] = `undefined`;
+exports[`FavoriteBtn should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FavoriteBtn
+    favorites={
+      Array [
+        Object {
+          "genre_ids": Array [
+            0,
+            1,
+          ],
+          "movie_id": 1,
+          "overview": "mock overview",
+          "poster_path": "mockpath",
+          "release_date": 20180101,
+          "title": "mock title",
+          "user_id": 1,
+          "vote_average": 5,
+        },
+      ]
+    }
+    movies={
+      Array [
+        Object {
+          "genre_ids": Array [
+            0,
+            1,
+          ],
+          "movie_id": 1,
+          "overview": "mock overview",
+          "poster_path": "mockpath",
+          "release_date": 20180101,
+          "title": "mock title",
+          "user_id": 1,
+          "vote_average": 5,
+        },
+      ]
+    }
+    user={
+      Object {
+        "id": 1,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "className": "favorite-btn ",
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "button",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "className": "favorite-btn ",
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "button",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
