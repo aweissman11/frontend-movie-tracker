@@ -9,6 +9,7 @@ import LogButton from '../LogButton';
 import Logo from '../../components/Logo';
 import SearchBar from '../../containers/SearchBar';
 import Filters from '../../containers/Filters';
+import ShowFavoritesBtn from '../ShowFavoritesBtn';
 
 import './MoviesList.css'
 
@@ -55,9 +56,7 @@ class MoviesList extends Component {
               <section className='left-side-header-btns'>
                 <Filters />
                 <LogButton />
-                <button className='show-favorites'>
-                  favorites
-                </button>
+                <ShowFavoritesBtn />
               </section>
               <SearchBar />
             </section>
