@@ -1,12 +1,9 @@
-//  import ReduxThunk from 'redux-thunk'
-//  import fetchCall from '../../utilities/fetchCall'; 
-//  import { apiKey } from '../../utilities/apiKey';
- import * as cleaner from '../../utilities/cleaners';
+import * as Cleaners from '../../utilities/cleaners';
 
 export const getMovieList = () => {
   return async (dispatch) => {
     try {
-      const movies = await cleaner.movieList
+      const movies = await Cleaners.movieList
       dispatch({
         type: 'GET_MOVIE_LIST',
         movies: movies
@@ -14,6 +11,6 @@ export const getMovieList = () => {
     } catch(e) {
       dispatch({ type: 'ERROR'})
     }
-    }
   }
+}
 
