@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
 import './SearchBar.css';
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   constructor() {
     super()
-
     this.state = {
       searchInput: ''
     }
