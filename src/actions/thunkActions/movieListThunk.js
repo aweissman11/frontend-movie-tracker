@@ -1,6 +1,6 @@
- import ReduxThunk from 'redux-thunk'
- import fetchCall from '../../utilities/fetchCall'; 
- import { apiKey } from '../../utilities/apiKey';
+//  import ReduxThunk from 'redux-thunk'
+//  import fetchCall from '../../utilities/fetchCall'; 
+//  import { apiKey } from '../../utilities/apiKey';
  import * as cleaner from '../../utilities/cleaners';
 
 export const getMovieList = () => {
