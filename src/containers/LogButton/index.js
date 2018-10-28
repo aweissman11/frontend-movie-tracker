@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logUserOut } from '../../actions'
+import { logUserOut, updateFavorites } from '../../actions'
 import { NavLink } from 'react-router-dom'
 
 export const LogButton = (props) => {
   
   const logOutUser = () => {
     props.logOut();
+    props.removeFavorites();
     localStorage.removeItem('userInfo') 
   }
   
@@ -32,7 +33,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  logOut: () => dispatch(logUserOut()) 
+  logOut: () => dispatch(logUserOut()),
+  removeFavorites: () => dispatch(updateFavorites())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogButton)
