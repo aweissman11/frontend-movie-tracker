@@ -7,7 +7,7 @@ import { getMovieList } from '../../actions/thunkActions/movieListThunk'
 import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
 import Logo from '../../components/Logo';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../containers/SearchBar';
 import Filters from '../../containers/Filters';
 
 import './MoviesList.css'
@@ -39,7 +39,7 @@ class MoviesList extends Component {
   getMovies = () => {
     if (this.props.movies.results) {
       return this.props.movies.results.map( movie => (
-        <SingleMovie key={movie.title} {...movie} />
+        <SingleMovie key={movie.id} {...movie} />
         ));
     } else {
       return '';

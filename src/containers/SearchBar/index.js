@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
 import './SearchBar.css';
 
 class SearchBar extends Component {
@@ -9,7 +11,6 @@ class SearchBar extends Component {
     this.state = {
       searchInput: ''
     }
-
   }
 
   handleChange = (e) => {
@@ -18,11 +19,16 @@ class SearchBar extends Component {
     })
   }
 
+  handleSubmitSearch = async (e) => {
+    e.preventDefault();
+    this.props.setFetchedMovies(this.state.searchInput)
+  }
+
   render() {
     return(
       <form 
         className='search-form'
-        onSubmit={() => {}}
+        onSubmit={this.handleSubmitSearch}
       >
         <input 
           className='search-input'
@@ -39,7 +45,10 @@ class SearchBar extends Component {
       </form>
     )
   }
-
 }
 
-export default SearchBar;
+export const mapDispatchToProps = (dispatch) => ({
+  setFetchedMovies: (data) => dispatch(getMovieList(data)),
+});
+
+export default connect(null, mapDispatchToProps)(SearchBar);

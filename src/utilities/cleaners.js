@@ -49,5 +49,8 @@ export const getFilterUrl = (filterProperties) => {
   }
 
   return url;
+}
 
+export const getSearchUrl = (query) => {
+  return `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`
 }
