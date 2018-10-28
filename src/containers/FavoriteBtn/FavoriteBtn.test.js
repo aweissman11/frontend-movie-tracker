@@ -47,21 +47,37 @@ describe('FavoriteBtn', () => {
   
   it('should toggle favorite on click', () => {
     const mockToggleFavorite = jest.fn();
-    
+
     wrapper.instance().toggleFavorite = mockToggleFavorite;
 
     wrapper.find('.favorite-btn').simulate('click');
 
     expect(mockToggleFavorite).toHaveBeenCalled();
-  })
+  });
 
-  it('should check if the user is logged in', () => {
+  describe('callAddFavorite', () => {
+    beforeEach(() => {
 
-  })
+    });
 
-  it('should post a fetch with the correct parameters', () => {
+    it('should call fetch with the correct parameters', async () => {
+      const mockAddFavorite = jest.fn().mockImplementation(() => {
+        return Promise.resolve({})
+      });
 
-  })
+      await wrapper.setState({
+        userDataBaseFetch: {
+          addFavorite: mockAddFavorite()
+        }
+      });
+
+      await wrapper.instance().callAddFavorite(movies, user, favorites, 2);
+
+      expect(mockAddFavorite).toHaveBeenCalledWith(movies)
+    });
+  });
+
+
 
   it('should be isFavorited if it has been favorited', () => {
     
