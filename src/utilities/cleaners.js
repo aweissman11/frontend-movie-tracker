@@ -61,3 +61,8 @@ export const getFavoritesInfo = async (IDs) => {
     return await fetchCall(url)
   }))
 }
+
+export const getCurrentFavorites = async (id) => { 
+  const url = `http://localhost:3000/api/users/${id}/favorites`;
+  return await fetchCall(url);
+}
