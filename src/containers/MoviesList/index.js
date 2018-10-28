@@ -39,7 +39,7 @@ class MoviesList extends Component {
   getMovies = () => {
     if (this.props.movies.results) {
       return this.props.movies.results.map( movie => (
-        <SingleMovie key={movie.title} {...movie} />
+        <SingleMovie key={movie.id} {...movie} />
         ));
     } else {
       return '';
