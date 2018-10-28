@@ -94,6 +94,8 @@ export class SignUpForm extends Component {
             className='email-input'
             onChange={this.handleChange}
             value={this.state.email}
+            pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+            title='Enter a Valid Email Address'
             name='email'
             placeholder='email'
             ></input>
