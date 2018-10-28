@@ -23,7 +23,7 @@ export const displaySignUp = () => {
   }
 }
 
-export const updateFavorites = (favorites) => {
+export const updateFavorites = (favorites = []) => {
   return {
     type: 'UPDATE_FAVORITES',
     favorites
