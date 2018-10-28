@@ -122,6 +122,23 @@ describe('FavoriteBtn', () => {
     });
   });
 
+  describe('callRemoveFavorite', () => {
+    let mockRemoveFavorite;
+    
+    beforeEach(() => {
+      mockRemoveFavorite = jest.fn().mockImplementation(() => {
+        return Promise.resolve({});
+      });
+      wrapper.instance().removeFavorite = mockRemoveFavorite;
+    });
+
+    it('should call removeFavorite with the correct parameters', async () => {
+      await wrapper.instance().callRemoveFavorite(user, 1, favorites);
+
+      expect(mockRemoveFavorite).toHaveBeenCalledWith(1, 1);
+    });
+  });
+
 
 
   it('should be isFavorited if it has been favorited', () => {
