@@ -19,9 +19,9 @@ export class FavoriteBtn extends Component {
 
   callAddFavorite = async (movies, user, favorites, movieId) => {
     try {
-      await this.state.userDataBaseFetch.addFavorite(this.formatFavorite(movies, user, movieId));
+      await this.state.userDataBaseFetch.addFavorite(this.formatFavorite(movies.results, user, movieId));
       this.setState({ isFavorite: true })
-      const newFavorites = [...favorites, this.formatFavorite(movies, user, movieId)]
+      const newFavorites = [...favorites, this.formatFavorite(movies.results, user, movieId)]
       this.props.setFavorites(newFavorites);
     } catch(error) {
       console.error(error);
