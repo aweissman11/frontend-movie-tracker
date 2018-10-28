@@ -152,6 +152,82 @@ describe('FavoriteBtn', () => {
 
   });
 
+  describe('toggleFavorite', () => {
+    let mockCallAddFavorite;
+    let mockCallRemoveFavorite;
+
+    beforeEach(() => {
+      mockCallAddFavorite = jest.fn().mockImplementation(() => {
+        return Promise.resolve({})
+      });
+      mockCallRemoveFavorite = jest.fn().mockImplementation(() => {
+        return Promise.resolve({})
+      })
+      wrapper.instance().callAddFavorite = mockCallAddFavorite;
+      wrapper.instance().callRemoveFavorite = mockCallRemoveFavorite;
+    });
+
+    it('should call addFavorites if the movie is not in favorites and the user is logged in', async () => {
+      await wrapper.instance().toggleFavorite(2);
+
+      expect(mockCallAddFavorite).toHaveBeenCalledWith(movies, user, favorites, 2);
+    });
+
+    it('should call removeFavorite if the movie is in favorites and the user is logged in', async () => {
+      await wrapper.instance().toggleFavorite(1);
+
+      expect(mockCallRemoveFavorite).toHaveBeenCalledWith({id: 1}, 1, favorites);
+    });
+
+  });
+
+  describe('removeFavorite', () => {
+    let mockRemoveFavorite;
+
+    beforeEach(async () => {
+      mockRemoveFavorite = jest.fn().mockImplementation(() => {
+        return Promise.resolve({});
+      });
+
+      await wrapper.setState({
+        userDataBaseFetch: {removeFavorite: mockRemoveFavorite}
+      });
+    });
+
+    it('should call removeFavorite with the correct parameters', async () => {
+
+
+      await wrapper.instance().removeFavorite(1, 2);
+
+      expect(mockRemoveFavorite).toHaveBeenCalledWith(1, 2);
+    });
+  });
+
+  describe('formatFavorite', () => {
+    it('should return an array', () => {
+      const expected = formatedMovie
+      const result = wrapper.instance().formatFavorite(movies, {id: 1}, 1)
+
+      expect(result).toEqual(expected);
+    });
+  });
+
+  describe('getFavorites', () => {
+    it('should call fetchCall with the appropriate parameters', async () => {
+      const mockFetchCall = jest.fn().mockImplementation(() => {
+        return Promise.resolve({});
+      });
+
+      await wrapper.setState({
+        fetchCall: mockFetchCall
+      });
+
+      await wrapper.instance().getFavorites()
+
+      expect(mockFetchCall).toHaveBeenCalledWith('http://localhost:3000/api/users/1/favorites');
+    });
+  });
+
 
 
   it('should be isFavorited if it has been favorited', () => {

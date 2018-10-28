@@ -10,7 +10,8 @@ export class FavoriteBtn extends Component {
     super()
     this.state = {
       isFavorite: false,
-      userDataBaseFetch: userDataBaseFetch
+      userDataBaseFetch: userDataBaseFetch,
+      fetchCall: fetchCall()
     }
   }
 
@@ -40,9 +41,9 @@ export class FavoriteBtn extends Component {
       console.log("You're not logged in!");
     } else {
       if (!favorites.find(favorite => favorite.movie_id === movieId)) {
-        this.callAddFavorite(movies, user, favorites, movieId);
+        await this.callAddFavorite(movies, user, favorites, movieId);
       } else {
-        this.callRemoveFavorite(user, movieId, favorites)
+        await this.callRemoveFavorite(user, movieId, favorites)
       }
     }
   }
@@ -67,7 +68,7 @@ export class FavoriteBtn extends Component {
 
   getFavorites = async () => {
     const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
-    return await fetchCall(url)    
+    return await this.state.fetchCall(url)    
   }
 
   render() {
