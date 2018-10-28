@@ -17,6 +17,7 @@ import './MoviesList.css'
 class MoviesList extends Component {
 
   async componentDidMount() {
+    this.props.setFetchedMovies(this.props.movies)
     if (this.props.user.id) {
       const favorites = await this.getFavorites();
       localStorage.setItem('userInfo', JSON.stringify({
@@ -37,8 +38,10 @@ class MoviesList extends Component {
   }
 
   getMovies = () => {
-    if (this.props.movies.length > 1) {
-      return this.props.movies.map( movie => (
+    console.log('Getmovies', this.props.movies.results)
+    if (this.props.movies.results) {
+      console.log("getMovies:", this.props.movies.results)
+      return this.props.movies.results.map( movie => (
         <SingleMovie key={movie.title} {...movie} />
         ));
     } else {
