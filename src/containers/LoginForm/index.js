@@ -17,6 +17,7 @@ export class LoginForm extends Component {
       email: '',
       password: '',
       loginError: '',
+      userDatabaseFetch: userDatabaseFetch
     }
   }
   
@@ -37,7 +38,6 @@ export class LoginForm extends Component {
       [type]: warning
     })
     await setTimeout(this.removeWarning, 5000)
-    console.log(warning)
   }
 
   submitLogin = async (e) => {
@@ -46,12 +46,11 @@ export class LoginForm extends Component {
     const { email, password } = this.state;
 
     try {
-      const response = await userDatabaseFetch.checkUserList({ email, password })
+      const response = await this.state.userDatabaseFetch.checkUserList({ email, password })
 
       await this.props.logUserIn(response.data.id, response.data.name)
 
     } catch(error) {
-      console.log(error)
       this.userWarning('loginError', 'login-error-active')
     }
   }
