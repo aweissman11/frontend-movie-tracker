@@ -185,3 +185,38 @@
   background: url(./images/star-favorited.png);
   background-size: contain;
 }
+
+@media (max-width: 1080px) {
+  .movies-list {
+    grid-template-rows: 140px 1fr 50px;
+  }
+  .movies-list header .header-wrapper {
+    grid-template-columns: 1fr 1fr;
+    height: 140px;
+  }
+  .movies-list header aside {
+    grid-column: 1/3;
+    grid-row: 2;
+  }
+
+  header section .left-side-header-btns,
+  .search-form {
+    width: 300px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .movies-list {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 140px 1fr;
+  }
+  footer {
+    display: none;
+  }
+}
+
+@media (max-width: 615px) {
+
+}
