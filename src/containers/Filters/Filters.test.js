@@ -22,6 +22,7 @@ describe('Filters', () => {
   const mockDispatch = jest.fn();
   const mockSubscribe = jest.fn();
   const mockGetState = jest.fn();
+  const mockSetFilters = jest.fn();
 
   const mockStore = {
     subscribe: mockSubscribe,
@@ -29,8 +30,23 @@ describe('Filters', () => {
     getState: mockGetState
   }
 
+  const mockFilters = {
+    genre: null,
+    year: null,
+    rating: null,
+    sort: null
+  }
+
+  const mockSearchQuery = 'die hard';
+
   beforeEach(() => {
-    wrapper = shallow(<Filters store={mockStore} setFetchedMovies={mockSetFetchedMovies}/>)
+    wrapper = shallow(<Filters 
+      store={mockStore}
+      setFetchedMovies={mockSetFetchedMovies}
+      filters={mockFilters}
+      searchQuery={mockSearchQuery}
+      setFilters={mockSetFilters}
+    />)
   })
 
   it('should match the snapshot', () => {
@@ -118,7 +134,7 @@ describe('Filters', () => {
 
       wrapper.instance().handleSubmitFilters(mockEvent);
 
-      expect(mockSetFetchedMovies).toHaveBeenCalledWith(mockState)
+      expect(mockSetFetchedMovies).toHaveBeenCalledWith(mockState, 'die hard')
     });
   });
 })
