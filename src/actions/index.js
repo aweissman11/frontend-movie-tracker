@@ -23,9 +23,9 @@ export const displaySignUp = () => {
   }
 }
 
-export const updateFavorites = (favorites = []) => {
+export const setFavorites = (favorites = []) => {
   return {
-    type: 'UPDATE_FAVORITES',
+    type: 'SET_FAVORITES',
     favorites
   }
 }
@@ -40,5 +40,33 @@ export const updateSearchQuery = (searchQuery) => {
   return {
     type: 'UPDATE_QUERY',
     searchQuery
+  }
+}
+
+export const setMovieList = (movies) => {
+  return {
+    type: 'SET_MOVIE_LIST',
+    movies
+  }
+}
+
+export const setHasErrored = (bool) => {
+  return {
+    type: 'SET_HAS_ERRORED',
+    hasErrored: bool
+  }
+}
+
+export const setIsOk = (bool) => {
+  return {
+    type: 'SET_IS_NOT_OK',
+    notOk: bool
+  }
+}
+
+export const isLoading = (bool) => {
+  return {
+    type: 'IS_LOADING',
+    isLoading: bool
   }
 }

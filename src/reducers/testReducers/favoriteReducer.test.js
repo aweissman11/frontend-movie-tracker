@@ -20,7 +20,7 @@ describe('favoritesReducer', () => {
       }
     ]
     const mockAction = {
-      type: 'UPDATE_FAVORITES',
+      type: 'SET_FAVORITES',
       favorites: expected
     }
 
