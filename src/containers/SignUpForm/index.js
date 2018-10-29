@@ -20,6 +20,7 @@ export class SignUpForm extends Component {
       confirmPassword: '',
       newUserInputsVisible: false,
       signUpError: '',
+      userDatabaseFetch: userDatabaseFetch
     }
   }
   
@@ -53,8 +54,7 @@ export class SignUpForm extends Component {
     const { name, email, password } = this.state;
 
     try {
-      const response = await userDatabaseFetch.createNewUser({ name, email, password })
-      console.log(response)
+      const response = await this.state.userDatabaseFetch.createNewUser({ name, email, password })
       if (response.error) {
         this.userWarning('signUpError', 'sign-up-error-active')
       }

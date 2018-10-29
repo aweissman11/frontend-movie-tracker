@@ -1,0 +1,749 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SignUpForm
+    displayLogin={[MockFunction]}
+    logUserIn={[MockFunction]}
+    showSignUp={true}
+    store={
+      Object {
+        "dispatch": [MockFunction],
+        "getState": [MockFunction],
+        "subscribe": [MockFunction],
+      }
+    }
+    user={
+      Object {
+        "id": 1,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          <span>
+            movie
+          </span>
+          Tracker
+        </h1>,
+        <h4>
+          for the love of film
+        </h4>,
+        <div
+          className="login-form-logo-wrapper"
+        >
+          <Logo />
+        </div>,
+        <input
+          className="name-input"
+          name="name"
+          onChange={[Function]}
+          placeholder="name"
+          value=""
+        />,
+        <img
+          alt="user"
+          className="user-icon"
+          src="./user.png"
+        />,
+        <input
+          className="email-input"
+          name="email"
+          onChange={[Function]}
+          pattern="^\\\\w+@[a-zA-Z_]+?\\\\.[a-zA-Z]{2,3}$"
+          placeholder="email"
+          title="Enter a Valid Email Address"
+          value=""
+        />,
+        <img
+          alt="mail"
+          className="email-icon"
+          src="./email.png"
+        />,
+        <input
+          className="password-input"
+          name="password"
+          onChange={[Function]}
+          placeholder="password"
+          type="password"
+          value=""
+        />,
+        <img
+          alt="lock"
+          className="password-icon"
+          src="./password.png"
+        />,
+        <img
+          alt="lock"
+          className="password-confirm-icon"
+          src="./password.png"
+        />,
+        <input
+          className="password-confirm-input"
+          name="confirmPassword"
+          onChange={[Function]}
+          placeholder="confirm password"
+          type="password"
+          value=""
+        />,
+        <input
+          className="create-user-btn"
+          type="submit"
+          value="sign up"
+        />,
+        <Link
+          className="skip-sign-up"
+          replace={false}
+          to="/login"
+        >
+          <button
+            className="skip-sign-up-button"
+            onClick={[MockFunction]}
+          >
+            already a user
+          </button>
+        </Link>,
+        <div
+          className="signup-error-wrapper "
+        >
+          <p>
+            email address already registered
+          </p>
+        </div>,
+      ],
+      "className": "sign-up-form undefined",
+      "onSubmit": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span>
+              movie
+            </span>,
+            "Tracker",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "movie",
+            },
+            "ref": null,
+            "rendered": "movie",
+            "type": "span",
+          },
+          "Tracker",
+        ],
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "for the love of film",
+        },
+        "ref": null,
+        "rendered": "for the love of film",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Logo />,
+          "className": "login-form-logo-wrapper",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "name-input",
+          "name": "name",
+          "onChange": [Function],
+          "placeholder": "name",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "user",
+          "className": "user-icon",
+          "src": "./user.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "email-input",
+          "name": "email",
+          "onChange": [Function],
+          "pattern": "^\\\\w+@[a-zA-Z_]+?\\\\.[a-zA-Z]{2,3}$",
+          "placeholder": "email",
+          "title": "Enter a Valid Email Address",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "mail",
+          "className": "email-icon",
+          "src": "./email.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "password-input",
+          "name": "password",
+          "onChange": [Function],
+          "placeholder": "password",
+          "type": "password",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "lock",
+          "className": "password-icon",
+          "src": "./password.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "lock",
+          "className": "password-confirm-icon",
+          "src": "./password.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "password-confirm-input",
+          "name": "confirmPassword",
+          "onChange": [Function],
+          "placeholder": "confirm password",
+          "type": "password",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "create-user-btn",
+          "type": "submit",
+          "value": "sign up",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <button
+            className="skip-sign-up-button"
+            onClick={[MockFunction]}
+          >
+            already a user
+          </button>,
+          "className": "skip-sign-up",
+          "replace": false,
+          "to": "/login",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "already a user",
+            "className": "skip-sign-up-button",
+            "onClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": "already a user",
+          "type": "button",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <p>
+            email address already registered
+          </p>,
+          "className": "signup-error-wrapper ",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "email address already registered",
+          },
+          "ref": null,
+          "rendered": "email address already registered",
+          "type": "p",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            <span>
+              movie
+            </span>
+            Tracker
+          </h1>,
+          <h4>
+            for the love of film
+          </h4>,
+          <div
+            className="login-form-logo-wrapper"
+          >
+            <Logo />
+          </div>,
+          <input
+            className="name-input"
+            name="name"
+            onChange={[Function]}
+            placeholder="name"
+            value=""
+          />,
+          <img
+            alt="user"
+            className="user-icon"
+            src="./user.png"
+          />,
+          <input
+            className="email-input"
+            name="email"
+            onChange={[Function]}
+            pattern="^\\\\w+@[a-zA-Z_]+?\\\\.[a-zA-Z]{2,3}$"
+            placeholder="email"
+            title="Enter a Valid Email Address"
+            value=""
+          />,
+          <img
+            alt="mail"
+            className="email-icon"
+            src="./email.png"
+          />,
+          <input
+            className="password-input"
+            name="password"
+            onChange={[Function]}
+            placeholder="password"
+            type="password"
+            value=""
+          />,
+          <img
+            alt="lock"
+            className="password-icon"
+            src="./password.png"
+          />,
+          <img
+            alt="lock"
+            className="password-confirm-icon"
+            src="./password.png"
+          />,
+          <input
+            className="password-confirm-input"
+            name="confirmPassword"
+            onChange={[Function]}
+            placeholder="confirm password"
+            type="password"
+            value=""
+          />,
+          <input
+            className="create-user-btn"
+            type="submit"
+            value="sign up"
+          />,
+          <Link
+            className="skip-sign-up"
+            replace={false}
+            to="/login"
+          >
+            <button
+              className="skip-sign-up-button"
+              onClick={[MockFunction]}
+            >
+              already a user
+            </button>
+          </Link>,
+          <div
+            className="signup-error-wrapper "
+          >
+            <p>
+              email address already registered
+            </p>
+          </div>,
+        ],
+        "className": "sign-up-form undefined",
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span>
+                movie
+              </span>,
+              "Tracker",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "movie",
+              },
+              "ref": null,
+              "rendered": "movie",
+              "type": "span",
+            },
+            "Tracker",
+          ],
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "for the love of film",
+          },
+          "ref": null,
+          "rendered": "for the love of film",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Logo />,
+            "className": "login-form-logo-wrapper",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "name-input",
+            "name": "name",
+            "onChange": [Function],
+            "placeholder": "name",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "user",
+            "className": "user-icon",
+            "src": "./user.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "email-input",
+            "name": "email",
+            "onChange": [Function],
+            "pattern": "^\\\\w+@[a-zA-Z_]+?\\\\.[a-zA-Z]{2,3}$",
+            "placeholder": "email",
+            "title": "Enter a Valid Email Address",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "mail",
+            "className": "email-icon",
+            "src": "./email.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "password-input",
+            "name": "password",
+            "onChange": [Function],
+            "placeholder": "password",
+            "type": "password",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "lock",
+            "className": "password-icon",
+            "src": "./password.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "lock",
+            "className": "password-confirm-icon",
+            "src": "./password.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "password-confirm-input",
+            "name": "confirmPassword",
+            "onChange": [Function],
+            "placeholder": "confirm password",
+            "type": "password",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "create-user-btn",
+            "type": "submit",
+            "value": "sign up",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <button
+              className="skip-sign-up-button"
+              onClick={[MockFunction]}
+            >
+              already a user
+            </button>,
+            "className": "skip-sign-up",
+            "replace": false,
+            "to": "/login",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "already a user",
+              "className": "skip-sign-up-button",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": "already a user",
+            "type": "button",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <p>
+              email address already registered
+            </p>,
+            "className": "signup-error-wrapper ",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "email address already registered",
+            },
+            "ref": null,
+            "rendered": "email address already registered",
+            "type": "p",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
