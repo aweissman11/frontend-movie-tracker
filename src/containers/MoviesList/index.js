@@ -53,10 +53,10 @@ export class MoviesList extends Component {
 
             <section className='header-wrapper'>
               <section className='left-side-header-btns'>
-                <Filters />
                 <LogButton />
                 <ShowFavoritesBtn />
               </section>
+              <Filters />
               <SearchBar />
             </section>
           </header>

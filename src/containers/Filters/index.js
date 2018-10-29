@@ -128,8 +128,9 @@ export class Filters extends Component {
     });
   }
 
-  clearFilters = () => {
-    this.setState({
+  clearFilters = async () => {
+    const mockEvent = {preventDefault: () => {}}
+    await this.setState({
       genre: null,
       genreName: null,
       year: null,
@@ -140,7 +141,9 @@ export class Filters extends Component {
       yearState: '',
       ratingState: '',
       sortState: ''
-    })
+    });
+
+    this.handleSubmitFilters(mockEvent);
   }
 
   render() {
@@ -197,13 +200,13 @@ export class Filters extends Component {
           className='filter-submit'
           onClick={this.handleSubmitFilters}
         >
-          Submit
+          submit
         </button>
         <button 
           className='filter-clear'
           onClick={this.clearFilters}
         >
-          Clear
+          clear
         </button>
       </aside>
     )

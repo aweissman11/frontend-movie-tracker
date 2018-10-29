@@ -1,12 +1,26 @@
 .filters {
   display: flex;
+  justify-content: center;
+  justify-self: center;
+  color: #6CC4EE;
+}
+
+.filters section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .filters ul {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  z-index: 9;
+  width: 120%;
+}
+
+.filters h3 {
+  margin: 0;
+  font-size: 16px;
 }
 
 .genre-filter,
@@ -14,8 +28,27 @@
 .rating-filter,
 .sort-filter {
   position: relative;
-  margin-left: 2rem;
-  z-index: 9;
+  text-align: center;
+  box-sizing: border-box;
+  width: 120px;
+}
+
+.genre-filter {
+  width: 120px;
+}
+
+.year-filter {
+  width: 40px;
+  margin-right: 2rem;
+}
+
+.rating-filter {
+  width: 54px;
+  margin-right: .4rem;
+}
+
+.sort-filter {
+  width: 120px;
 }
 
 .genre-filter:hover,
@@ -31,7 +64,6 @@
 .rating-list,
 .sort-list {
   position: absolute;
-  left: 0;
   height: 0;
   top: 50px;
   overflow: hidden;
@@ -39,14 +71,46 @@
   background: #fff;
 }
 
+.genre-list {
+  left: -12px;
+}
+
+.year-list {
+  left: -4px;
+}
+
+.rating-list {
+  left: -6px;
+}
+
+.sort-list {
+  left: -12px;
+}
+
 .genre-list.deployed,
 .year-list.deployed,
 .rating-list.deployed,
 .sort-list.deployed {
-  height: 300%;
+  height: 150%;
+  overflow-y: scroll; 
 }
 
-.filter li {
+.filters li {
   z-index: 9;
+  font-size: 14px;
   background: #fff;
+}
+
+.filters button {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  margin: 1rem;
+  align-self: center;
+  background: #6CC4EE;
+  color: #fff;
+  width: 75px;
+  height: 30px;  
+  border-radius: 15px;
+  border: none;
+;
 }
