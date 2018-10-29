@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { genres, ratings, sortOptions } from './filtersInfo';
 
-
 import { Filters, mapDispatchToProps, mapStateToProps } from './index';
 
 describe('Filters', () => {
