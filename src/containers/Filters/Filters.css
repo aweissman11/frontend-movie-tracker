@@ -112,5 +112,11 @@
   height: 30px;  
   border-radius: 15px;
   border: none;
-;
+  transition: .3s;
+}
+
+.filters button:hover {
+  cursor: pointer;
+  color: #6CC4EE;
+  background: #fff;
 }
