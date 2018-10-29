@@ -192,7 +192,7 @@
   }
   .movies-list header .header-wrapper {
     grid-template-columns: 1fr 1fr;
-    height: 140px;
+    height: 220px;
   }
   .movies-list header aside {
     grid-column: 1/3;
@@ -218,5 +218,41 @@
 }
 
 @media (max-width: 615px) {
+  aside.filters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 120px;
+  }
+  aside.filters section {
+    margin: 0 auto;
+    padding: 0;
+  }
 
+  .rating-slct {
+    text-align: center;
+  }
+  .filters .filter-submit {
+    grid-column: 2;
+  }
+  .filters .filter-clear {
+    grid-column: 3;
+  }
+  .movies-list header .header-wrapper {
+    grid-template-columns: 190px 1fr;
+  }
+  header section .left-side-header-btns {
+    width: 190px;
+  }
+  .genre-list,
+  .year-list,
+  .rating-list,
+  .sort-list {
+    top: 35px;
+  }
+  .genre-list.deployed,
+  .year-list.deployed,
+  .rating-list.deployed,
+  .sort-list.deployed {
+    height: 200%;
+  }
 }
