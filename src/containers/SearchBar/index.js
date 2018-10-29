@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
 import './SearchBar.css';
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   constructor() {
     super()
-
     this.state = {
       searchInput: ''
     }
@@ -19,7 +18,7 @@ class SearchBar extends Component {
     })
   }
 
-  handleSubmitSearch = async (e) => {
+  handleSubmitSearch = (e) => {
     e.preventDefault();
     this.props.setFetchedMovies(this.state.searchInput)
   }
@@ -47,6 +46,7 @@ class SearchBar extends Component {
   }
 }
 
+//test this
 export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
 });

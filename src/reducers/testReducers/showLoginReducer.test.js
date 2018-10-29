@@ -9,11 +9,11 @@ describe('showLoginReducer', () => {
 
     expect(result).toEqual(expected)
   })
-  it('should return state of login-hide if user is logged in', () => {
-    const expected = 'login-hide'
+  it('should return state of login-display if user is logged in', () => {
+    const expected = 'login-display'
 
     const mockAction = {
-      type: 'DISPLAY_SIGN_UP'
+      type: 'DISPLAY_LOGIN'
     }
     const result = showLoginReducer(null, mockAction)
     expect(result).toEqual(expected)

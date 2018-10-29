@@ -1,13 +1,34 @@
 import React from 'react'
-import SearchBar from './';
+import { SearchBar, mapDispatchToProps } from './';
+import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
 
 import { shallow } from 'enzyme';
 
 describe('SearchBar', () => {
   let wrapper;
+  const mockPreventDefault = jest.fn();
+
+  const mockEvent = {
+    preventDefault: mockPreventDefault,
+    target: {
+      name: 'searchInput',
+      value: 'die hard'
+    }
+  }
+
+  const mockSetFetchedMovies = jest.fn();
+  const mockDispatch = jest.fn();
+  const mockSubscribe = jest.fn();
+  const mockGetState = jest.fn();
+
+  const mockStore = {
+    subscribe: mockSubscribe,
+    dispatch: mockDispatch,
+    getState: mockGetState
+  }
 
   beforeEach(() => {
-    wrapper = shallow(<SearchBar />);
+    wrapper = shallow(<SearchBar store={mockStore} setFetchedMovies={mockSetFetchedMovies}/>)
   });
 
   it('should match the snapShot', () => {
@@ -15,7 +36,11 @@ describe('SearchBar', () => {
   });
 
   it('should have default state', () => {
-    expect(wrapper.state()).toEqual({searchInput: ''});
+    const expected = {
+      searchInput: ''
+    }
+
+    expect(wrapper.state()).toEqual(expected);
   });
 
   it('should call handleChange on text input', () => {
@@ -42,4 +67,32 @@ describe('SearchBar', () => {
     expect(wrapper.state().searchInput).toEqual('a');
   });
 
+  describe('handleSubmitSearch', () => {
+    it('should call preventDefault', () => {
+      wrapper.instance().handleSubmitSearch(mockEvent);
+      expect(mockPreventDefault).toHaveBeenCalled();
+    });
+
+    it('should call setFetchedMovies with the correct parameters', () => {
+      const mockState = {
+        searchInput: 'die hard'
+      }
+
+      wrapper.instance().setState({ searchInput: mockState})
+      wrapper.instance().handleSubmitSearch(mockEvent);
+
+      expect(mockSetFetchedMovies).toHaveBeenCalledWith(mockState)
+    });
+  });
+
+
+  // it('should map the dispatch to props on removeFavorites', () => {
+  //   const mockDispatch = jest.fn();
+  //   const actionToDispatch = jest.fn()
+  //   const mappedProps = mapDispatchToProps(mockDispatch);
+    
+  //   mappedProps.setFetchedMovies()
+
+  // expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  // })
 });
