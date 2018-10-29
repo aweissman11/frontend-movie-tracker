@@ -12,9 +12,11 @@ export class Filters extends Component {
     super()
     this.state = {
       genre: null,
+      genreName: null,
       year: null,
       rating: null,
       sort: null,
+      sortName: null,
       genreState: '',
       yearState: '',
       ratingState: '',
@@ -25,6 +27,7 @@ export class Filters extends Component {
   getGenreOptions = () => {
     return genres.map( genre => {
       return (<li 
+        value={genre.id}
         key={genre.id} 
         onClick={(e) => {this.handleSelect(e, 'genre')}}
       >
@@ -64,6 +67,7 @@ export class Filters extends Component {
     return sortOptions.map( sortOption => {
       return (<li 
         key={sortOption.value} 
+        id={sortOption.value}
         onClick={(e) => {this.handleSelect(e, 'sort')}}
       >
         {sortOption.text}
@@ -72,13 +76,34 @@ export class Filters extends Component {
   }
 
   handleSelect = (e, name) => {
-    this.setState({ 
-      [name]: e.target.innerText,
-      genreState: '',
-      yearState: '',
-      ratingState: '',
-      sortState: ''
-    });
+    if (e.target.value && name === 'genre') {
+      this.setState({ 
+        genre: e.target.value,
+        genreName: e.target.innerText,
+        genreState: '',
+        yearState: '',
+        ratingState: '',
+        sortState: ''
+      });
+    } else if (name === 'sort') {
+      console.log(e.target)
+      this.setState({
+        sort: e.target.id,
+        sortName: e.target.innerText,
+        genreState: '',
+        yearState: '',
+        ratingState: '',
+        sortState: ''
+      })
+    } else {
+      this.setState({ 
+        [name]: e.target.innerText,
+        genreState: '',
+        yearState: '',
+        ratingState: '',
+        sortState: ''
+      });
+    }
   }
 
   handleSubmitFilters = (e) => {
@@ -115,7 +140,7 @@ export class Filters extends Component {
             onClick={(e) => {this.deployList(e)}}
             id='genreState'
           >
-            {this.state.genre || 'genre'}
+            {this.state.genreName || 'genre'}
           </h3>
           <ul className={`${this.state.genreState} genre-list`}>
             {this.getGenreOptions()}
@@ -150,7 +175,7 @@ export class Filters extends Component {
             className='sort-by-slct'
             onClick={(e) => {this.deployList(e)}}
             id='sortState'
-          >{this.state.sort || 'sort-by'}
+          >{this.state.sortName || 'sort-by'}
           </h3>
           <ul className={`${this.state.sortState} sort-list`}>
             {this.getSortOptions()}
