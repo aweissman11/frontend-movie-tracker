@@ -4,7 +4,17 @@ exports[`Filters should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Filters
+    filters={
+      Object {
+        "genre": null,
+        "rating": null,
+        "sort": null,
+        "year": null,
+      }
+    }
+    searchQuery="die hard"
     setFetchedMovies={[MockFunction]}
+    setFilters={[MockFunction]}
     store={
       Object {
         "dispatch": [MockFunction],

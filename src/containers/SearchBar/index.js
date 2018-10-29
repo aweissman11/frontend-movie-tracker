@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { updateSearchQuery } from '../../actions';
 import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
 import './SearchBar.css';
 
@@ -20,7 +21,8 @@ export class SearchBar extends Component {
 
   handleSubmitSearch = (e) => {
     e.preventDefault();
-    this.props.setFetchedMovies(this.state.searchInput)
+    this.props.setSearchQuery(this.state.searchInput)
+    this.props.setFetchedMovies(this.props.filters, this.state.searchInput)
   }
 
   render() {
@@ -34,7 +36,7 @@ export class SearchBar extends Component {
           value={this.state.searchInput}
           name='searchInput'
           onChange={(e) => this.handleChange(e)}
-          placeholder='movie/genre search'
+          placeholder='search'
         />
         <input 
           className='search-submit'
@@ -46,9 +48,14 @@ export class SearchBar extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  filters: state.filters,
+  searchQuery: state.searchQuery
+})
 //test this
 export const mapDispatchToProps = (dispatch) => ({
-  setFetchedMovies: (data) => dispatch(getMovieList(data)),
+  setFetchedMovies: (filters, search) => dispatch(getMovieList(filters, search)),
+  setSearchQuery: (query) => dispatch(updateSearchQuery(query))
 });
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

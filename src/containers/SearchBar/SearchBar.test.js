@@ -20,6 +20,8 @@ describe('SearchBar', () => {
   const mockDispatch = jest.fn();
   const mockSubscribe = jest.fn();
   const mockGetState = jest.fn();
+  const mockSetSearchQuery = jest.fn();
+  const mockSetFilters = jest.fn();
 
   const mockStore = {
     subscribe: mockSubscribe,
@@ -27,8 +29,21 @@ describe('SearchBar', () => {
     getState: mockGetState
   }
 
+  const fakeFilters = {
+    genre: null,
+    year: null,
+    rating: null,
+    sort: null
+  }
+
   beforeEach(() => {
-    wrapper = shallow(<SearchBar store={mockStore} setFetchedMovies={mockSetFetchedMovies}/>)
+    wrapper = shallow(<SearchBar
+      store={mockStore}
+      setFetchedMovies={mockSetFetchedMovies}
+      setSearchQuery={mockSetSearchQuery}
+      filters={fakeFilters}
+      setFilters={mockSetFilters}
+      />)
   });
 
   it('should match the snapShot', () => {
@@ -78,10 +93,17 @@ describe('SearchBar', () => {
         searchInput: 'die hard'
       }
 
-      wrapper.instance().setState({ searchInput: mockState})
+      const mockFilters = {
+        genre: null,
+        year: null,
+        rating: null,
+        sort: null
+      }
+
+      wrapper.instance().setState(mockState)
       wrapper.instance().handleSubmitSearch(mockEvent);
 
-      expect(mockSetFetchedMovies).toHaveBeenCalledWith(mockState)
+      expect(mockSetFetchedMovies).toHaveBeenCalledWith(mockFilters, mockState.searchInput)
     });
   });
 
