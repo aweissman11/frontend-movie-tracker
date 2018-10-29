@@ -34,6 +34,7 @@
   position: absolute;
   right: 10px;
   top: 10px;
+  outline: none;
 }
 
 .single-movie-wrapper .movie-poster-text {
