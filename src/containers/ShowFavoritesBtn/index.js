@@ -7,7 +7,6 @@ export class ShowFavoritesBtn extends Component {
     const IDs = this.props.favorites.map( favorite => {
       return favorite.movie_id
     })
-
     this.props.setFavorites(IDs)
   }
 

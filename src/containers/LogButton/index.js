@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logUserOut, updateFavorites } from '../../actions'
+import { logUserOut, setFavorites } from '../../actions'
 import { NavLink } from 'react-router-dom'
 
 export class LogButton extends Component {
@@ -36,7 +36,7 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logUserOut()),
-  removeFavorites: () => dispatch(updateFavorites())
+  removeFavorites: () => dispatch(setFavorites())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogButton)

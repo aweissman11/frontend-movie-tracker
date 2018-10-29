@@ -31,10 +31,6 @@ export class MoviesList extends Component {
       }));
     }
   }
-
-  componentDidUpdate() {
-    
-  }
   
   getMovies = () => {
     if (this.props.movies.results) {
@@ -87,7 +83,10 @@ export class MoviesList extends Component {
 export const mapStateToProps = (state) => ({
   movies: state.movies,
   user: state.user,
-  favorites: state.favorites
+  favorites: state.favorites,
+  notOk: state.notOk,
+  hasErrored: state.hasErrored,
+  isLoading: state.isLoading
 });
 
 export const mapDispatchToProps = (dispatch) => ({

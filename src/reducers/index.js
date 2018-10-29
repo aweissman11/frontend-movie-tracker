@@ -7,6 +7,9 @@ import showLoginReducer from './showLoginReducer';
 import favoritesReducer from './favoritesReducer';
 import filtersReducer from './filtersReducer';
 import searchQueryReducer from './searchQueryReducer';
+import hasErroredReducer from './hasErroredReducer';
+import notOkReducer from './notOkReducer';
+import isLoadingReducer from './isLoadingReducer';
 
 export const rootReducer = combineReducers({
   movies: moviesReducer, 
@@ -15,5 +18,8 @@ export const rootReducer = combineReducers({
   showSignup: showSingupReducer,
   favorites: favoritesReducer,
   filters: filtersReducer,
-  searchQuery: searchQueryReducer
+  searchQuery: searchQueryReducer,
+  hasErrored: hasErroredReducer,
+  notOk: notOkReducer,
+  isLoading: isLoadingReducer
 });

@@ -45,11 +45,11 @@ describe('actions', () => {
     ]
     
     const expected = {
-      type: 'UPDATE_FAVORITES',
+      type: 'SET_FAVORITES',
       favorites
     }
 
-    const result = Actions.updateFavorites(favorites);
+    const result = Actions.setFavorites(favorites);
 
     expect(result).toEqual(expected);
   })

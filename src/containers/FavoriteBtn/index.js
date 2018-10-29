@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as userDataBaseFetch from '../../utilities/userDatabaseFetch';
 import fetchCall from '../../utilities/fetchCall';
-import { updateFavorites } from '../../actions';
+import { setFavorites } from '../../actions';
 
 export class FavoriteBtn extends Component {
   constructor() {
@@ -58,7 +58,7 @@ export class FavoriteBtn extends Component {
       movie_id: movie.id,
       user_id: user.id,
       title: movie.title,
-      poster_path: movie.poster_path,
+      poster_path: movie.poster_path || 'test.jpg',
       release_date: movie.release_date,
       vote_average: movie.vote_average,
       overview: movie.overview,
@@ -91,7 +91,7 @@ export const mapStateToProps = ({movies, user, favorites}) => ({movies, user, fa
 
 
 export const mapDispatchToProps = (dispatch) => ({
-  setFavorites: (data) => dispatch(updateFavorites(data))
+  setFavorites: (data) => dispatch(setFavorites(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteBtn);
