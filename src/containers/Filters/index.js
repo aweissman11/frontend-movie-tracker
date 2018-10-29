@@ -11,6 +11,7 @@ export class Filters extends Component {
   constructor() {
     super()
     this.state = {
+      selected: null,
       genre: null,
       genreName: null,
       year: null,
@@ -121,13 +122,24 @@ export class Filters extends Component {
 
   deployList = (e) => {
     this.setState({
+      [this.state.selected]: '',
+      [e.target.id]: 'deployed',
+      selected: e.target.id
+    });
+  }
+
+  clearFilters = () => {
+    this.setState({
+      genre: null,
+      genreName: null,
+      year: null,
+      rating: null,
+      sort: null,
+      sortName: null,
       genreState: '',
       yearState: '',
       ratingState: '',
       sortState: ''
-    })
-    this.setState({
-      [e.target.id]: 'deployed'
     })
   }
 
@@ -186,6 +198,12 @@ export class Filters extends Component {
           onClick={this.handleSubmitFilters}
         >
           Submit
+        </button>
+        <button 
+          className='filter-clear'
+          onClick={this.clearFilters}
+        >
+          Clear
         </button>
       </aside>
     )
