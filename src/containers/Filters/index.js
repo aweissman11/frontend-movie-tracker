@@ -5,20 +5,35 @@ import { updateFilters } from '../../actions/index';
 import { getMovieList } from '../../actions/thunkActions/FiltersThunk';
 import { genres, ratings, sortOptions } from './filtersInfo';
 
+import './Filters.css';
+
 export class Filters extends Component {
   constructor() {
     super()
     this.state = {
+      selected: null,
       genre: null,
+      genreName: null,
       year: null,
       rating: null,
-      sort: null
+      sort: null,
+      sortName: null,
+      genreState: '',
+      yearState: '',
+      ratingState: '',
+      sortState: ''
     }
   }
 
   getGenreOptions = () => {
     return genres.map( genre => {
-      return (<option key={genre.id} value={genre.id} >{genre.name}</option>)
+      return (<li 
+        value={genre.id}
+        key={genre.id} 
+        onClick={(e) => {this.handleSelect(e, 'genre')}}
+      >
+        {genre.name}
+      </li>)
     })
   }
   
@@ -28,58 +43,172 @@ export class Filters extends Component {
       years.push(2019 - i)
     }
     return years.map( year => {
-      return (<option key={year} value={year} >{year}</option>)
+      return (<li 
+        key={year} 
+        onClick={(e) => {this.handleSelect(e, 'year')}}
+      >
+        {year}
+      </li>)
     })
   }
   
   getRatingOptions = () => {
     return ratings.map( rating => {
-      return (<option key={rating.certification} value={rating.certification} >{rating.certification}</option>)
+      return (<li 
+        key={rating.certification} 
+        onClick={(e) => {this.handleSelect(e, 'rating')}}
+      >
+        {rating.certification}
+      </li>)
     })
     
   }
   
   getSortOptions = () => {
     return sortOptions.map( sortOption => {
-      return (<option key={sortOption.value} value={sortOption.value} >{sortOption.text}</option>)
+      return (<li 
+        key={sortOption.value} 
+        id={sortOption.value}
+        onClick={(e) => {this.handleSelect(e, 'sort')}}
+      >
+        {sortOption.text}
+      </li>)
     })
   }
 
-  handleSelect = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
-    this.setState({ [name]: value});
+  handleSelect = (e, name) => {
+    if (e.target.value && name === 'genre') {
+      this.setState({ 
+        genre: e.target.value,
+        genreName: e.target.innerText,
+        genreState: '',
+        yearState: '',
+        ratingState: '',
+        sortState: ''
+      });
+    } else if (name === 'sort') {
+      console.log(e.target)
+      this.setState({
+        sort: e.target.id,
+        sortName: e.target.innerText,
+        genreState: '',
+        yearState: '',
+        ratingState: '',
+        sortState: ''
+      })
+    } else {
+      this.setState({ 
+        [name]: e.target.innerText,
+        genreState: '',
+        yearState: '',
+        ratingState: '',
+        sortState: ''
+      });
+    }
   }
 
   handleSubmitFilters = (e) => {
     e.preventDefault();
-    this.props.setFilters(this.state);    
-    this.props.setFetchedMovies(this.state, this.props.searchQuery);
+    const filters = {
+      genre: this.state.genre,
+      year: this.state.year,
+      rating: this.state.rating,
+      sort: this.state.sort
+    }
+
+    this.props.setFilters(filters);    
+    this.props.setFetchedMovies(filters, this.props.searchQuery);
+  }
+
+  deployList = (e) => {
+    this.setState({
+      [this.state.selected]: '',
+      [e.target.id]: 'deployed',
+      selected: e.target.id
+    });
+  }
+
+  clearFilters = async () => {
+    const mockEvent = {preventDefault: () => {}}
+    await this.setState({
+      genre: null,
+      genreName: null,
+      year: null,
+      rating: null,
+      sort: null,
+      sortName: null,
+      genreState: '',
+      yearState: '',
+      ratingState: '',
+      sortState: ''
+    });
+
+    this.handleSubmitFilters(mockEvent);
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmitFilters}>
-        <h1>Filters</h1>
-        <select onChange={this.handleSelect} name='genre' className='genre-slct'>
-          <option value={null}>GENRE</option>
-          {this.getGenreOptions()}
-        </select>
-        <select onChange={this.handleSelect} name='year' className='year-slct'>
-          <option value={null}>YEAR</option>
-          {this.getYearOptions()}
-        </select>
-        <select onChange={this.handleSelect} name='rating' className='rating-slct'>
-          <option value={null}>RATING</option>
-          {this.getRatingOptions()}
-        </select>
-        <span>Sort by:</span>
-        <select onChange={this.handleSelect} name='sort' className='sort-by-slct'>
-          <option value={null}>SORT BY</option>
-          {this.getSortOptions()}
-        </select>
-        <input type='submit' />
-      </form>
+      <aside className='filters'>
+        <section className='genre-filter'>
+          <h3 
+            className='genre-slct'
+            onClick={(e) => {this.deployList(e)}}
+            id='genreState'
+          >
+            {this.state.genreName || 'genre'}
+          </h3>
+          <ul className={`${this.state.genreState} genre-list`}>
+            {this.getGenreOptions()}
+          </ul>
+        </section>
+        <section className='year-filter'>
+          <h3
+            className='year-slct'
+            onClick={(e) => {this.deployList(e)}}
+            id='yearState'
+          >
+            {this.state.year || 'year'}
+          </h3>
+          <ul className={`${this.state.yearState} year-list`}>
+            {this.getYearOptions()}
+          </ul>
+        </section>
+        <section className='rating-filter'>
+         <h3
+            className='rating-slct'
+            onClick={(e) => {this.deployList(e)}}
+            id='ratingState'
+          >
+            {this.state.rating || 'rating'}
+          </h3>
+          <ul className={`${this.state.ratingState} rating-list`}>
+            {this.getRatingOptions()}
+          </ul>
+        </section>
+        <section className='sort-filter'>
+          <h3
+            className='sort-by-slct'
+            onClick={(e) => {this.deployList(e)}}
+            id='sortState'
+          >{this.state.sortName || 'sort-by'}
+          </h3>
+          <ul className={`${this.state.sortState} sort-list`}>
+            {this.getSortOptions()}
+          </ul>
+        </section>
+        <button
+          className='filter-submit'
+          onClick={this.handleSubmitFilters}
+        >
+          submit
+        </button>
+        <button 
+          className='filter-clear'
+          onClick={this.clearFilters}
+        >
+          clear
+        </button>
+      </aside>
     )
   }
 }
