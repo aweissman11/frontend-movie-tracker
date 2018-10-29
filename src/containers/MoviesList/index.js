@@ -13,7 +13,7 @@ import ShowFavoritesBtn from '../ShowFavoritesBtn';
 import './MoviesList.css'
 
 
-class MoviesList extends Component {
+export class MoviesList extends Component {
 
   componentDidMount() {
     this.props.setFetchedMovies(this.props.movies)
