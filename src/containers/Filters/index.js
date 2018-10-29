@@ -83,8 +83,15 @@ export class Filters extends Component {
 
   handleSubmitFilters = (e) => {
     e.preventDefault();
-    this.props.setFilters(this.state);    
-    this.props.setFetchedMovies(this.state, this.props.searchQuery);
+    const filters = {
+      genre: this.state.genre,
+      year: this.state.year,
+      rating: this.state.rating,
+      sort: this.state.sort
+    }
+
+    this.props.setFilters(filters);    
+    this.props.setFetchedMovies(filters, this.props.searchQuery);
   }
 
   deployList = (e) => {
