@@ -1,5 +1,6 @@
 import React from 'react'
-import { SearchBar } from './';
+import { SearchBar, mapDispatchToProps } from './';
+import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
 
 import { shallow } from 'enzyme';
 
@@ -8,7 +9,7 @@ describe('SearchBar', () => {
   const mockPreventDefault = jest.fn();
 
   const mockEvent = {
-    preventDefaut: mockPreventDefault,
+    preventDefault: mockPreventDefault,
     target: {
       name: 'searchInput',
       value: 'die hard'
@@ -66,4 +67,32 @@ describe('SearchBar', () => {
     expect(wrapper.state().searchInput).toEqual('a');
   });
 
+  describe('handleSubmitSearch', () => {
+    it('should call preventDefault', () => {
+      wrapper.instance().handleSubmitSearch(mockEvent);
+      expect(mockPreventDefault).toHaveBeenCalled();
+    });
+
+    it('should call setFetchedMovies with the correct parameters', () => {
+      const mockState = {
+        searchInput: 'die hard'
+      }
+
+      wrapper.instance().setState({ searchInput: mockState})
+      wrapper.instance().handleSubmitSearch(mockEvent);
+
+      expect(mockSetFetchedMovies).toHaveBeenCalledWith(mockState)
+    });
+  });
+
+
+  // it('should map the dispatch to props on removeFavorites', () => {
+  //   const mockDispatch = jest.fn();
+  //   const actionToDispatch = jest.fn()
+  //   const mappedProps = mapDispatchToProps(mockDispatch);
+    
+  //   mappedProps.setFetchedMovies()
+
+  // expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  // })
 });
