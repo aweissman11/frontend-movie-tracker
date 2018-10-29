@@ -4,7 +4,17 @@ exports[`SearchBar should match the snapShot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <SearchBar
+    filters={
+      Object {
+        "genre": null,
+        "rating": null,
+        "sort": null,
+        "year": null,
+      }
+    }
     setFetchedMovies={[MockFunction]}
+    setFilters={[MockFunction]}
+    setSearchQuery={[MockFunction]}
     store={
       Object {
         "dispatch": [MockFunction],
@@ -31,7 +41,7 @@ ShallowWrapper {
           className="search-input"
           name="searchInput"
           onChange={[Function]}
-          placeholder="movie/genre search"
+          placeholder="search"
           value=""
         />,
         <input
@@ -53,7 +63,7 @@ ShallowWrapper {
           "className": "search-input",
           "name": "searchInput",
           "onChange": [Function],
-          "placeholder": "movie/genre search",
+          "placeholder": "search",
           "value": "",
         },
         "ref": null,
@@ -87,7 +97,7 @@ ShallowWrapper {
             className="search-input"
             name="searchInput"
             onChange={[Function]}
-            placeholder="movie/genre search"
+            placeholder="search"
             value=""
           />,
           <input
@@ -109,7 +119,7 @@ ShallowWrapper {
             "className": "search-input",
             "name": "searchInput",
             "onChange": [Function],
-            "placeholder": "movie/genre search",
+            "placeholder": "search",
             "value": "",
           },
           "ref": null,

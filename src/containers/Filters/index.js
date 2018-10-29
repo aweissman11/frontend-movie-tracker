@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { genres, ratings, sortOptions } from './filtersInfo';
+import { updateFilters } from '../../actions/index';
 import { getMovieList } from '../../actions/thunkActions/FiltersThunk';
+import { genres, ratings, sortOptions } from './filtersInfo';
 
 import './Filters.css';
 
@@ -80,8 +81,10 @@ export class Filters extends Component {
     });
   }
 
-  handleSubmitFilters = () => {
-    this.props.setFetchedMovies(this.state)
+  handleSubmitFilters = (e) => {
+    e.preventDefault();
+    this.props.setFilters(this.state);    
+    this.props.setFetchedMovies(this.state, this.props.searchQuery);
   }
 
   deployList = (e) => {
@@ -157,9 +160,14 @@ export class Filters extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  filters: state.filters,
+  searchQuery: state.searchQuery
+})
 
 export const mapDispatchToProps = (dispatch) => ({
-  setFetchedMovies: (data) => dispatch(getMovieList(data)),
+  setFetchedMovies: (filters, searchQuery) => dispatch(getMovieList(filters, searchQuery)),
+  setFilters: (filters) => dispatch(updateFilters(filters))
 });
 
-export default connect(null, mapDispatchToProps)(Filters);
+export default connect(mapStateToProps, mapDispatchToProps)(Filters);
