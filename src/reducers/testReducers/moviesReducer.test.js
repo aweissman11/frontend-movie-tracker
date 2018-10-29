@@ -26,7 +26,7 @@ describe('moviesReducer', () => {
     ]
 
     const mockAction = {
-      type: 'GET_MOVIE_LIST',
+      type: 'SET_MOVIE_LIST',
       movies: expected
     }
 
