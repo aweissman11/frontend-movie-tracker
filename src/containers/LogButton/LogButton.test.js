@@ -55,7 +55,7 @@ describe('LogButton', () => {
 
     it('should map the dispatch to props on removeFavorites', () => {
       const mockDispatch = jest.fn();
-      const actionToDispatch = Actions.updateFavorites()
+      const actionToDispatch = Actions.setFavorites()
       const mappedProps = mapDispatchToProps(mockDispatch);
       
       mappedProps.removeFavorites()
