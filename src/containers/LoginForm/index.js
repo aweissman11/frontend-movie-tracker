@@ -51,7 +51,6 @@ export class LoginForm extends Component {
       await this.props.logUserIn(response.data.id, response.data.name)
 
     } catch(error) {
-      console.log(error)
       this.userWarning('loginError', 'login-error-active')
     }
   }

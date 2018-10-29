@@ -69,12 +69,48 @@ describe('LoginForm', () => {
     expect(wrapper.state()).toEqual(defaultState)
   });
 
+  it('should call displaySignup on click', () => {
+    wrapper.find('.sign-up-button').simulate('click', mockEvent);
+
+    expect(mockDisplaySignUp).toHaveBeenCalled();
+  });
+
+  it('should call preventDefault on click', () => {
+    wrapper.find('.sign-up-button').simulate('click', mockEvent);
+
+    expect(mockPreventDefault).toHaveBeenCalled();
+  });
+
   describe('handleChange', () => {
     it('should call set state', async () => {
       const expected = 'email@email.com'
       await wrapper.instance().handleChange(mockEvent);
 
       expect(wrapper.state().email).toEqual(expected);
+    });
+
+    it.skip('should call handleChange on email input', () => {
+      const mockHandleChange = jest.fn().mockImplementation(() => {
+        console.log('burp')
+      });
+
+      wrapper.instance().handleChange = mockHandleChange;
+
+      wrapper.find('.email-input').simulate('change', mockEvent);
+
+      expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
+    });
+
+    it.skip('should call handleChange on password input', () => {
+      const mockHandleChange = jest.fn().mockImplementation(() => {
+        console.log('burp')
+      });
+
+      wrapper.instance().handleChange = mockHandleChange;
+
+      wrapper.find('.password-input').simulate('change', mockEvent);
+
+      expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
     });
   });
 
@@ -177,6 +213,15 @@ describe('LoginForm', () => {
       await wrapper.instance().submitLogin(mockEvent);
 
       expect(mockUserWarning).toHaveBeenCalled();
+    })
+
+    it('should call submitLogin on submit', () => {
+      const mockSubmitLogin = jest.fn();
+      wrapper.instance().submitLogin = mockSubmitLogin
+
+      wrapper.find('.login-form').simulate('submit', mockEvent);
+
+      expect(mockSubmitLogin).toHaveBeenCalled();
     })
 
   });
