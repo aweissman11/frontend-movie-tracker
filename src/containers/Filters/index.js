@@ -45,8 +45,6 @@ export class Filters extends Component {
         {year}
       </li>)
     })
-
-
   }
   
   getRatingOptions = () => {

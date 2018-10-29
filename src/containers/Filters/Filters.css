@@ -12,8 +12,9 @@
 .year-filter,
 .rating-filter,
 .sort-filter {
- position: relative;
- margin-left: 2rem;
+  position: relative;
+  margin-left: 2rem;
+  z-index: 9;
 }
 
 .genre-filter:hover,
@@ -35,7 +36,6 @@
   overflow: hidden;
   transition: .2s;
   background: #fff;
-  z-index: 9;
 }
 
 .genre-list.deployed,
@@ -43,4 +43,8 @@
 .rating-list.deployed,
 .sort-list.deployed {
   height: 300%;
+}
+
+.filter li {
+  z-index: 9;
 }
