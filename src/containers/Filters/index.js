@@ -23,7 +23,12 @@ export class Filters extends Component {
 
   getGenreOptions = () => {
     return genres.map( genre => {
-      return (<option key={genre.id} value={genre.id} >{genre.name}</option>)
+      return (<li 
+        key={genre.id} 
+        onClick={(e) => {this.handleSelect(e, 'genre')}}
+      >
+        {genre.name}
+      </li>)
     })
   }
   
@@ -33,13 +38,25 @@ export class Filters extends Component {
       years.push(2019 - i)
     }
     return years.map( year => {
-      return (<option key={year} value={year} >{year}</option>)
+      return (<li 
+        key={year} 
+        onClick={(e) => {this.handleSelect(e, 'year')}}
+      >
+        {year}
+      </li>)
     })
+
+
   }
   
   getRatingOptions = () => {
     return ratings.map( rating => {
-      return (<option key={rating.certification} value={rating.certification} >{rating.certification}</option>)
+      return (<li 
+        key={rating.certification} 
+        onClick={(e) => {this.handleSelect(e, 'rating')}}
+      >
+        {rating.certification}
+      </li>)
     })
     
   }
@@ -48,7 +65,6 @@ export class Filters extends Component {
     return sortOptions.map( sortOption => {
       return (<li 
         key={sortOption.value} 
-        value={sortOption.value} 
         onClick={(e) => {this.handleSelect(e, 'sort')}}
       >
         {sortOption.text}
@@ -57,8 +73,13 @@ export class Filters extends Component {
   }
 
   handleSelect = (e, name) => {
-    e.preventDefault();
-    this.setState({ [name]: e.target.value});
+    this.setState({ 
+      [name]: e.target.innerText,
+      genreState: '',
+      yearState: '',
+      ratingState: '',
+      sortState: ''
+    });
   }
 
   handleSubmitFilters = () => {
