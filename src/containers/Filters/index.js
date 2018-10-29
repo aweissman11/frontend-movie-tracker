@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { genres, ratings, sortOptions } from './filtersInfo';
 import { getMovieList } from '../../actions/thunkActions/FiltersThunk';
 
+import './Filters.css';
+
 export class Filters extends Component {
   constructor() {
     super()
@@ -11,7 +13,11 @@ export class Filters extends Component {
       genre: null,
       year: null,
       rating: null,
-      sort: null
+      sort: null,
+      genreState: '',
+      yearState: '',
+      ratingState: '',
+      sortState: ''
     }
   }
 
@@ -40,44 +46,94 @@ export class Filters extends Component {
   
   getSortOptions = () => {
     return sortOptions.map( sortOption => {
-      return (<option key={sortOption.value} value={sortOption.value} >{sortOption.text}</option>)
+      return (<li 
+        key={sortOption.value} 
+        value={sortOption.value} 
+        onClick={(e) => {this.handleSelect(e, 'sort')}}
+      >
+        {sortOption.text}
+      </li>)
     })
   }
 
-  handleSelect = (e) => {
+  handleSelect = (e, name) => {
     e.preventDefault();
-    const { name, value } = e.target;
-    this.setState({ [name]: value});
+    this.setState({ [name]: e.target.value});
   }
 
-  handleSubmitFilters = (e) => {
-    e.preventDefault();
+  handleSubmitFilters = () => {
     this.props.setFetchedMovies(this.state)
+  }
+
+  deployList = (e) => {
+    this.setState({
+      genreState: '',
+      yearState: '',
+      ratingState: '',
+      sortState: ''
+    })
+    this.setState({
+      [e.target.id]: 'deployed'
+    })
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmitFilters}>
-        <h1>Filters</h1>
-        <select onChange={this.handleSelect} name='genre' className='genre-slct'>
-          <option value={null}>GENRE</option>
-          {this.getGenreOptions()}
-        </select>
-        <select onChange={this.handleSelect} name='year' className='year-slct'>
-          <option value={null}>YEAR</option>
-          {this.getYearOptions()}
-        </select>
-        <select onChange={this.handleSelect} name='rating' className='rating-slct'>
-          <option value={null}>RATING</option>
-          {this.getRatingOptions()}
-        </select>
-        <span>Sort by:</span>
-        <select onChange={this.handleSelect} name='sort' className='sort-by-slct'>
-          <option value={null}>SORT BY</option>
-          {this.getSortOptions()}
-        </select>
-        <input type='submit' />
-      </form>
+      <aside className='filters'>
+        <section className='genre-filter'>
+          <h3 
+            className='genre-slct'
+            onClick={(e) => {this.deployList(e)}}
+            id='genreState'
+          >
+            {this.state.genre || 'genre'}
+          </h3>
+          <ul className={`${this.state.genreState} genre-list`}>
+            {this.getGenreOptions()}
+          </ul>
+        </section>
+        <section className='year-filter'>
+          <h3
+            className='year-slct'
+            onClick={(e) => {this.deployList(e)}}
+            id='yearState'
+          >
+            {this.state.year || 'year'}
+          </h3>
+          <ul className={`${this.state.yearState} year-list`}>
+            {this.getYearOptions()}
+          </ul>
+        </section>
+        <section className='rating-filter'>
+         <h3
+            className='rating-slct'
+            onClick={(e) => {this.deployList(e)}}
+            id='ratingState'
+          >
+            {this.state.rating || 'rating'}
+          </h3>
+          <ul className={`${this.state.ratingState} rating-list`}>
+            {this.getRatingOptions()}
+          </ul>
+        </section>
+        <section className='sort-filter'>
+          <h3
+            className='sort-by-slct'
+            onClick={(e) => {this.deployList(e)}}
+            id='sortState'
+          >{this.state.sort || 'sort-by'}
+          </h3>
+          <ul className={`${this.state.sortState} sort-list`}>
+            {this.getSortOptions()}
+          </ul>
+        </section>
+        <button
+          className='filter-submit'
+          onClick={this.handleSubmitFilters}
+        >
+          Submit
+        </button>
+      </aside>
     )
   }
 }

@@ -1,0 +1,46 @@
+.filters {
+  display: flex;
+}
+
+.filters ul {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.genre-filter,
+.year-filter,
+.rating-filter,
+.sort-filter {
+ position: relative;
+ margin-left: 2rem;
+}
+
+.genre-filter:hover,
+.year-filter:hover,
+.rating-filter:hover,
+.sort-filter:hover {
+  cursor: pointer;
+}
+
+
+.genre-list,
+.year-list,
+.rating-list,
+.sort-list {
+  position: absolute;
+  left: 0;
+  height: 0;
+  top: 50px;
+  overflow: hidden;
+  transition: .2s;
+  background: #fff;
+  z-index: 9;
+}
+
+.genre-list.deployed,
+.year-list.deployed,
+.rating-list.deployed,
+.sort-list.deployed {
+  height: 300%;
+}
