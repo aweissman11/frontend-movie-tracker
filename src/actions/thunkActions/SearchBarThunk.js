@@ -1,11 +1,10 @@
 import * as Cleaners from '../../utilities/cleaners';
 import fetchCall from '../../utilities/fetchCall';
 
-export const getMovieList = (query) => {
+export const getMovieList = (filterProperties, searchQuery) => {
   return async (dispatch) => {
     try {
-      console.log('query:', query);
-      const movies = await fetchCall(Cleaners.getSearchUrl(query));
+      const movies = await fetchCall(Cleaners.getFullUrl(filterProperties, searchQuery));
       dispatch({
         type: 'GET_MOVIE_LIST',
         movies: movies
