@@ -18,7 +18,7 @@ export class SearchBar extends Component {
     })
   }
 
-  handleSubmitSearch = async (e) => {
+  handleSubmitSearch = (e) => {
     e.preventDefault();
     this.props.setFetchedMovies(this.state.searchInput)
   }
@@ -46,6 +46,7 @@ export class SearchBar extends Component {
   }
 }
 
+//test this
 export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
 });
