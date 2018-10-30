@@ -108,7 +108,7 @@ export class LoginForm extends Component {
           <i className="fab fa-facebook login-social"></i>
           <i className="fab fa-twitter login-social"></i>
         </section>
-        <Link to='/release-date'>
+        <Link to='/movies'>
           <button className='skip-login'>skip login</button>
         </Link>
         <div className={`login-error-wrapper ${this.state.loginError}`}>
