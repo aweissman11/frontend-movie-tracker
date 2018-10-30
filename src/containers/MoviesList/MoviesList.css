@@ -209,6 +209,8 @@
   background-size: contain;
 }
 
+/* -- MEDIA QUERIES -- */
+
 @media (max-width: 1080px) {
   .movies-list {
     grid-template-rows: 140px 1fr 50px;

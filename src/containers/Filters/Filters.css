@@ -143,6 +143,10 @@ aside.filters {
   width: 150px;
 }
 
+.filters-mobile li:hover {
+  cursor: pointer;
+}
+
 .filters-mobile .genre-filter,
 .filters-mobile .year-filter,
 .filters-mobile .rating-filter,
