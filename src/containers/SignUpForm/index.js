@@ -24,8 +24,8 @@ export class SignUpForm extends Component {
       signUpError: '',
       userDatabaseFetch: userDatabaseFetch,
       activeErrorText: 'email address already registered'
-    };
-  }
+    }
+  };
   
   handleChange = (e) => {
     this.setState({
@@ -39,13 +39,13 @@ export class SignUpForm extends Component {
       activeErrorText: warning
     });
     await setTimeout(this.removeWarning, 5000);
-  }
+  };
   
   removeWarning = () => {
     this.setState({
       signUpError: ''
-    });
-  }
+    })
+  };
   
   createNewUser = async (e) => {
     e.preventDefault();
@@ -69,7 +69,7 @@ export class SignUpForm extends Component {
       this.props.clearError();
       this.props.submitNewUser(name, email, password);
     }
-  }
+  };
 
   render() {
     if (this.state.isLoggedIn) {
@@ -157,7 +157,7 @@ export class SignUpForm extends Component {
       )
     }
   }
-}
+};
 
 const mapStateToProps = (state) => ({
   user: state.user,

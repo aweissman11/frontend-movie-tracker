@@ -16,7 +16,7 @@ export class FavoriteBtn extends Component {
       failed: false,
       notLoggedIn: false
     }
-  }
+  };
 
   favorited = '';
 
@@ -33,13 +33,13 @@ export class FavoriteBtn extends Component {
 
       this.setTimeout(this.clearFailedFav, 5000);
     }
-  }
+  };
 
   clearFailedFav = () => {
     this.setState({
       failed: false
     })
-  }
+  };
 
   callRemoveFavorite = async (user, movieId, favorites) => {
     await this.removeFavorite(user.id, movieId);
@@ -63,17 +63,17 @@ export class FavoriteBtn extends Component {
         await this.callRemoveFavorite(user, movieId, favorites)
       }
     }
-  }
+  };
 
   clearNotLoggedIn = () => {
     this.setState({
       notLoggedIn: false
     })
-  }
+  };
 
   removeFavorite = async (userId, movieId) => {
     await this.state.userDataBaseFetch.removeFavorite(userId, movieId)
-  }
+  };
 
   getPosterPath = (posterPath) => {
     if (!posterPath) {
@@ -82,7 +82,7 @@ export class FavoriteBtn extends Component {
     } else {
       return `https://image.tmdb.org/t/p/w400_and_h600_bestv2${posterPath}`
     }
-  }
+  };
   
   formatFavorite = (movies, user, movieId) => {
     const movie = movies.filter( movie => movie.id === movieId)[0]
@@ -96,7 +96,7 @@ export class FavoriteBtn extends Component {
       overview: movie.overview,
       genre_ids: movie.genre_ids
     }
-  }
+  };
 
   render() {
     if (this.props.favorites.find((film => film.movie_id === this.props.movieId))) {
@@ -115,7 +115,7 @@ export class FavoriteBtn extends Component {
       </div>
     )
   }
-}
+};
 
 export const mapStateToProps = ({movies, user, favorites}) => ({movies, user, favorites});
 

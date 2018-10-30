@@ -25,7 +25,7 @@ export class Filters extends Component {
       sortState: '',
       mobileDisplay: false
     }
-  }
+  };
 
   getGenreOptions = () => {
     return genres.map( genre => {
@@ -37,7 +37,7 @@ export class Filters extends Component {
         {genre.name}
       </li>)
     })
-  }
+  };
   
   getYearOptions = () => {
     let years = [];
@@ -63,8 +63,7 @@ export class Filters extends Component {
         {rating.certification}
       </li>)
     })
-    
-  }
+  };
   
   getSortOptions = () => {
     return sortOptions.map( sortOption => {
@@ -76,7 +75,7 @@ export class Filters extends Component {
         {sortOption.text}
       </li>)
     })
-  }
+  };
 
   handleSelect = (e, name) => {
     if (e.target.value && name === 'genre') {
@@ -106,7 +105,7 @@ export class Filters extends Component {
         sortState: ''
       });
     }
-  }
+  };
 
   handleSubmitFilters = (e) => {
     e.preventDefault();
@@ -120,7 +119,7 @@ export class Filters extends Component {
     this.props.setFilters(filters);    
     this.props.setFetchedMovies(filters, this.props.searchQuery);
     this.props.hideFilterModal(false);
-  }
+  };
 
   deployList = (e) => {
     if (e.target.id === this.state.selected) {
@@ -135,7 +134,7 @@ export class Filters extends Component {
         selected: e.target.id
       });
     }
-  }
+  };
 
   clearFilters = async () => {
     const mockEvent = {preventDefault: () => {}}
@@ -153,7 +152,7 @@ export class Filters extends Component {
     });
 
     this.handleSubmitFilters(mockEvent);
-  }
+  };
 
   render() {
     return (
@@ -302,12 +301,12 @@ export class Filters extends Component {
       </aside>
     )
   }
-}
+};
 
 export const mapStateToProps = (state) => ({
   filters: state.filters,
   searchQuery: state.searchQuery
-})
+});
 
 export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (filters, searchQuery) => dispatch(getMovieList(filters, searchQuery)),

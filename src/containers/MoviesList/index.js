@@ -11,7 +11,7 @@ import Filters from '../../containers/Filters';
 import ShowFavoritesBtn from '../ShowFavoritesBtn';
 import PropTypes from 'prop-types';
 
-import './MoviesList.css'
+import './MoviesList.css';
 
 
 export class MoviesList extends Component {
@@ -31,7 +31,7 @@ export class MoviesList extends Component {
         user: this.props.user
       }));
     }
-  }
+  };
   
   getMovies = () => {
     if (this.props.movies.results) {
@@ -41,7 +41,7 @@ export class MoviesList extends Component {
     } else {
       return '';
     }
-  }
+  };
 
   render() {
       return (
@@ -86,7 +86,7 @@ export class MoviesList extends Component {
         </div>
     );
   }
-}
+};
 
 
 export const mapStateToProps = (state) => ({

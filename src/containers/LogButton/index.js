@@ -10,7 +10,7 @@ export class LogButton extends Component {
     this.props.logOut();
     this.props.removeFavorites();
     localStorage.removeItem('userInfo') 
-  }
+  };
   
   render() {
     return (
@@ -29,16 +29,16 @@ export class LogButton extends Component {
       </NavLink>
     )
   }
-}
+};
 
 export const mapStateToProps = (state) => ({
   user: state.user
-})
+});
 
 export const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logUserOut()),
   removeFavorites: () => dispatch(setFavorites())
-})
+});
 
 LogButton.propTypes = {
   user: PropTypes.object,
