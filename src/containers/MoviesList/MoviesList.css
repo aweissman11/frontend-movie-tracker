@@ -24,7 +24,6 @@
   width: 200px;
   position: relative;
   margin: 0 33px;
-  z-index: 1;
 }
 
 .single-movie-wrapper img {
@@ -211,7 +210,7 @@
     grid-template-columns: 1fr 1fr;
     height: 140px;
   }
-  .movies-list header aside {
+  .movies-list .header-wrapper .filter-wrapper {
     grid-column: 1/3;
     grid-row: 2;
   }

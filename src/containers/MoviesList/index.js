@@ -66,7 +66,9 @@ export class MoviesList extends Component {
                   filter
                 </button>
               </section>
-              <Filters />
+              <div className={`filter-wrapper ${this.state.displayFilter}`}>
+                <Filters />
+              </div>
               <SearchBar />
             </section>
           </header>

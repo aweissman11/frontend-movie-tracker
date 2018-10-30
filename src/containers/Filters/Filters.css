@@ -1,5 +1,4 @@
-.filters {
-
+aside.filters {
 }
 
 .filters-desktop {
@@ -124,12 +123,27 @@
 }
 
 .filters-mobile {
+  width: 100vw;
   display: none;
+  transition: .4s;
+  position: absolute;
+  background: #fff;
+  z-index: 9;
 }
 
 
 @media (max-width: 510px) {
   .filters-desktop {
     display: none;
+  }
+
+  .filters-mobile {
+    display: block;
+    top: 0;
+    left: -200%;
+  }
+
+  .filter-wrapper.true .filters-mobile {
+    left: 0;
   }
 }
