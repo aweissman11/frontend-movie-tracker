@@ -183,6 +183,11 @@
 }
 
 /* -- MOVIE FAVORITE BUTTON -- */
+
+.button-component-wrapper {
+  position: relative;
+}
+
 .single-movie-wrapper .favorite-btn-wrapper {
   position: absolute;
   right: 5px;
@@ -216,6 +221,25 @@
 .favorite-btn.favorited {
   background: url(./images/star-favorited.png);
   background-size: contain;
+}
+
+.not-logged-in-warning {
+  font-family: 'Open Sans', sans-serif;
+  color: #6CC4EE;
+  position: absolute;
+  top: -35px;
+  left: -130px;
+  width: 130px;
+  font-size: 12px;
+  height: 0;
+  transition: .3s;
+  opacity: 0;
+  margin: 0;
+}
+
+.not-logged-in-warning.true {
+  opacity: 1;
+  height: 100%;
 }
 
 /* -- MEDIA QUERIES -- */

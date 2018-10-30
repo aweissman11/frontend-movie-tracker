@@ -124,6 +124,33 @@ describe('FavoriteBtn', () => {
 
       expect(mockSetFavorites).toHaveBeenCalledWith([formatedMovie, formatedMovie]);   
     });
+
+    it('should call setState on a catch', () => {
+      mockAddFavorite = jest.fn().mockImplementation(() => {
+        return Promise.reject({})
+      });
+      wrapper.instance().clearFailedFav = jest.fn();
+
+      wrapper.setState({
+        userDataBaseFetch: {addFavorite: mockAddFavorite}
+      });
+
+      wrapper.instance().callAddFavorite();
+
+      expect(wrapper.state().failed).toEqual(true);
+    });
+  });
+
+  describe('clearFailedFav', () => {
+    it('should call setState', () => {
+      wrapper.setState({
+        failed: true
+      });
+
+      wrapper.instance().clearFailedFav();
+
+      expect(wrapper.state().failed).toEqual(false);
+    });
   });
 
   describe('callRemoveFavorite', () => {
@@ -154,6 +181,18 @@ describe('FavoriteBtn', () => {
       expect(wrapper.state().isFavorite).toEqual(false);
     })
 
+  });
+
+  describe('clearNotLoggedIn', () => {
+    it('should set state', () => {
+      wrapper.setState({
+        notLoggedIn: true
+      });
+
+      wrapper.instance().clearNotLoggedIn()
+
+      expect(wrapper.state().notLoggedIn).toEqual(false)
+    });
   });
 
   describe('toggleFavorite', () => {
