@@ -23,9 +23,13 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Connect(FavoriteBtn)
-          movieId="100"
-        />,
+        <div
+          className="favorite-btn-wrapper"
+        >
+          <Connect(FavoriteBtn)
+            movieId="100"
+          />
+        </div>,
         <img
           alt="test-title"
           src="https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path"
@@ -48,13 +52,26 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "host",
         "props": Object {
-          "movieId": "100",
+          "children": <Connect(FavoriteBtn)
+            movieId="100"
+          />,
+          "className": "favorite-btn-wrapper",
         },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "movieId": "100",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -120,9 +137,13 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Connect(FavoriteBtn)
-            movieId="100"
-          />,
+          <div
+            className="favorite-btn-wrapper"
+          >
+            <Connect(FavoriteBtn)
+              movieId="100"
+            />
+          </div>,
           <img
             alt="test-title"
             src="https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path"
@@ -145,13 +166,26 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "host",
           "props": Object {
-            "movieId": "100",
+            "children": <Connect(FavoriteBtn)
+              movieId="100"
+            />,
+            "className": "favorite-btn-wrapper",
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "movieId": "100",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
         },
         Object {
           "instance": null,

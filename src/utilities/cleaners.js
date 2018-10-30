@@ -23,7 +23,7 @@ export const getMoviePosterUrl = (movies) => {
 
 export const today = getTodaysDate()
 
-export const movieListUrl = fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}&append_to_response=videos`)
+export const movieListUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}&append_to_response=videos`
 
 export const getFavoritesInfo = async (IDs) => {
   return Promise.all(IDs.map( async (id) => {
@@ -42,10 +42,8 @@ export const getFullUrl = (filterProperties, searchQuery) => {
   const today = getTodaysDate();
 
   if (searchQuery.length < 1) {
-    console.log('if')
     url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US?primary_release_date.lte=${today}&sort_by=popularity.desc`
   } else {
-    console.log('else')
     url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
   }
   

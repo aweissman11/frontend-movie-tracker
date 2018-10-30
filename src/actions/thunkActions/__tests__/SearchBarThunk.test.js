@@ -1,7 +1,7 @@
 import { getMovieList } from '../SearchBarThunk'
 import { isLoading, setHasErrored, setMovieList, setIsOk } from '../../index'
 
-describe('FiltersThunk', () => {
+describe('SearchBarThunk', () => {
   let mockDispatch
   let filterProperties
   let searchQuery
@@ -43,8 +43,8 @@ it('should dispatch isLoading(false) if the response is ok', async () => {
   const mockDispatch = jest.fn()
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      ok: true,
-       json: () => Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({
         movies: []
       })
     }))
@@ -57,20 +57,15 @@ it('should dispatch isLoading(false) if the response is ok', async () => {
   })
 
   it('should dispatch getMovieList if the response is ok', async () => {
-    const movies = {title: 'Back To The Future'}
-
+    const movies = [{title: 'Back To The Future'}]
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
-       json: () => Promise.resolve({
-        movies: movies
-      })
+      json: () => Promise.resolve(movies)
     }))
-
-    const thunk = getMovieList()
+    const thunk = getMovieList(filterProperties, searchQuery)
 
     await thunk(mockDispatch)
 
     expect(mockDispatch).toHaveBeenCalledWith(setMovieList(movies))
   })
-
 })

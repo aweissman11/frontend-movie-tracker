@@ -125,6 +125,13 @@ ShallowWrapper {
             email address already registered
           </p>
         </div>,
+        <div
+          className="email-in-use-error undefined"
+        >
+          <p>
+            there is already an account linked to this email
+          </p>
+        </div>,
       ],
       "className": "sign-up-form undefined",
       "onSubmit": [Function],
@@ -375,6 +382,30 @@ ShallowWrapper {
         },
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <p>
+            there is already an account linked to this email
+          </p>,
+          "className": "email-in-use-error undefined",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "there is already an account linked to this email",
+          },
+          "ref": null,
+          "rendered": "there is already an account linked to this email",
+          "type": "p",
+        },
+        "type": "div",
+      },
     ],
     "type": "form",
   },
@@ -473,6 +504,13 @@ ShallowWrapper {
           >
             <p>
               email address already registered
+            </p>
+          </div>,
+          <div
+            className="email-in-use-error undefined"
+          >
+            <p>
+              there is already an account linked to this email
             </p>
           </div>,
         ],
@@ -721,6 +759,30 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": "email address already registered",
+            "type": "p",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <p>
+              there is already an account linked to this email
+            </p>,
+            "className": "email-in-use-error undefined",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "there is already an account linked to this email",
+            },
+            "ref": null,
+            "rendered": "there is already an account linked to this email",
             "type": "p",
           },
           "type": "div",

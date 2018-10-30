@@ -111,15 +111,13 @@ describe('SignUpForm', () => {
       expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
     });
 
-    it.skip('should call handleChange on confirm password input', () => {
-      const mockHandleChange = jest.fn().mockImplementation(() => {
-      });
-
-      wrapper.instance().handleChange = mockHandleChange;
+    it.only('should call handleChange on confirm password input', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange')
+      wrapper.instance().forceUpdate()
 
       wrapper.find('.password-confirm-input').simulate('change', mockEvent);
 
-      expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
+      expect(spy).toHaveBeenCalledWith(mockEvent);
     });
 
     it.skip('should call handleChange on name input', () => {
