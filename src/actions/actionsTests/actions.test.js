@@ -143,4 +143,19 @@ describe('actions', () => {
     
     expect(result).toEqual(expected)
   })
+
+  it('should have a type of DEPLOY_FILTER_MODAL', () => {
+
+    const bool = true
+
+    const expected = {
+      type: 'DEPLOY_FILTER_MODAL', 
+      status: true
+    }
+
+    const result = Actions.deployFilterModal(bool)
+
+    expect(result).toEqual(expected)
+  })
+
 })

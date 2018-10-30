@@ -25,7 +25,7 @@ it('should dispatch Error if the response is not ok', async () => {
     }))
 
     mockDispatch = jest.fn().mockImplementation(() => {
-      return {"movies": "failed", "type": "SET_MOVIE_LIST"}
+      return 'failed'
     })
 
     const thunk = getMovieList(mockFilter)

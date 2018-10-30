@@ -65,8 +65,18 @@ ShallowWrapper {
             >
               <Connect(LogButton) />
               <Connect(ShowFavoritesBtn) />
+              <button
+                className="display-filter"
+                onClick={[Function]}
+              >
+                filter
+              </button>
             </section>
-            <Connect(Filters) />
+            <div
+              className="filter-wrapper undefined"
+            >
+              <Connect(Filters) />
+            </div>
             <Connect(SearchBar) />
           </section>
         </header>,
@@ -131,8 +141,18 @@ ShallowWrapper {
             >
               <Connect(LogButton) />
               <Connect(ShowFavoritesBtn) />
+              <button
+                className="display-filter"
+                onClick={[Function]}
+              >
+                filter
+              </button>
             </section>
-            <Connect(Filters) />
+            <div
+              className="filter-wrapper undefined"
+            >
+              <Connect(Filters) />
+            </div>
             <Connect(SearchBar) />
           </section>,
         },
@@ -148,8 +168,18 @@ ShallowWrapper {
               >
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
+                <button
+                  className="display-filter"
+                  onClick={[Function]}
+                >
+                  filter
+                </button>
               </section>,
-              <Connect(Filters) />,
+              <div
+                className="filter-wrapper undefined"
+              >
+                <Connect(Filters) />
+              </div>,
               <Connect(SearchBar) />,
             ],
             "className": "header-wrapper",
@@ -164,6 +194,12 @@ ShallowWrapper {
                 "children": Array [
                   <Connect(LogButton) />,
                   <Connect(ShowFavoritesBtn) />,
+                  <button
+                    className="display-filter"
+                    onClick={[Function]}
+                  >
+                    filter
+                  </button>,
                 ],
                 "className": "left-side-header-btns",
               },
@@ -187,17 +223,41 @@ ShallowWrapper {
                   "rendered": null,
                   "type": [Function],
                 },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "filter",
+                    "className": "display-filter",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "filter",
+                  "type": "button",
+                },
               ],
               "type": "section",
             },
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
-              "props": Object {},
+              "nodeType": "host",
+              "props": Object {
+                "children": <Connect(Filters) />,
+                "className": "filter-wrapper undefined",
+              },
               "ref": null,
-              "rendered": null,
-              "type": [Function],
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
             },
             Object {
               "instance": null,
@@ -474,8 +534,18 @@ ShallowWrapper {
               >
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
+                <button
+                  className="display-filter"
+                  onClick={[Function]}
+                >
+                  filter
+                </button>
               </section>
-              <Connect(Filters) />
+              <div
+                className="filter-wrapper undefined"
+              >
+                <Connect(Filters) />
+              </div>
               <Connect(SearchBar) />
             </section>
           </header>,
@@ -540,8 +610,18 @@ ShallowWrapper {
               >
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
+                <button
+                  className="display-filter"
+                  onClick={[Function]}
+                >
+                  filter
+                </button>
               </section>
-              <Connect(Filters) />
+              <div
+                className="filter-wrapper undefined"
+              >
+                <Connect(Filters) />
+              </div>
               <Connect(SearchBar) />
             </section>,
           },
@@ -557,8 +637,18 @@ ShallowWrapper {
                 >
                   <Connect(LogButton) />
                   <Connect(ShowFavoritesBtn) />
+                  <button
+                    className="display-filter"
+                    onClick={[Function]}
+                  >
+                    filter
+                  </button>
                 </section>,
-                <Connect(Filters) />,
+                <div
+                  className="filter-wrapper undefined"
+                >
+                  <Connect(Filters) />
+                </div>,
                 <Connect(SearchBar) />,
               ],
               "className": "header-wrapper",
@@ -573,6 +663,12 @@ ShallowWrapper {
                   "children": Array [
                     <Connect(LogButton) />,
                     <Connect(ShowFavoritesBtn) />,
+                    <button
+                      className="display-filter"
+                      onClick={[Function]}
+                    >
+                      filter
+                    </button>,
                   ],
                   "className": "left-side-header-btns",
                 },
@@ -596,17 +692,41 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "filter",
+                      "className": "display-filter",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "filter",
+                    "type": "button",
+                  },
                 ],
                 "type": "section",
               },
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
-                "props": Object {},
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Connect(Filters) />,
+                  "className": "filter-wrapper undefined",
+                },
                 "ref": null,
-                "rendered": null,
-                "type": [Function],
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "div",
               },
               Object {
                 "instance": null,
