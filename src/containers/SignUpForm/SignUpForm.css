@@ -137,7 +137,8 @@
   background: #6CC4EE;
 }
 
-.signup-error-wrapper {
+.signup-error-wrapper,
+.email-in-use-error {
   position: absolute;
   width: 350px;
   top: 400px;
@@ -148,14 +149,42 @@
   opacity: 0;
 }
 
-.signup-error-wrapper p {
+
+
+.signup-error-wrapper p,
+.email-in-use-error p {
   font-size: 12px;
   text-align: center;
 }
 
 .sign-up-error-active {
   opacity: 1;
-  left: 0;
-  right: 0;
+}
+
+.email-in-use-error.true {
+  animation: emailerror 5s linear;
+}
+
+@keyframes emailerror {
+  0% {
+    opacity: 0;
+    right: 0;
+    left: 350px;
+  }
+  10% {
+    opacity: 1;
+    left: 0;
+    right: 0;
+  }
+  90% {
+    opacity: 1;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    opacity: 0;
+    right: 0;
+    left: 350px;
+  }
 }
 
