@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getUserLoggedIn } from '../../actions';
+import { getUserLoggedIn, deployFilterModal } from '../../actions';
 import { getMovieList, updateFavorites } from '../../actions/thunkActions/movieListThunk'
 import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
@@ -14,13 +14,6 @@ import './MoviesList.css'
 
 
 export class MoviesList extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      displayFilter: false
-    }
-  }
 
   componentDidMount() {
     this.props.setFetchedMovies(this.props.movies)
@@ -58,15 +51,14 @@ export class MoviesList extends Component {
                 <LogButton />
                 <ShowFavoritesBtn />
                 <button 
-                  className={`${this.state.displayFilter} display-filter`}
-                  onClick={() => this.setState(
-                    {displayFilter: !this.state.displayFilter}
-                  )}
+                  className='display-filter'
+                  onClick={() => {
+                    this.props.deployFilterModal(true)}}
                 >
                   filter
                 </button>
               </section>
-              <div className={`filter-wrapper ${this.state.displayFilter}`}>
+              <div className={`filter-wrapper ${this.props.filterModalDeployed}`}>
                 <Filters />
               </div>
               <SearchBar />
@@ -102,13 +94,15 @@ export const mapStateToProps = (state) => ({
   favorites: state.favorites,
   notOk: state.notOk,
   hasErrored: state.hasErrored,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  filterModalDeployed: state.deployFilterModal
 });
 
 export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
   setFavorites: (data) => dispatch(updateFavorites(data)),
-  logIn: (id, name) => dispatch(getUserLoggedIn(id, name))
+  logIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
+  deployFilterModal: (bool) => dispatch(deployFilterModal(bool))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);

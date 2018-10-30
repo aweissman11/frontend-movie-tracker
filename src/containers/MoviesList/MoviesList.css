@@ -8,6 +8,7 @@
   align-self: center;
   position: relative;
   display: flex;
+  z-index: -1;
 }
 
 .movies-stripe {
@@ -16,7 +17,7 @@
   width: 100%;
   align-self: center;
   background: #6CC4EE;
-  z-index: 0;
+  z-index: -1;
 }
 
 .single-movie-wrapper {
@@ -58,6 +59,28 @@
   font-size: 14px;
 }
 
+/* -- MODAL BUTTON CLOSE -- */
+.close-modal-btn-wrapper {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.close-modal-btn {
+  height: 30px;
+  width: 30px;
+  transition: .3s;
+}
+
+.close-modal-btn-wrapper:hover .close-modal-btn {
+  transform: rotate(90deg);
+}
+
+.close-modal-btn-wrapper:hover {
+  cursor: pointer;
+}
+
+
 /* -- MOVIE SCROLL FOOTER -- */
 
 .movies-list footer {
@@ -77,6 +100,7 @@
   height: 50px;
   display: flex;
   align-items: center;
+  z-index: -1;
 }
 
 .logo-footer-section {

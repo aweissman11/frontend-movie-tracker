@@ -10,6 +10,7 @@ import searchQueryReducer from './searchQueryReducer';
 import hasErroredReducer from './hasErroredReducer';
 import notOkReducer from './notOkReducer';
 import isLoadingReducer from './isLoadingReducer';
+import deployFilterModalReducer from './deployFilterModalReducer';
 
 export const rootReducer = combineReducers({
   movies: moviesReducer, 
@@ -21,5 +22,6 @@ export const rootReducer = combineReducers({
   searchQuery: searchQueryReducer,
   hasErrored: hasErroredReducer,
   notOk: notOkReducer,
-  isLoading: isLoadingReducer
+  isLoading: isLoadingReducer,
+  deployFilterModal: deployFilterModalReducer
 });

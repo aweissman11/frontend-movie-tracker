@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateFilters } from '../../actions/index';
+import { updateFilters, deployFilterModal } from '../../actions/index';
 import { getMovieList } from '../../actions/thunkActions/FiltersThunk';
 import { genres, ratings, sortOptions } from './filtersInfo';
 
@@ -119,6 +119,7 @@ export class Filters extends Component {
 
     this.props.setFilters(filters);    
     this.props.setFetchedMovies(filters, this.props.searchQuery);
+    this.props.hideFilterModal(false);
   }
 
   deployList = (e) => {
@@ -221,6 +222,21 @@ export class Filters extends Component {
 
 
         <section className='filters-mobile'>
+          <h2 className='modal-filter-label'>
+            Filter movies by category
+          </h2>
+          <div 
+            className='close-modal-btn-wrapper'
+            onClick={() => {
+              this.props.hideFilterModal(false);
+            }}
+          >
+            <img 
+              className='close-modal-btn'
+              alt='close-btn'
+              src='./cancel.png'
+            />
+          </div>
           <section className='genre-filter'>
             <h3 
               className='genre-slct'
@@ -268,18 +284,20 @@ export class Filters extends Component {
               {this.getSortOptions()}
             </ul>
           </section>
-          <button
-            className='filter-submit'
-            onClick={this.handleSubmitFilters}
-          >
-            submit
-          </button>
-          <button 
-            className='filter-clear'
-            onClick={this.clearFilters}
-          >
-            clear
-          </button>
+          <section className='modal-buttons'>
+            <button
+              className='filter-submit'
+              onClick={this.handleSubmitFilters}
+            >
+              submit
+            </button>
+            <button 
+              className='filter-clear'
+              onClick={this.clearFilters}
+            >
+              clear
+            </button>
+          </section>
         </section>
       </aside>
     )
@@ -293,7 +311,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (filters, searchQuery) => dispatch(getMovieList(filters, searchQuery)),
-  setFilters: (filters) => dispatch(updateFilters(filters))
+  setFilters: (filters) => dispatch(updateFilters(filters)),
+  hideFilterModal: (bool) => dispatch(deployFilterModal(bool))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);

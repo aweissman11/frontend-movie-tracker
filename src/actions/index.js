@@ -70,3 +70,10 @@ export const isLoading = (bool) => {
     isLoading: bool
   }
 }
+
+export const deployFilterModal = (bool) => {
+  return {
+    type: 'DEPLOY_FILTER_MODAL',
+    status: bool
+  }
+}
