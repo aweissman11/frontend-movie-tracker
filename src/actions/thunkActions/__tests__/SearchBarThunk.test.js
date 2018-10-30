@@ -2,16 +2,23 @@ import { getMovieList } from '../SearchBarThunk'
 import { isLoading, setHasErrored, setMovieList, setIsOk } from '../../index'
 
 describe('FiltersThunk', () => {
-  let mockSearchMovies
   let mockDispatch
+  let filterProperties
+  let searchQuery
 
   beforeEach(() => {
-    mockSearchMovies = jest.fn()
     mockDispatch = jest.fn()
+    filterProperties = {
+      genre: null, 
+      year: null, 
+      sort: null,
+      rating: null
+    }
+    searchQuery = ''
   })
 
   it('calls dispatch with isLoading(true)', () => {
-    const thunk = getMovieList(mockSearchMovies)
+    const thunk = getMovieList(filterProperties, searchQuery)
     
     thunk(mockDispatch)
 
@@ -24,30 +31,46 @@ it('should dispatch Error if the response is not ok', async () => {
       ok: false
     }))
 
-    const thunk = getMovieList(mockSearchMovies)
+    const thunk = getMovieList(filterProperties, searchQuery)
 
     await thunk(mockDispatch)
 
-    expect(mockDispatch).toHaveBeenCalledWith(setHasErrored(true))
+    expect(mockDispatch).toHaveBeenCalledWith(setIsOk(true))
   })
 
-it.skip('should dispatch isLoading(false) if the response is ok', async () => {
+it('should dispatch isLoading(false) if the response is ok', async () => {
 
-  const mockDispatch = jest.fn().mockImplementation(() => {
-    return { "isLoading": false, "type": "IS_LOADING"}
-  })
-
-  console.log(mockDispatch)
+  const mockDispatch = jest.fn()
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      ok: true
+      ok: true,
+       json: () => Promise.resolve({
+        movies: []
+      })
     }))
 
-    const thunk = getMovieList(mockSearchMovies)
+    const thunk = getMovieList(filterProperties, searchQuery)
 
     await thunk(mockDispatch)
 
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
+  })
+
+  it('should dispatch getMovieList if the response is ok', async () => {
+    const movies = {title: 'Back To The Future'}
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+       json: () => Promise.resolve({
+        movies: movies
+      })
+    }))
+
+    const thunk = getMovieList()
+
+    await thunk(mockDispatch)
+
+    expect(mockDispatch).toHaveBeenCalledWith(setMovieList(movies))
   })
 
 })

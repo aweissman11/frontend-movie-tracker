@@ -1,11 +1,12 @@
 import * as Cleaners from '../../utilities/cleaners';
 import { isLoading, setMovieList, setFavorites, setHasErrored, setIsOk } from '../index';
+import fetchCall from '../../utilities/fetchCall';
 
 export const getMovieList = () => {
   return async (dispatch) => {
     dispatch(isLoading(true))
     try {
-      const movies = await Cleaners.movieList
+      const movies = await fetchCall(Cleaners.movieListUrl)
       if (movies === 'failed') {
         dispatch(setIsOk(true))
       }
