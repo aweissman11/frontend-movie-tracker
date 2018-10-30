@@ -51,10 +51,10 @@ aside.filters {
   width: 120px;
 }
 
-.genre-filter:hover,
-.year-filter:hover,
-.rating-filter:hover,
-.sort-filter:hover {
+.genre-filter h3:hover,
+.year-filter h3:hover,
+.rating-filter h3:hover,
+.sort-filter h3:hover {
   cursor: pointer;
 }
 
@@ -67,8 +67,10 @@ aside.filters {
   height: 0;
   top: 50px;
   overflow: hidden;
-  transition: .2s;
+  transition: .3s;
   background: #fff;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .filters-desktop .genre-list {
@@ -91,7 +93,7 @@ aside.filters {
 .filters-desktop .year-list.deployed,
 .filters-desktop .rating-list.deployed,
 .filters-desktop .sort-list.deployed {
-  height: 150%;
+  height: 200%;
   overflow-y: scroll; 
 }
 
@@ -137,6 +139,7 @@ aside.filters {
 
 .filters-mobile li {
   list-style: none;
+  padding-right: 20px;
   width: 150px;
 }
 
@@ -146,9 +149,10 @@ aside.filters {
 .filters-mobile .sort-list {
   position: absolute;
   height: 0;
-  top: 50px;
+  top: 35px;
+  left: -41px;
   overflow: hidden;
-  transition: .2s;
+  transition: .3s;
   background: #fff;
 }
 
@@ -161,7 +165,7 @@ aside.filters {
   position: relative;
   text-align: center;
   box-sizing: border-box;
-  width: 120px;
+  width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,7 +177,7 @@ aside.filters {
 .filters-mobile .sort-list.deployed {
   background: #fff;
   z-index: 99;
-  height: 150%;
+  height: 500%;
   overflow-y: scroll; 
 }
 
@@ -196,7 +200,7 @@ aside.filters {
   margin: 0 auto;
   width: 200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between
 }
 
 .filters-mobile button:hover {
@@ -210,6 +214,28 @@ aside.filters {
   text-align: center;
   font-size: 20px;
 }
+
+/* -- MODAL BUTTON CLOSE -- */
+.close-modal-btn-wrapper {
+  position: absolute;
+  right: .8rem;
+  top: .8rem;
+}
+
+.close-modal-btn {
+  height: 25px;
+  width: 25px;
+  transition: .3s;
+}
+
+.close-modal-btn-wrapper:hover .close-modal-btn {
+  transform: rotate(90deg);
+}
+
+.close-modal-btn-wrapper:hover {
+  cursor: pointer;
+}
+
 
 @media (max-width: 510px) {
   .filters-desktop {
