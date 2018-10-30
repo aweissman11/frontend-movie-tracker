@@ -143,17 +143,8 @@ aside.filters {
   width: 150px;
 }
 
-.filters-mobile .genre-list,
-.filters-mobile .year-list,
-.filters-mobile .rating-list,
-.filters-mobile .sort-list {
-  position: absolute;
-  height: 0;
-  top: 35px;
-  left: -40px;
-  overflow: hidden;
-  transition: .3s;
-  background: #fff;
+.filters-mobile li:hover {
+  cursor: pointer;
 }
 
 .filters-mobile .genre-filter,
@@ -250,4 +241,17 @@ aside.filters {
   .filter-wrapper.true .filters-mobile {
     left: 0;
   }
+
+  .filters-mobile .genre-list,
+.filters-mobile .year-list,
+.filters-mobile .rating-list,
+.filters-mobile .sort-list {
+  position: absolute;
+  height: 0;
+  top: 35px;
+  left: -40px;
+  overflow: hidden;
+  transition: .3s;
+  background: #fff;
+}
 }

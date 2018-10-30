@@ -36,13 +36,6 @@
   width: 200px;
 }
 
-.single-movie-wrapper .favorite-btn {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  outline: none;
-}
-
 .single-movie-wrapper .movie-poster-text {
   position: absolute;
   top: 300px;
@@ -190,24 +183,42 @@
 }
 
 /* -- MOVIE FAVORITE BUTTON -- */
+.single-movie-wrapper .favorite-btn-wrapper {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  outline: none;
+  background: #000;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%
+}
+
+
 .favorite-btn {
   border: none;
   height: 20px;
   width: 20px;
-  background: url(./images/star-grey.png);
+  background: url(./images/star-grey-outline.png);
   background-size: contain;
   transition: .3s;
+  outline: none;
 }
 
 .favorite-btn:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .favorite-btn.favorited {
   background: url(./images/star-favorited.png);
   background-size: contain;
 }
+
+/* -- MEDIA QUERIES -- */
 
 @media (max-width: 1080px) {
   .movies-list {
@@ -226,12 +237,18 @@
     align-self: start;
     margin-top: 3rem;
   }
-
   header section .left-side-header-btns,
   .search-form {
     width: 300px;
     margin-top: 1rem;
   }
+  .filters-desktop .genre-list.deployed,
+  .filters-desktop .year-list.deployed,
+  .filters-desktop .rating-list.deployed,
+  .filters-desktop .sort-list.deployed {
+    height: 100%;
+    overflow-y: scroll; 
+  } 
 }
 
 @media (max-width: 750px) {

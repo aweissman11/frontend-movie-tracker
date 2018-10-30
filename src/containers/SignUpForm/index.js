@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getUserLoggedIn, displayLogin, isLoading } from '../../actions'
+import { getUserLoggedIn, displayLogin, isLoading, setHasErrored } from '../../actions'
 import { submitNewUser } from '../../actions/thunkActions/SignUpFormThunk';
 
 
@@ -66,7 +66,8 @@ export class SignUpForm extends Component {
       this.userWarning('passwords must match')
       return;
     } else {
-      this.props.submitNewUser(name, email, password)
+      this.props.clearError();
+      this.props.submitNewUser(name, email, password);
     }
   }
 
@@ -149,6 +150,9 @@ export class SignUpForm extends Component {
           <div className={`signup-error-wrapper ${this.state.signUpError}`}>
             <p>{this.state.activeErrorText}</p>
           </div>
+          <div className={`email-in-use-error ${this.props.error}`}>
+            <p>there is already an account linked to this email</p>
+          </div>
         </form>
       )
     }
@@ -157,14 +161,16 @@ export class SignUpForm extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  showSignup: state.showSignup
+  showSignup: state.showSignup,
+  error: state.hasErrored
 })
 
 const mapDispatchToProps = (dispatch) => ({
   logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
   displayLogin: () => dispatch(displayLogin()),
   setIsLoading: (bool) => dispatch(isLoading(bool)),
-  submitNewUser: (name, email, password) => dispatch(submitNewUser(name, email, password))
+  submitNewUser: (name, email, password) => dispatch(submitNewUser(name, email, password)),
+  clearError: () => dispatch(setHasErrored(false))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
