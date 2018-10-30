@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getUserLoggedIn } from '../../actions'
-import { displayLogin } from '../../actions';
 import PropTypes from 'prop-types';
 
 import { getUserLoggedIn, displayLogin, isLoading } from '../../actions'
