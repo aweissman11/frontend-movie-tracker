@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { updateFilters } from '../../actions/index';
+import { updateFilters, deployFilterModal } from '../../actions/index';
 import { getMovieList } from '../../actions/thunkActions/FiltersThunk';
 import { genres, ratings, sortOptions } from './filtersInfo';
 
@@ -22,7 +22,8 @@ export class Filters extends Component {
       genreState: '',
       yearState: '',
       ratingState: '',
-      sortState: ''
+      sortState: '',
+      mobileDisplay: false
     }
   }
 
@@ -119,14 +120,22 @@ export class Filters extends Component {
 
     this.props.setFilters(filters);    
     this.props.setFetchedMovies(filters, this.props.searchQuery);
+    this.props.hideFilterModal(false);
   }
 
   deployList = (e) => {
-    this.setState({
-      [this.state.selected]: '',
-      [e.target.id]: 'deployed',
-      selected: e.target.id
-    });
+    if (e.target.id === this.state.selected) {
+      this.setState({
+        selected: null,
+        [e.target.id]: ''
+      })
+    } else {
+      this.setState({
+        [this.state.selected]: '',
+        [e.target.id]: 'deployed',
+        selected: e.target.id
+      });
+    }
   }
 
   clearFilters = async () => {
@@ -150,65 +159,147 @@ export class Filters extends Component {
   render() {
     return (
       <aside className='filters'>
-        <section className='genre-filter'>
-          <h3 
-            className='genre-slct'
-            onClick={(e) => {this.deployList(e)}}
-            id='genreState'
+        <section className='filters-desktop'>
+          <section className='genre-filter'>
+            <h3 
+              className='genre-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='genreState'
+            >
+              {this.state.genreName || 'genre'}
+            </h3>
+            <ul className={`${this.state.genreState} genre-list`}>
+              {this.getGenreOptions()}
+            </ul>
+          </section>
+          <section className='year-filter'>
+            <h3
+              className='year-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='yearState'
+            >
+              {this.state.year || 'year'}
+            </h3>
+            <ul className={`${this.state.yearState} year-list`}>
+              {this.getYearOptions()}
+            </ul>
+          </section>
+          <section className='rating-filter'>
+           <h3
+              className='rating-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='ratingState'
+            >
+              {this.state.rating || 'rating'}
+            </h3>
+            <ul className={`${this.state.ratingState} rating-list`}>
+              {this.getRatingOptions()}
+            </ul>
+          </section>
+          <section className='sort-filter'>
+            <h3
+              className='sort-by-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='sortState'
+            >{this.state.sortName || 'sort-by'}
+            </h3>
+            <ul className={`${this.state.sortState} sort-list`}>
+              {this.getSortOptions()}
+            </ul>
+          </section>
+          <button
+            className='filter-submit'
+            onClick={this.handleSubmitFilters}
           >
-            {this.state.genreName || 'genre'}
-          </h3>
-          <ul className={`${this.state.genreState} genre-list`}>
-            {this.getGenreOptions()}
-          </ul>
-        </section>
-        <section className='year-filter'>
-          <h3
-            className='year-slct'
-            onClick={(e) => {this.deployList(e)}}
-            id='yearState'
+            submit
+          </button>
+          <button 
+            className='filter-clear'
+            onClick={this.clearFilters}
           >
-            {this.state.year || 'year'}
-          </h3>
-          <ul className={`${this.state.yearState} year-list`}>
-            {this.getYearOptions()}
-          </ul>
+            clear
+          </button>
         </section>
-        <section className='rating-filter'>
-         <h3
-            className='rating-slct'
-            onClick={(e) => {this.deployList(e)}}
-            id='ratingState'
+
+
+        <section className='filters-mobile'>
+          <h2 className='modal-filter-label'>
+            Filter movies by category
+          </h2>
+          <div 
+            className='close-modal-btn-wrapper'
+            onClick={() => {
+              this.props.hideFilterModal(false);
+            }}
           >
-            {this.state.rating || 'rating'}
-          </h3>
-          <ul className={`${this.state.ratingState} rating-list`}>
-            {this.getRatingOptions()}
-          </ul>
+            <img 
+              className='close-modal-btn'
+              alt='close-btn'
+              src='./cancel.png'
+            />
+          </div>
+          <section className='genre-filter'>
+            <h3 
+              className='genre-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='genreState'
+            >
+              {this.state.genreName || 'genre'}
+            </h3>
+            <ul className={`${this.state.genreState} genre-list`}>
+              {this.getGenreOptions()}
+            </ul>
+          </section>
+          <section className='year-filter'>
+            <h3
+              className='year-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='yearState'
+            >
+              {this.state.year || 'year'}
+            </h3>
+            <ul className={`${this.state.yearState} year-list`}>
+              {this.getYearOptions()}
+            </ul>
+          </section>
+          <section className='rating-filter'>
+           <h3
+              className='rating-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='ratingState'
+            >
+              {this.state.rating || 'rating'}
+            </h3>
+            <ul className={`${this.state.ratingState} rating-list`}>
+              {this.getRatingOptions()}
+            </ul>
+          </section>
+          <section className='sort-filter'>
+            <h3
+              className='sort-by-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='sortState'
+            >{this.state.sortName || 'sort-by'}
+            </h3>
+            <ul className={`${this.state.sortState} sort-list`}>
+              {this.getSortOptions()}
+            </ul>
+          </section>
+          <section className='modal-buttons'>
+            <button
+              className='filter-submit'
+              onClick={this.handleSubmitFilters}
+            >
+              submit
+            </button>
+            <button 
+              className='filter-clear'
+              onClick={this.clearFilters}
+            >
+              clear
+            </button>
+          </section>
         </section>
-        <section className='sort-filter'>
-          <h3
-            className='sort-by-slct'
-            onClick={(e) => {this.deployList(e)}}
-            id='sortState'
-          >{this.state.sortName || 'sort-by'}
-          </h3>
-          <ul className={`${this.state.sortState} sort-list`}>
-            {this.getSortOptions()}
-          </ul>
-        </section>
-        <button
-          className='filter-submit'
-          onClick={this.handleSubmitFilters}
-        >
-          submit
-        </button>
-        <button 
-          className='filter-clear'
-          onClick={this.clearFilters}
-        >
-          clear
-        </button>
       </aside>
     )
   }
@@ -221,7 +312,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (filters, searchQuery) => dispatch(getMovieList(filters, searchQuery)),
-  setFilters: (filters) => dispatch(updateFilters(filters))
+  setFilters: (filters) => dispatch(updateFilters(filters)),
+  hideFilterModal: (bool) => dispatch(deployFilterModal(bool))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);

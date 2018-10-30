@@ -4,6 +4,7 @@
 }
 
 .search-form .search-submit {
+  align-self: center;
   background: url(./images/search.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -13,6 +14,7 @@
   border: none;
   padding: 5px 0;
   transition: .3s;
+  outline: none;
 }
 
 .search-form .search-submit:hover {
@@ -28,6 +30,7 @@
   height: 30px;
   font-size: 14px;
   color: #d1d1d1;
+  outline: none;
 }
 
 .search-form .search-input:placeholder {

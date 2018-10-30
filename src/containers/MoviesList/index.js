@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getUserLoggedIn } from '../../actions';
+import { getUserLoggedIn, deployFilterModal } from '../../actions';
 import { getMovieList, updateFavorites } from '../../actions/thunkActions/movieListThunk'
 import SingleMovie from '../../components/SingleMovie';
 import LogButton from '../LogButton';
@@ -47,13 +47,21 @@ export class MoviesList extends Component {
       return (
         <div className='movies-list'>
           <header>
-
             <section className='header-wrapper'>
               <section className='left-side-header-btns'>
                 <LogButton />
                 <ShowFavoritesBtn />
+                <button 
+                  className='display-filter'
+                  onClick={() => {
+                    this.props.deployFilterModal(true)}}
+                >
+                  filter
+                </button>
               </section>
-              <Filters />
+              <div className={`filter-wrapper ${this.props.filterModalDeployed}`}>
+                <Filters />
+              </div>
               <SearchBar />
             </section>
           </header>
@@ -87,13 +95,15 @@ export const mapStateToProps = (state) => ({
   favorites: state.favorites,
   notOk: state.notOk,
   hasErrored: state.hasErrored,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  filterModalDeployed: state.deployFilterModal
 });
 
 export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (data) => dispatch(getMovieList(data)),
   setFavorites: (data) => dispatch(updateFavorites(data)),
-  logIn: (id, name) => dispatch(getUserLoggedIn(id, name))
+  logIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
+  deployFilterModal: (bool) => dispatch(deployFilterModal(bool))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
