@@ -3,11 +3,11 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getUserLoggedIn, displayLogin, isLoading, setHasErrored } from '../../actions'
+import { getUserLoggedIn, displayLogin, isLoading, setHasErrored } from '../../actions';
 import { submitNewUser } from '../../actions/thunkActions/SignUpFormThunk';
 
 
-import Logo from '../../components/Logo'
+import Logo from '../../components/Logo';
 
 import './SignUpForm.css';
 
@@ -24,46 +24,46 @@ export class SignUpForm extends Component {
       signUpError: '',
       userDatabaseFetch: userDatabaseFetch,
       activeErrorText: 'email address already registered'
-    }
+    };
   }
   
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
+    });
   }
   
   userWarning = async (warning) => {
     await this.setState({
       signUpError: 'sign-up-error-active',
       activeErrorText: warning
-    })
-    await setTimeout(this.removeWarning, 5000)
+    });
+    await setTimeout(this.removeWarning, 5000);
   }
   
   removeWarning = () => {
     this.setState({
       signUpError: ''
-    })
+    });
   }
   
   createNewUser = async (e) => {
     e.preventDefault();
     const { name, email, password, confirmPassword } = this.state;
     if (!name.length) {
-      this.userWarning('please enter a name')
+      this.userWarning('please enter a name');
       return;
     }
     if (!email.length) {
-      this.userWarning('please enter a valid email')
+      this.userWarning('please enter a valid email');
       return;
     }
     if (password.length < 3) {
-      this.userWarning('password must be at least 3 characters')
+      this.userWarning('password must be at least 3 characters');
       return;
     }
     if (password !== confirmPassword) {
-      this.userWarning('passwords must match')
+      this.userWarning('passwords must match');
       return;
     } else {
       this.props.clearError();
@@ -163,7 +163,7 @@ const mapStateToProps = (state) => ({
   user: state.user,
   showSignup: state.showSignup,
   error: state.hasErrored
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
@@ -171,7 +171,7 @@ const mapDispatchToProps = (dispatch) => ({
   setIsLoading: (bool) => dispatch(isLoading(bool)),
   submitNewUser: (name, email, password) => dispatch(submitNewUser(name, email, password)),
   clearError: () => dispatch(setHasErrored(false))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
 
