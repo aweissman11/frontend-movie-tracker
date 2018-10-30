@@ -53,7 +53,6 @@ export class MoviesList extends Component {
       return (
         <div className='movies-list'>
           <header>
-
             <section className='header-wrapper'>
               <section className='left-side-header-btns'>
                 <LogButton />

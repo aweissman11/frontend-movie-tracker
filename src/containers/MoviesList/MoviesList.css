@@ -20,6 +20,8 @@
 }
 
 .single-movie-wrapper {
+  height: 298px;
+  width: 200px;
   position: relative;
   margin: 0 33px;
   z-index: 1;
@@ -50,12 +52,17 @@
 }
 
 .single-movie-wrapper h2 {
-  font-size: 18px;
+  font-size: 16px;
+}
+
+.single-movie-wrapper h3 {
+  font-size: 14px;
 }
 
 /* -- MOVIE SCROLL FOOTER -- */
 
 .movies-list footer {
+  height: 50px;
   position: relative;
   width: 100vw;
 }
@@ -66,6 +73,8 @@
   display: grid;
   grid-template-columns: 33% 33% 33%;
   width: 100%;
+  margin: 0;
+  padding: 0;
   height: 50px;
   display: flex;
   align-items: center;
@@ -207,10 +216,10 @@
     grid-row: 2;
   }
 
-/*  .movies-list .movies-wrapper {
+  .movies-list .movies-wrapper {
     align-self: start;
     margin-top: 3rem;
-  }*/
+  }
 
   header section .left-side-header-btns,
   .search-form {
@@ -221,7 +230,7 @@
 
 @media (max-width: 750px) {
   .movies-list {
-    height: 100%;
+    /*height: 100%;*/
     display: grid;
     grid-template-rows: 140px 1fr 50px;
   }
@@ -272,9 +281,6 @@
 }
 
 @media (max-width: 510px) {
-  .movies-list header {
-
-  }
   .movies-list header .header-wrapper {
     display: block;
     height: 140px;
@@ -288,8 +294,11 @@
     width: 325px;
   }
   .movies-list header .search-form {
+    width: 270px;
     justify-self: center;
     margin: 1rem auto;
+    display: flex;
+    justify-content: center;
   }
 
   .movies-list header .display-filter {

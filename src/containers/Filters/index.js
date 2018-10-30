@@ -122,11 +122,18 @@ export class Filters extends Component {
   }
 
   deployList = (e) => {
-    this.setState({
-      [this.state.selected]: '',
-      [e.target.id]: 'deployed',
-      selected: e.target.id
-    });
+    if (e.target.id === this.state.selected) {
+      this.setState({
+        selected: null,
+        [e.target.id]: ''
+      })
+    } else {
+      this.setState({
+        [this.state.selected]: '',
+        [e.target.id]: 'deployed',
+        selected: e.target.id
+      });
+    }
   }
 
   clearFilters = async () => {
