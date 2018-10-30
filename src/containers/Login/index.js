@@ -13,7 +13,7 @@ export class Login extends Component {
     super()
     this.state = {
     }
-  }
+  };
 
   render() {
     if (this.props.user.id) {
@@ -39,11 +39,11 @@ export class Login extends Component {
       )
     }
   }
-}
+};
 
 export const mapStateToProps = (state) => ({
   user: state.user
-})
+});
 
 export default connect(mapStateToProps, null)(Login);
 

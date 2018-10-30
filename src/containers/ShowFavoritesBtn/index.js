@@ -10,7 +10,7 @@ export class ShowFavoritesBtn extends Component {
       return favorite.movie_id
     })
     this.props.setFavorites(IDs)
-  }
+  };
 
   render() {
     return (
@@ -19,13 +19,13 @@ export class ShowFavoritesBtn extends Component {
       </button>
     )
   }
-}
+};
 
-export const mapStateToProps = ({ favorites }) => ({ favorites })
+export const mapStateToProps = ({ favorites }) => ({ favorites });
 
 export const mapDispatchToProps = (dispatch) => ({
   setFavorites: (movieIds) => dispatch(getMovieList(movieIds))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowFavoritesBtn);
 

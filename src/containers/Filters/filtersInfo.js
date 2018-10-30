@@ -75,7 +75,7 @@ export const genres = [
     "id": 37,
     "name": "Western"
   }
-]
+];
 
 export const ratings = [
   {
@@ -108,7 +108,7 @@ export const ratings = [
     "meaning": "Some material may not be suitable for children under 10. These films may contain some mild language, crude/suggestive humor, scary moments and/or violence. No drug content is present. There are a few exceptions to this rule. A few racial insults may also be heard.",
     "order": 2
   }
-]
+];
 
 export const sortOptions = [
   {
@@ -143,4 +143,4 @@ export const sortOptions = [
     text: 'title Z to A',
     value: 'original_title.asc'
   }
-]
+];

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import Logo from '../../components/Logo';
 
-import './LoginForm.css'
+import './LoginForm.css';
 
 import * as userDatabaseFetch from '../../utilities/userDatabaseFetch';
 
@@ -20,26 +20,26 @@ export class LoginForm extends Component {
       loginError: '',
       userDatabaseFetch: userDatabaseFetch
     }
-  }
+  };
   
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
-  }
+  };
 
   removeWarning = () => {
     this.setState({
       loginError: '',
     })
-  }
+  };
 
   userWarning = async (type, warning) => {
     await this.setState({
       [type]: warning
     })
     await setTimeout(this.removeWarning, 5000)
-  }
+  };
 
   submitLogin = async (e) => {
     e.preventDefault();
@@ -54,7 +54,7 @@ export class LoginForm extends Component {
     } catch(error) {
       this.userWarning('loginError', 'login-error-active')
     }
-  }
+  };
 
   render() {
     return (
@@ -117,19 +117,19 @@ export class LoginForm extends Component {
       </form>
     )
   }
-}
+};
 
 export const mapStateToProps = (state) => ({
   user: state.user,
   showLogin: state.showLogin
-})
+});
 
 export const mapDispatchToProps = (dispatch) => ({
   logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
   displaySignUp: () => dispatch(displaySignUp())
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
 
 LoginForm.propTypes = {
   user: PropTypes.object,

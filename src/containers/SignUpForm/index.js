@@ -3,11 +3,11 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getUserLoggedIn, displayLogin, isLoading, setHasErrored } from '../../actions'
+import { getUserLoggedIn, displayLogin, isLoading, setHasErrored } from '../../actions';
 import { submitNewUser } from '../../actions/thunkActions/SignUpFormThunk';
 
 
-import Logo from '../../components/Logo'
+import Logo from '../../components/Logo';
 
 import './SignUpForm.css';
 
@@ -25,27 +25,27 @@ export class SignUpForm extends Component {
       userDatabaseFetch: userDatabaseFetch,
       activeErrorText: 'email address already registered'
     }
-  }
+  };
   
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
-  }
+  };
   
   userWarning = async (warning) => {
     await this.setState({
       signUpError: 'sign-up-error-active',
       activeErrorText: warning
-    })
-    await setTimeout(this.removeWarning, 5000)
-  }
+    });
+    await setTimeout(this.removeWarning, 5000);
+  };
   
   removeWarning = () => {
     this.setState({
       signUpError: ''
     })
-  }
+  };
   
   createNewUser = async (e) => {
     e.preventDefault();
@@ -69,7 +69,7 @@ export class SignUpForm extends Component {
       this.props.clearError();
       this.props.submitNewUser(name, email, password);
     }
-  }
+  };
 
   render() {
     if (this.state.isLoggedIn) {
@@ -157,13 +157,13 @@ export class SignUpForm extends Component {
       )
     }
   }
-}
+};
 
 const mapStateToProps = (state) => ({
   user: state.user,
   showSignup: state.showSignup,
   error: state.hasErrored
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
@@ -171,7 +171,7 @@ const mapDispatchToProps = (dispatch) => ({
   setIsLoading: (bool) => dispatch(isLoading(bool)),
   submitNewUser: (name, email, password) => dispatch(submitNewUser(name, email, password)),
   clearError: () => dispatch(setHasErrored(false))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
 

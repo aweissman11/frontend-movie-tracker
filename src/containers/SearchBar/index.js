@@ -12,19 +12,19 @@ export class SearchBar extends Component {
     this.state = {
       searchInput: ''
     }
-  }
+  };
 
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
-  }
+  };
 
   handleSubmitSearch = (e) => {
     e.preventDefault();
     this.props.setSearchQuery(this.state.searchInput)
     this.props.setFetchedMovies(this.props.filters, this.state.searchInput)
-  }
+  };
 
   render() {
     return(
@@ -47,13 +47,13 @@ export class SearchBar extends Component {
       </form>
     )
   }
-}
+};
 
 export const mapStateToProps = (state) => ({
   filters: state.filters,
   searchQuery: state.searchQuery
 })
-//test this
+
 export const mapDispatchToProps = (dispatch) => ({
   setFetchedMovies: (filters, search) => dispatch(getMovieList(filters, search)),
   setSearchQuery: (query) => dispatch(updateSearchQuery(query))
