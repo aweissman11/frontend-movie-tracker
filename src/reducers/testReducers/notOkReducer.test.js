@@ -1,11 +1,11 @@
-import hasErroredReducer from '../hasErroredReducer'
+import setIsOk from '../notOkReducer'
 
-describe('hasErroredReducer', () => {
+describe('setIsOk', () => {
   it('should return the default state', () => {
     
     const expected = false 
 
-    const result = hasErroredReducer(undefined, {})
+    const result = setIsOk(undefined, {})
 
     expect(result).toEqual(expected)
   })
@@ -15,11 +15,11 @@ describe('hasErroredReducer', () => {
     const expected = true
 
     const mockAction = {
-      type: 'SET_HAS_ERRORED',
-      hasErrored: expected
+      type: 'SET_IS_NOT_OK',
+      hasErrored: true
     }
 
-    const result = hasErroredReducer(true, mockAction)
+    const result = setIsOk(true, true)
 
     expect(result).toEqual(expected)
   })
