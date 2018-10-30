@@ -12,7 +12,9 @@ export class FavoriteBtn extends Component {
     this.state = {
       isFavorite: false,
       userDataBaseFetch: userDataBaseFetch,
-      fetchCall: fetchCall
+      fetchCall: fetchCall,
+      failed: false,
+      notLoggedIn: false
     }
   }
 
@@ -25,8 +27,18 @@ export class FavoriteBtn extends Component {
       const newFavorites = [...favorites, this.formatFavorite(movies.results, user, movieId)]
       this.props.setFavorites(newFavorites);
     } catch(error) {
-      console.error(error);
+      this.setState({
+        failed: true
+      });
+
+      this.setTimeout(this.clearFailedFav, 5000);
     }
+  }
+
+  clearFailedFav = () => {
+    this.setState({
+      failed: false
+    })
   }
 
   callRemoveFavorite = async (user, movieId, favorites) => {
@@ -39,7 +51,11 @@ export class FavoriteBtn extends Component {
   toggleFavorite = async (movieId) => {
     const { movies, user, favorites } = this.props;
     if (!user.id) {
-      console.log("You're not logged in!");
+      this.setState({
+        notLoggedIn: true
+      });
+
+      setTimeout(this.clearNotLoggedIn, 5000);
     } else {
       if (!favorites.find(favorite => favorite.movie_id === movieId)) {
         await this.callAddFavorite(movies, user, favorites, movieId);
@@ -47,6 +63,12 @@ export class FavoriteBtn extends Component {
         await this.callRemoveFavorite(user, movieId, favorites)
       }
     }
+  }
+
+  clearNotLoggedIn = () => {
+    this.setState({
+      notLoggedIn: false
+    })
   }
 
   removeFavorite = async (userId, movieId) => {
@@ -84,10 +106,13 @@ export class FavoriteBtn extends Component {
     }
 
     return (
-    <button
-      onClick={() => this.toggleFavorite(this.props.movieId)}
-      className={`favorite-btn ${this.favorited}`}
-    ></button>
+      <div className='button-component-wrapper'>
+        <p className={`not-logged-in-warning ${this.state.notLoggedIn}`}>you are not logged in</p>
+        <button
+          onClick={() => this.toggleFavorite(this.props.movieId)}
+          className={`favorite-btn ${this.favorited}`}
+        ></button>
+      </div>
     )
   }
 }

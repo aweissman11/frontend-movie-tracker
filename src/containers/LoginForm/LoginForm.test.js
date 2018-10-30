@@ -12,13 +12,13 @@ describe('LoginForm', () => {
   const mockUser = {
     id: 1
   }
-  const mockShowLogin = true;
-  const mockLogUserIn = jest.fn();
-  const mockDisplaySignUp = jest.fn();
-  const mockSubscribe = jest.fn();
-  const mockDispatch = jest.fn();
-  const mockGetState = jest.fn();
-  const mockUserDatabaseFetch = {
+  const mockShowLogin = '';
+  let mockLogUserIn
+  let mockDisplaySignUp
+  let mockSubscribe
+  let mockDispatch
+  let mockGetState
+  let mockUserDatabaseFetch = {
     checkUserList: jest.fn().mockImplementation(() => {
       return Promise.resolve({
         data: {
@@ -53,6 +53,12 @@ describe('LoginForm', () => {
   }
 
   beforeEach(() => {
+    mockLogUserIn = jest.fn();
+    mockDisplaySignUp = jest.fn();
+    mockSubscribe = jest.fn();
+    mockDispatch = jest.fn();
+    mockGetState = jest.fn();
+
     wrapper = shallow(<LoginForm 
       store={mockStore}
       user={mockUser}
@@ -90,28 +96,22 @@ describe('LoginForm', () => {
       expect(wrapper.state().email).toEqual(expected);
     });
 
-    it.skip('should call handleChange on email input', () => {
-      const mockHandleChange = jest.fn().mockImplementation(() => {
-        console.log('burp')
-      });
-
-      wrapper.instance().handleChange = mockHandleChange;
+    it('should call handleChange on email input', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange')
+      wrapper.instance().forceUpdate();
 
       wrapper.find('.email-input').simulate('change', mockEvent);
 
-      expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
+      expect(spy).toHaveBeenCalledWith(mockEvent);
     });
 
-    it.skip('should call handleChange on password input', () => {
-      const mockHandleChange = jest.fn().mockImplementation(() => {
-        console.log('burp')
-      });
-
-      wrapper.instance().handleChange = mockHandleChange;
+    it('should call handleChange on password input', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange')
+      wrapper.instance().forceUpdate();
 
       wrapper.find('.password-input').simulate('change', mockEvent);
 
-      expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
+      expect(spy).toHaveBeenCalledWith(mockEvent);
     });
   });
 
@@ -191,6 +191,8 @@ describe('LoginForm', () => {
       const expected = {data : {
         id: 1, name: 'mock name'
       }}
+
+      await wrapper.instance().submitLogin(mockEvent);
 
       expect(mockLogUserIn).toHaveBeenCalledWith(1, 'mock name');
     });
