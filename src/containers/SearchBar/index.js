@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { updateSearchQuery } from '../../actions';
 import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';
@@ -59,3 +60,10 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+
+SearchBar.propTypes = {
+  filter: PropTypes.string,
+  searchQuery: PropTypes.string,
+  setFetchedMovies: PropTypes.func,
+  setSearchQuery: PropTypes.func,
+};

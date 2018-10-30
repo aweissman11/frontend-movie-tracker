@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import * as userDataBaseFetch from '../../utilities/userDatabaseFetch';
 import fetchCall from '../../utilities/fetchCall';
@@ -66,11 +67,6 @@ export class FavoriteBtn extends Component {
     }
   }
 
-  // getFavorites = async () => {
-  //   const url = `http://localhost:3000/api/users/${this.props.user.id}/favorites`
-  //   return await this.state.fetchCall(url)    
-  // }
-
   render() {
     if (this.props.favorites.find((film => film.movie_id === this.props.movieId))) {
       this.favorited = 'favorited';
@@ -95,3 +91,9 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoriteBtn);
+
+FavoriteBtn.propTypes = {
+  movies: PropTypes.object,
+  user: PropTypes.object,
+  favorites: PropTypes.array
+};

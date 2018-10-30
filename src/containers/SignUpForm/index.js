@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { getUserLoggedIn, displayLogin, isLoading } from '../../actions'
 import { submitNewUser } from '../../actions/thunkActions/SignUpFormThunk';
+
 
 import Logo from '../../components/Logo'
 
@@ -164,4 +167,11 @@ const mapDispatchToProps = (dispatch) => ({
   submitNewUser: (name, email, password) => dispatch(submitNewUser(name, email, password))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
+
+SignUpForm.propTypes = {
+  user: PropTypes.object,
+  showSignup: PropTypes.string,
+  logUserIn: PropTypes.func,
+  displayLogin: PropTypes.func
+};

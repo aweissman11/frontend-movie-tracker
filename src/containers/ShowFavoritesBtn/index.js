@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { getMovieList } from '../../actions/thunkActions/ShowFavoritesButtonThunk';
 
 export class ShowFavoritesBtn extends Component {
@@ -26,3 +28,8 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowFavoritesBtn);
+
+ShowFavoritesBtn.propTypes = {
+  favorites: PropTypes.array,
+  setFavorites: PropTypes.func,
+};
