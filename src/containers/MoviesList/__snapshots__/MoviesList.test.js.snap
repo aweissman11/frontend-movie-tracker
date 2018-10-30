@@ -55,6 +55,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
+      "aria-label": "movie-scroll-section",
       "children": Array [
         <header>
           <section
@@ -66,6 +67,7 @@ ShallowWrapper {
               <Connect(LogButton) />
               <Connect(ShowFavoritesBtn) />
               <button
+                aria-label="display-filter-button"
                 className="display-filter"
                 onClick={[Function]}
               >
@@ -107,16 +109,20 @@ ShallowWrapper {
               className="scroll-social-wrapper"
             >
               <i
+                aria-label="facebook-link"
                 className="fab fa-facebook scroll-social"
               />
               <i
+                aria-label="instagram-link"
                 className="fab fa-instagram scroll-social"
               />
               <i
+                aria-label="twitter-link"
                 className="fab fa-twitter scroll-social"
               />
             </section>
             <h3
+              aria-label="copyright"
               className="footer-copyright"
             >
               © 2018 MovieTracker - All Rights Reserved
@@ -142,6 +148,7 @@ ShallowWrapper {
               <Connect(LogButton) />
               <Connect(ShowFavoritesBtn) />
               <button
+                aria-label="display-filter-button"
                 className="display-filter"
                 onClick={[Function]}
               >
@@ -169,6 +176,7 @@ ShallowWrapper {
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
                 <button
+                  aria-label="display-filter-button"
                   className="display-filter"
                   onClick={[Function]}
                 >
@@ -195,6 +203,7 @@ ShallowWrapper {
                   <Connect(LogButton) />,
                   <Connect(ShowFavoritesBtn) />,
                   <button
+                    aria-label="display-filter-button"
                     className="display-filter"
                     onClick={[Function]}
                   >
@@ -228,6 +237,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "aria-label": "display-filter-button",
                     "children": "filter",
                     "className": "display-filter",
                     "onClick": [Function],
@@ -326,16 +336,20 @@ ShallowWrapper {
               className="scroll-social-wrapper"
             >
               <i
+                aria-label="facebook-link"
                 className="fab fa-facebook scroll-social"
               />
               <i
+                aria-label="instagram-link"
                 className="fab fa-instagram scroll-social"
               />
               <i
+                aria-label="twitter-link"
                 className="fab fa-twitter scroll-social"
               />
             </section>
             <h3
+              aria-label="copyright"
               className="footer-copyright"
             >
               © 2018 MovieTracker - All Rights Reserved
@@ -364,16 +378,20 @@ ShallowWrapper {
                 className="scroll-social-wrapper"
               >
                 <i
+                  aria-label="facebook-link"
                   className="fab fa-facebook scroll-social"
                 />
                 <i
+                  aria-label="instagram-link"
                   className="fab fa-instagram scroll-social"
                 />
                 <i
+                  aria-label="twitter-link"
                   className="fab fa-twitter scroll-social"
                 />
               </section>,
               <h3
+                aria-label="copyright"
                 className="footer-copyright"
               >
                 © 2018 MovieTracker - All Rights Reserved
@@ -449,12 +467,15 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <i
+                    aria-label="facebook-link"
                     className="fab fa-facebook scroll-social"
                   />,
                   <i
+                    aria-label="instagram-link"
                     className="fab fa-instagram scroll-social"
                   />,
                   <i
+                    aria-label="twitter-link"
                     className="fab fa-twitter scroll-social"
                   />,
                 ],
@@ -467,6 +488,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "aria-label": "facebook-link",
                     "className": "fab fa-facebook scroll-social",
                   },
                   "ref": null,
@@ -478,6 +500,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "aria-label": "instagram-link",
                     "className": "fab fa-instagram scroll-social",
                   },
                   "ref": null,
@@ -489,6 +512,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "aria-label": "twitter-link",
                     "className": "fab fa-twitter scroll-social",
                   },
                   "ref": null,
@@ -503,6 +527,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "aria-label": "copyright",
                 "children": "© 2018 MovieTracker - All Rights Reserved",
                 "className": "footer-copyright",
               },
@@ -524,6 +549,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
+        "aria-label": "movie-scroll-section",
         "children": Array [
           <header>
             <section
@@ -535,6 +561,7 @@ ShallowWrapper {
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
                 <button
+                  aria-label="display-filter-button"
                   className="display-filter"
                   onClick={[Function]}
                 >
@@ -576,16 +603,20 @@ ShallowWrapper {
                 className="scroll-social-wrapper"
               >
                 <i
+                  aria-label="facebook-link"
                   className="fab fa-facebook scroll-social"
                 />
                 <i
+                  aria-label="instagram-link"
                   className="fab fa-instagram scroll-social"
                 />
                 <i
+                  aria-label="twitter-link"
                   className="fab fa-twitter scroll-social"
                 />
               </section>
               <h3
+                aria-label="copyright"
                 className="footer-copyright"
               >
                 © 2018 MovieTracker - All Rights Reserved
@@ -611,6 +642,7 @@ ShallowWrapper {
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
                 <button
+                  aria-label="display-filter-button"
                   className="display-filter"
                   onClick={[Function]}
                 >
@@ -638,6 +670,7 @@ ShallowWrapper {
                   <Connect(LogButton) />
                   <Connect(ShowFavoritesBtn) />
                   <button
+                    aria-label="display-filter-button"
                     className="display-filter"
                     onClick={[Function]}
                   >
@@ -664,6 +697,7 @@ ShallowWrapper {
                     <Connect(LogButton) />,
                     <Connect(ShowFavoritesBtn) />,
                     <button
+                      aria-label="display-filter-button"
                       className="display-filter"
                       onClick={[Function]}
                     >
@@ -697,6 +731,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
+                      "aria-label": "display-filter-button",
                       "children": "filter",
                       "className": "display-filter",
                       "onClick": [Function],
@@ -795,16 +830,20 @@ ShallowWrapper {
                 className="scroll-social-wrapper"
               >
                 <i
+                  aria-label="facebook-link"
                   className="fab fa-facebook scroll-social"
                 />
                 <i
+                  aria-label="instagram-link"
                   className="fab fa-instagram scroll-social"
                 />
                 <i
+                  aria-label="twitter-link"
                   className="fab fa-twitter scroll-social"
                 />
               </section>
               <h3
+                aria-label="copyright"
                 className="footer-copyright"
               >
                 © 2018 MovieTracker - All Rights Reserved
@@ -833,16 +872,20 @@ ShallowWrapper {
                   className="scroll-social-wrapper"
                 >
                   <i
+                    aria-label="facebook-link"
                     className="fab fa-facebook scroll-social"
                   />
                   <i
+                    aria-label="instagram-link"
                     className="fab fa-instagram scroll-social"
                   />
                   <i
+                    aria-label="twitter-link"
                     className="fab fa-twitter scroll-social"
                   />
                 </section>,
                 <h3
+                  aria-label="copyright"
                   className="footer-copyright"
                 >
                   © 2018 MovieTracker - All Rights Reserved
@@ -918,12 +961,15 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <i
+                      aria-label="facebook-link"
                       className="fab fa-facebook scroll-social"
                     />,
                     <i
+                      aria-label="instagram-link"
                       className="fab fa-instagram scroll-social"
                     />,
                     <i
+                      aria-label="twitter-link"
                       className="fab fa-twitter scroll-social"
                     />,
                   ],
@@ -936,6 +982,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
+                      "aria-label": "facebook-link",
                       "className": "fab fa-facebook scroll-social",
                     },
                     "ref": null,
@@ -947,6 +994,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
+                      "aria-label": "instagram-link",
                       "className": "fab fa-instagram scroll-social",
                     },
                     "ref": null,
@@ -958,6 +1006,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
+                      "aria-label": "twitter-link",
                       "className": "fab fa-twitter scroll-social",
                     },
                     "ref": null,
@@ -972,6 +1021,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
+                  "aria-label": "copyright",
                   "children": "© 2018 MovieTracker - All Rights Reserved",
                   "className": "footer-copyright",
                 },

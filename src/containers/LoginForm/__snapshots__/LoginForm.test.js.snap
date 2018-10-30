@@ -49,6 +49,7 @@ ShallowWrapper {
           <Logo />
         </div>,
         <input
+          aria-label="email-input"
           className="email-input"
           name="email"
           onChange={[Function]}
@@ -61,6 +62,7 @@ ShallowWrapper {
           src="./email.png"
         />,
         <input
+          aria-label="password-input"
           className="password-input"
           name="password"
           onChange={[Function]}
@@ -74,11 +76,13 @@ ShallowWrapper {
           src="./password.png"
         />,
         <input
+          aria-label="login-submit-button"
           className="login-submit"
           type="submit"
           value="login"
         />,
         <button
+          aria-label="sign-up-button"
           className="sign-up-button"
           name="sign-up-button"
           onClick={[Function]}
@@ -89,9 +93,11 @@ ShallowWrapper {
           className="login-social-wrapper"
         >
           <i
+            aria-label="facebook-link"
             className="fab fa-facebook login-social"
           />
           <i
+            aria-label="twitter-link"
             className="fab fa-twitter login-social"
           />
         </section>,
@@ -100,6 +106,7 @@ ShallowWrapper {
           to="/movies"
         >
           <button
+            aria-label="skip-login-button"
             className="skip-login"
           >
             skip login
@@ -185,6 +192,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "email-input",
           "className": "email-input",
           "name": "email",
           "onChange": [Function],
@@ -213,6 +221,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "password-input",
           "className": "password-input",
           "name": "password",
           "onChange": [Function],
@@ -242,6 +251,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "login-submit-button",
           "className": "login-submit",
           "type": "submit",
           "value": "login",
@@ -255,6 +265,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "sign-up-button",
           "children": "signup",
           "className": "sign-up-button",
           "name": "sign-up-button",
@@ -271,9 +282,11 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <i
+              aria-label="facebook-link"
               className="fab fa-facebook login-social"
             />,
             <i
+              aria-label="twitter-link"
               className="fab fa-twitter login-social"
             />,
           ],
@@ -286,6 +299,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "aria-label": "facebook-link",
               "className": "fab fa-facebook login-social",
             },
             "ref": null,
@@ -297,6 +311,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "aria-label": "twitter-link",
               "className": "fab fa-twitter login-social",
             },
             "ref": null,
@@ -312,6 +327,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": <button
+            aria-label="skip-login-button"
             className="skip-login"
           >
             skip login
@@ -325,6 +341,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "skip-login-button",
             "children": "skip login",
             "className": "skip-login",
           },
@@ -386,6 +403,7 @@ ShallowWrapper {
             <Logo />
           </div>,
           <input
+            aria-label="email-input"
             className="email-input"
             name="email"
             onChange={[Function]}
@@ -398,6 +416,7 @@ ShallowWrapper {
             src="./email.png"
           />,
           <input
+            aria-label="password-input"
             className="password-input"
             name="password"
             onChange={[Function]}
@@ -411,11 +430,13 @@ ShallowWrapper {
             src="./password.png"
           />,
           <input
+            aria-label="login-submit-button"
             className="login-submit"
             type="submit"
             value="login"
           />,
           <button
+            aria-label="sign-up-button"
             className="sign-up-button"
             name="sign-up-button"
             onClick={[Function]}
@@ -426,9 +447,11 @@ ShallowWrapper {
             className="login-social-wrapper"
           >
             <i
+              aria-label="facebook-link"
               className="fab fa-facebook login-social"
             />
             <i
+              aria-label="twitter-link"
               className="fab fa-twitter login-social"
             />
           </section>,
@@ -437,6 +460,7 @@ ShallowWrapper {
             to="/movies"
           >
             <button
+              aria-label="skip-login-button"
               className="skip-login"
             >
               skip login
@@ -522,6 +546,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "email-input",
             "className": "email-input",
             "name": "email",
             "onChange": [Function],
@@ -550,6 +575,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "password-input",
             "className": "password-input",
             "name": "password",
             "onChange": [Function],
@@ -579,6 +605,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "login-submit-button",
             "className": "login-submit",
             "type": "submit",
             "value": "login",
@@ -592,6 +619,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "sign-up-button",
             "children": "signup",
             "className": "sign-up-button",
             "name": "sign-up-button",
@@ -608,9 +636,11 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <i
+                aria-label="facebook-link"
                 className="fab fa-facebook login-social"
               />,
               <i
+                aria-label="twitter-link"
                 className="fab fa-twitter login-social"
               />,
             ],
@@ -623,6 +653,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "aria-label": "facebook-link",
                 "className": "fab fa-facebook login-social",
               },
               "ref": null,
@@ -634,6 +665,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "aria-label": "twitter-link",
                 "className": "fab fa-twitter login-social",
               },
               "ref": null,
@@ -649,6 +681,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": <button
+              aria-label="skip-login-button"
               className="skip-login"
             >
               skip login
@@ -662,6 +695,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "aria-label": "skip-login-button",
               "children": "skip login",
               "className": "skip-login",
             },

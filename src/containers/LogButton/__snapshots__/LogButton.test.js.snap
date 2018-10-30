@@ -27,6 +27,7 @@ ShallowWrapper {
       "aria-current": "page",
       "children": Array [
         <button
+          aria-label="logout"
           className="login-logout-btn"
           onClick={[Function]}
         >
@@ -43,6 +44,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "logout",
           "children": "log out",
           "className": "login-logout-btn",
           "onClick": [Function],
@@ -65,6 +67,7 @@ ShallowWrapper {
         "aria-current": "page",
         "children": Array [
           <button
+            aria-label="logout"
             className="login-logout-btn"
             onClick={[Function]}
           >
@@ -81,6 +84,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "logout",
             "children": "log out",
             "className": "login-logout-btn",
             "onClick": [Function],
@@ -138,6 +142,7 @@ ShallowWrapper {
       "children": Array [
         undefined,
         <button
+          aria-label="login"
           className="login-logout-btn"
         >
           login
@@ -153,6 +158,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "login",
           "children": "login",
           "className": "login-logout-btn",
         },
@@ -174,6 +180,7 @@ ShallowWrapper {
         "children": Array [
           undefined,
           <button
+            aria-label="login"
             className="login-logout-btn"
           >
             login
@@ -189,6 +196,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "login",
             "children": "login",
             "className": "login-logout-btn",
           },

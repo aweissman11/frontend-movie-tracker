@@ -22,6 +22,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
+      "aria-label": "single-movie-card",
       "children": Array [
         <div
           className="favorite-btn-wrapper"
@@ -35,6 +36,7 @@ ShallowWrapper {
           src="https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path"
         />,
         <section
+          aria-label="movie-info"
           className="movie-poster-text"
         >
           <h2>
@@ -90,6 +92,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "movie-info",
           "children": Array [
             <h2>
               test-title
@@ -136,6 +139,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
+        "aria-label": "single-movie-card",
         "children": Array [
           <div
             className="favorite-btn-wrapper"
@@ -149,6 +153,7 @@ ShallowWrapper {
             src="https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path"
           />,
           <section
+            aria-label="movie-info"
             className="movie-poster-text"
           >
             <h2>
@@ -204,6 +209,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "movie-info",
             "children": Array [
               <h2>
                 test-title

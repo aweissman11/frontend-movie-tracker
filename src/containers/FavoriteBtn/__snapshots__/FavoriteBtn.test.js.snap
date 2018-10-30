@@ -59,6 +59,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
+      "aria-label": "favorite-button",
       "children": Array [
         <p
           className="not-logged-in-warning false"
@@ -107,6 +108,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
+        "aria-label": "favorite-button",
         "children": Array [
           <p
             className="not-logged-in-warning false"
