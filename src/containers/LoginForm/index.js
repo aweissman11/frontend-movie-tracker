@@ -70,6 +70,7 @@ export class LoginForm extends Component {
           value={this.state.email}
           name='email'
           placeholder='email'
+          aria-label='email-input'
         ></input>
         <img 
           src='./email.png' 
@@ -83,6 +84,7 @@ export class LoginForm extends Component {
           value={this.state.password}
           name='password'
           placeholder='password'
+          aria-label='password-input'
         ></input>
         <img 
           src='./password.png' 
@@ -93,6 +95,7 @@ export class LoginForm extends Component {
           className='login-submit'
           type='submit'
           value='login'
+          aria-label='login-submit-button'
         ></input>
         <button 
           onClick={(e) => {
@@ -101,15 +104,22 @@ export class LoginForm extends Component {
           }}
           className='sign-up-button'
           name='sign-up-button'
+          aria-label='sign-up-button'
         >
           signup
         </button>
         <section className='login-social-wrapper'>
-          <i className="fab fa-facebook login-social"></i>
-          <i className="fab fa-twitter login-social"></i>
+          <i 
+            aria-label='facebook-link'
+            className="fab fa-facebook login-social"></i>
+          <i 
+            aria-label='twitter-link'
+            className="fab fa-twitter login-social"></i>
         </section>
         <Link to='/movies'>
-          <button className='skip-login'>skip login</button>
+          <button 
+            aria-label='skip-login-button'
+            className='skip-login'>skip login</button>
         </Link>
         <div className={`login-error-wrapper ${this.state.loginError}`}>
           <p className='login-error-text'>incorrect email/password combination</p>

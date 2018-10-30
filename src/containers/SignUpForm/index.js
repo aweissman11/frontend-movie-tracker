@@ -83,6 +83,7 @@ export class SignUpForm extends Component {
             <Logo />
           </div>
           <input
+            aria-label='name-input'
             className='name-input'
             onChange={this.handleChange}
             value={this.state.name}
@@ -95,6 +96,7 @@ export class SignUpForm extends Component {
             className='user-icon'
           />
           <input
+            aria-label='email-input'
             className='email-input'
             onChange={this.handleChange}
             value={this.state.email}
@@ -109,6 +111,7 @@ export class SignUpForm extends Component {
             className='email-icon'
           />
           <input
+            aria-label='password-input'
             className='password-input'
             onChange={this.handleChange}
             type='password'
@@ -127,6 +130,7 @@ export class SignUpForm extends Component {
             className='password-confirm-icon'
           />
           <input
+            aria-label='confirm-password-input'
             className='password-confirm-input'
             onChange={this.handleChange}
             type='password'
@@ -135,6 +139,7 @@ export class SignUpForm extends Component {
             placeholder='confirm password'
           ></input> 
           <input
+            aria-label='submit-new-user-info'
             className='create-user-btn'
             type='submit'
             value='sign up'
@@ -144,6 +149,7 @@ export class SignUpForm extends Component {
             to='/login'
           >
             <button 
+              aria-label='back-to-login'
               className='skip-sign-up-button'
               onClick={this.props.displayLogin}>already a user</button>
           </Link>

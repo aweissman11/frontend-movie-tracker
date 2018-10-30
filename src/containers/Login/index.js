@@ -20,7 +20,7 @@ export class Login extends Component {
       return (<Redirect to='/movies' />)
     } else {
       return (
-        <main className='login-page'>
+        <main className='login-page' aria-label='login-page'>
           <div className='right-side'></div>
           <Logo />
           <section className='login-signup-wrapper'>
@@ -32,7 +32,7 @@ export class Login extends Component {
             <p>terms</p>
             <p>privacy</p>
           </footer>
-          <footer className='login-copyright'>
+          <footer className='login-copyright' aria-label='copyright'>
             <p>© 2018 movieTracker</p>
           </footer>
         </main>
