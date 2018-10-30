@@ -14,9 +14,9 @@ export class ShowFavoritesBtn extends Component {
 
   render() {
     return (
-      <button onClick={this.showFavorites}className='show-favorites'>
-      favorites
-    </button>
+      <button onClick={this.showFavorites} className='show-favorites'>
+        favorites
+      </button>
     )
   }
 }
