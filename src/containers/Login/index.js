@@ -4,6 +4,7 @@ import LoginForm from '../LoginForm';
 import SignUpForm from '../SignUpForm';
 import Logo from '../../components/Logo';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import './Login.css'
 
@@ -45,3 +46,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, null)(Login);
+
+Login.propTypes = {
+  user: PropTypes.object,
+};

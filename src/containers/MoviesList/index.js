@@ -9,6 +9,7 @@ import Logo from '../../components/Logo';
 import SearchBar from '../../containers/SearchBar';
 import Filters from '../../containers/Filters';
 import ShowFavoritesBtn from '../ShowFavoritesBtn';
+import PropTypes from 'prop-types';
 
 import './MoviesList.css'
 
@@ -96,3 +97,15 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
+
+MoviesList.propTypes = {
+  movies: PropTypes.object, 
+  user: PropTypes.object,
+  favorties: PropTypes.object,
+  notOk: PropTypes.bool,
+  hasErrored: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  setFetchedMovies: PropTypes.func,
+  setFavorites: PropTypes.func,
+  logIn: PropTypes.func
+};

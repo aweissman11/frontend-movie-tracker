@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { updateFilters } from '../../actions/index';
 import { getMovieList } from '../../actions/thunkActions/FiltersThunk';
@@ -224,3 +225,10 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);
+
+Filters.propTypes = {
+  filters: PropTypes.object,
+  searchQuery: PropTypes.string,
+  setFetchedMovies: PropTypes.func,
+  setFilters: PropTypes.func
+};

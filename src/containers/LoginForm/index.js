@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserLoggedIn } from '../../actions'
 import { displaySignUp } from '../../actions';
+import PropTypes from 'prop-types';
 
 import Logo from '../../components/Logo';
 
@@ -129,3 +130,10 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+
+LoginForm.propTypes = {
+  user: PropTypes.object,
+  showLogin: PropTypes.string,
+  logUserIn: PropTypes.func,
+  displaySignUp: PropTypes.func
+};
