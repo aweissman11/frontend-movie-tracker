@@ -35,17 +35,15 @@ it('calls dispatch with isLoading(true)', () => {
     expect(mockDispatch).not.toHaveBeenCalledWith(isLoading(false))
   })
 
-  it.skip('should dispatch getMovieList if the response is ok', async () => {
+  it('should dispatch getMovieList if the response is ok', async () => {
     const fakeMovies = {title: 'Back To The Future'}
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      ok: false
+      ok: true,
+       json: () => Promise.resolve({
+        title: 'Back To The Future'
+      })
     }))
-
-    const setMovieList = jest.fn().mockImplementation(() => {
-      return {"movies": {"page": 1, "results": [], "total_pages": 19230, "total_results": 384584}, "type": "SET_MOVIE_LIST"}
-    })
-
 
     const thunk = getMovieList()
 

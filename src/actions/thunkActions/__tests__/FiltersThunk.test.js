@@ -20,9 +20,7 @@ describe('FiltersThunk', () => {
 
 
 it('should dispatch Error if the response is not ok', async () => {
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      ok: false
-    }))
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve('failed'))
 
     mockDispatch = jest.fn().mockImplementation(() => {
       return 'failed'
@@ -49,24 +47,5 @@ it('should dispatch Error(false) if the response is ok', async () => {
      await thunk(mockDispatch)
 
     expect(mockDispatch).toHaveBeenCalledWith(setHasErrored(true))
-  })
-
-
-it.skip('should dispatch setMovieList', async () => {
-    const mockMovies = [{title: 'Mean Girls'}, {title: 'Back to the future'}]
-
-    mockDispatch = jest.fn().mockImplementation(() => {
-      return mockMovies
-    })
-
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      ok: true,
-      }))
-
-    const thunk = getMovieList(mockFilter)
-
-    await thunk(mockDispatch)
-
-    expect(mockDispatch).toHaveBeenCalledWith(setMovieList(mockMovies))
   })
 })

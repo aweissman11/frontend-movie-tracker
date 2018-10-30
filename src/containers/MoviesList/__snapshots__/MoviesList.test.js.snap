@@ -81,7 +81,7 @@ ShallowWrapper {
           </section>
         </header>,
         <section
-          className="movies-wrapper"
+          className="movies-wrapper undefined"
         >
           <div
             className="movies-stripe"
@@ -284,7 +284,7 @@ ShallowWrapper {
             />,
             "",
           ],
-          "className": "movies-wrapper",
+          "className": "movies-wrapper undefined",
         },
         "ref": null,
         "rendered": Array [
@@ -550,7 +550,7 @@ ShallowWrapper {
             </section>
           </header>,
           <section
-            className="movies-wrapper"
+            className="movies-wrapper undefined"
           >
             <div
               className="movies-stripe"
@@ -753,7 +753,7 @@ ShallowWrapper {
               />,
               "",
             ],
-            "className": "movies-wrapper",
+            "className": "movies-wrapper undefined",
           },
           "ref": null,
           "rendered": Array [

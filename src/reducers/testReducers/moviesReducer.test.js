@@ -2,7 +2,7 @@ import moviesReducer from '../moviesReducer';
 
 describe('moviesReducer', () => {
   it('should return the default state', () => {
-    const expected = []
+    const expected = {}
 
     const result = moviesReducer(undefined, {})
 
