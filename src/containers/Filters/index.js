@@ -21,7 +21,8 @@ export class Filters extends Component {
       genreState: '',
       yearState: '',
       ratingState: '',
-      sortState: ''
+      sortState: '',
+      mobileDisplay: false
     }
   }
 
@@ -149,65 +150,130 @@ export class Filters extends Component {
   render() {
     return (
       <aside className='filters'>
-        <section className='genre-filter'>
-          <h3 
-            className='genre-slct'
-            onClick={(e) => {this.deployList(e)}}
-            id='genreState'
+        <section className='filters-desktop'>
+          <section className='genre-filter'>
+            <h3 
+              className='genre-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='genreState'
+            >
+              {this.state.genreName || 'genre'}
+            </h3>
+            <ul className={`${this.state.genreState} genre-list`}>
+              {this.getGenreOptions()}
+            </ul>
+          </section>
+          <section className='year-filter'>
+            <h3
+              className='year-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='yearState'
+            >
+              {this.state.year || 'year'}
+            </h3>
+            <ul className={`${this.state.yearState} year-list`}>
+              {this.getYearOptions()}
+            </ul>
+          </section>
+          <section className='rating-filter'>
+           <h3
+              className='rating-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='ratingState'
+            >
+              {this.state.rating || 'rating'}
+            </h3>
+            <ul className={`${this.state.ratingState} rating-list`}>
+              {this.getRatingOptions()}
+            </ul>
+          </section>
+          <section className='sort-filter'>
+            <h3
+              className='sort-by-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='sortState'
+            >{this.state.sortName || 'sort-by'}
+            </h3>
+            <ul className={`${this.state.sortState} sort-list`}>
+              {this.getSortOptions()}
+            </ul>
+          </section>
+          <button
+            className='filter-submit'
+            onClick={this.handleSubmitFilters}
           >
-            {this.state.genreName || 'genre'}
-          </h3>
-          <ul className={`${this.state.genreState} genre-list`}>
-            {this.getGenreOptions()}
-          </ul>
-        </section>
-        <section className='year-filter'>
-          <h3
-            className='year-slct'
-            onClick={(e) => {this.deployList(e)}}
-            id='yearState'
+            submit
+          </button>
+          <button 
+            className='filter-clear'
+            onClick={this.clearFilters}
           >
-            {this.state.year || 'year'}
-          </h3>
-          <ul className={`${this.state.yearState} year-list`}>
-            {this.getYearOptions()}
-          </ul>
+            clear
+          </button>
         </section>
-        <section className='rating-filter'>
-         <h3
-            className='rating-slct'
-            onClick={(e) => {this.deployList(e)}}
-            id='ratingState'
+
+
+        <section className='filters-mobile'>
+          <section className='genre-filter'>
+            <h3 
+              className='genre-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='genreState'
+            >
+              {this.state.genreName || 'genre'}
+            </h3>
+            <ul className={`${this.state.genreState} genre-list`}>
+              {this.getGenreOptions()}
+            </ul>
+          </section>
+          <section className='year-filter'>
+            <h3
+              className='year-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='yearState'
+            >
+              {this.state.year || 'year'}
+            </h3>
+            <ul className={`${this.state.yearState} year-list`}>
+              {this.getYearOptions()}
+            </ul>
+          </section>
+          <section className='rating-filter'>
+           <h3
+              className='rating-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='ratingState'
+            >
+              {this.state.rating || 'rating'}
+            </h3>
+            <ul className={`${this.state.ratingState} rating-list`}>
+              {this.getRatingOptions()}
+            </ul>
+          </section>
+          <section className='sort-filter'>
+            <h3
+              className='sort-by-slct'
+              onClick={(e) => {this.deployList(e)}}
+              id='sortState'
+            >{this.state.sortName || 'sort-by'}
+            </h3>
+            <ul className={`${this.state.sortState} sort-list`}>
+              {this.getSortOptions()}
+            </ul>
+          </section>
+          <button
+            className='filter-submit'
+            onClick={this.handleSubmitFilters}
           >
-            {this.state.rating || 'rating'}
-          </h3>
-          <ul className={`${this.state.ratingState} rating-list`}>
-            {this.getRatingOptions()}
-          </ul>
+            submit
+          </button>
+          <button 
+            className='filter-clear'
+            onClick={this.clearFilters}
+          >
+            clear
+          </button>
         </section>
-        <section className='sort-filter'>
-          <h3
-            className='sort-by-slct'
-            onClick={(e) => {this.deployList(e)}}
-            id='sortState'
-          >{this.state.sortName || 'sort-by'}
-          </h3>
-          <ul className={`${this.state.sortState} sort-list`}>
-            {this.getSortOptions()}
-          </ul>
-        </section>
-        <button
-          className='filter-submit'
-          onClick={this.handleSubmitFilters}
-        >
-          submit
-        </button>
-        <button 
-          className='filter-clear'
-          onClick={this.clearFilters}
-        >
-          clear
-        </button>
       </aside>
     )
   }

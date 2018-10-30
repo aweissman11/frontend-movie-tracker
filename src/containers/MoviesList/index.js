@@ -14,6 +14,13 @@ import './MoviesList.css'
 
 
 export class MoviesList extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      displayFilter: false
+    }
+  }
 
   componentDidMount() {
     this.props.setFetchedMovies(this.props.movies)
@@ -51,6 +58,14 @@ export class MoviesList extends Component {
               <section className='left-side-header-btns'>
                 <LogButton />
                 <ShowFavoritesBtn />
+                <button 
+                  className={`${this.state.displayFilter} display-filter`}
+                  onClick={() => this.setState(
+                    {displayFilter: !this.state.displayFilter}
+                  )}
+                >
+                  filter
+                </button>
               </section>
               <Filters />
               <SearchBar />
