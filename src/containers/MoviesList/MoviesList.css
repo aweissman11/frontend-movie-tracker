@@ -226,12 +226,18 @@
     align-self: start;
     margin-top: 3rem;
   }
-
   header section .left-side-header-btns,
   .search-form {
     width: 300px;
     margin-top: 1rem;
   }
+  .filters-desktop .genre-list.deployed,
+  .filters-desktop .year-list.deployed,
+  .filters-desktop .rating-list.deployed,
+  .filters-desktop .sort-list.deployed {
+    height: 100%;
+    overflow-y: scroll; 
+  } 
 }
 
 @media (max-width: 750px) {
