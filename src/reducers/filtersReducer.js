@@ -3,7 +3,7 @@ const defaultState = {
   year: null,
   rating: null,
   sort: null
-}
+};
 
 const filtersReducer = (state = defaultState, action) => {
   switch(action.type) {

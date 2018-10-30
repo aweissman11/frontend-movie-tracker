@@ -5,8 +5,8 @@ const userReducer = (state={name: null}, action) => {
     case 'LOG_USER_OUT' :
       return {name: null}
     default :
-      return state
+      return state;
   }
 }
 
-export default userReducer
+export default userReducer;

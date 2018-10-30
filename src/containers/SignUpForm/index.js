@@ -30,8 +30,8 @@ export class SignUpForm extends Component {
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  };
+    });
+  }
   
   userWarning = async (warning) => {
     await this.setState({
@@ -51,19 +51,19 @@ export class SignUpForm extends Component {
     e.preventDefault();
     const { name, email, password, confirmPassword } = this.state;
     if (!name.length) {
-      this.userWarning('please enter a name')
+      this.userWarning('please enter a name');
       return;
     }
     if (!email.length) {
-      this.userWarning('please enter a valid email')
+      this.userWarning('please enter a valid email');
       return;
     }
     if (password.length < 3) {
-      this.userWarning('password must be at least 3 characters')
+      this.userWarning('password must be at least 3 characters');
       return;
     }
     if (password !== confirmPassword) {
-      this.userWarning('passwords must match')
+      this.userWarning('passwords must match');
       return;
     } else {
       this.props.clearError();

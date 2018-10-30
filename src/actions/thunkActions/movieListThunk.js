@@ -4,16 +4,16 @@ import fetchCall from '../../utilities/fetchCall';
 
 export const getMovieList = () => {
   return async (dispatch) => {
-    dispatch(isLoading(true))
+    dispatch(isLoading(true));
     try {
       const movies = await fetchCall(Cleaners.movieListUrl);
       if (movies === 'failed') {
-        dispatch(setIsOk(true))
+        dispatch(setIsOk(true));
       }
-      dispatch(isLoading(false))
-      dispatch(setMovieList(movies))
+      dispatch(isLoading(false));
+      dispatch(setMovieList(movies));
     } catch(e) {
-      dispatch(setHasErrored(true))
+      dispatch(setHasErrored(true));
     }
   }
 }
@@ -22,9 +22,9 @@ export const updateFavorites = (id) => {
   return async (dispatch) => {
     try {
       const favorites = await Cleaners.getCurrentFavorites(id);
-      dispatch(setFavorites(favorites.data))
+      dispatch(setFavorites(favorites.data));
     } catch(e) {
-      dispatch(setHasErrored(true))
+      dispatch(setHasErrored(true));
     }
   }
 }
