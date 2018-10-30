@@ -11,7 +11,17 @@ const SingleMovie = (props) => {
     <div className='favorite-btn-wrapper'>
       <FavoriteBtn movieId={props.id}/>
     </div>
-    <img src={`https://image.tmdb.org/t/p/w400_and_h600_bestv2${props.poster_path}`} alt={props.title}/>
+    {
+      props.poster_path ?
+    <img
+      src={`https://image.tmdb.org/t/p/w400_and_h600_bestv2${props.poster_path}`} 
+      alt={props.title}
+      /> :
+    <img
+      src={'http://www.beguilingbooksandart.com/wp-content/uploads/2015/01/at_marcy.png'} 
+      alt={props.title}
+      />
+    }
     <section className='movie-poster-text'>
       <h2>{props.title}</h2>
       <h3>{year}</h3>

@@ -24,7 +24,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "push": false,
-      "to": "/release-date",
+      "to": "/movies",
     },
     "ref": null,
     "rendered": null,
@@ -37,7 +37,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "push": false,
-        "to": "/release-date",
+        "to": "/movies",
       },
       "ref": null,
       "rendered": null,

@@ -13,7 +13,7 @@ ShallowWrapper {
           ],
           "movie_id": 1,
           "overview": "mock overview",
-          "poster_path": "mockpath",
+          "poster_path": "https://image.tmdb.org/t/p/w400_and_h600_bestv2mockpath",
           "release_date": 20180101,
           "title": "mock title",
           "user_id": 1,
@@ -59,12 +59,47 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "className": "favorite-btn ",
-      "onClick": [Function],
+      "children": Array [
+        <p
+          className="not-logged-in-warning false"
+        >
+          you are not logged in
+        </p>,
+        <button
+          className="favorite-btn "
+          onClick={[Function]}
+        />,
+      ],
+      "className": "button-component-wrapper",
     },
     "ref": null,
-    "rendered": null,
-    "type": "button",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "you are not logged in",
+          "className": "not-logged-in-warning false",
+        },
+        "ref": null,
+        "rendered": "you are not logged in",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "favorite-btn ",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "button",
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -72,12 +107,47 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "className": "favorite-btn ",
-        "onClick": [Function],
+        "children": Array [
+          <p
+            className="not-logged-in-warning false"
+          >
+            you are not logged in
+          </p>,
+          <button
+            className="favorite-btn "
+            onClick={[Function]}
+          />,
+        ],
+        "className": "button-component-wrapper",
       },
       "ref": null,
-      "rendered": null,
-      "type": "button",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "you are not logged in",
+            "className": "not-logged-in-warning false",
+          },
+          "ref": null,
+          "rendered": "you are not logged in",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "favorite-btn ",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "button",
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
