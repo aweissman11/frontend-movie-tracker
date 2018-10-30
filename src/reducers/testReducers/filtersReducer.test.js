@@ -1,3 +1,4 @@
+/* eslint-disable */
 import filtersReducer from '../filtersReducer'
 
 describe('filtersReducer', () => {

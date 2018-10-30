@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getMovieList } from '../SearchBarThunk'
 import { isLoading, setHasErrored, setMovieList, setIsOk } from '../../index'
 

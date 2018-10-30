@@ -18,7 +18,7 @@ export class App extends Component {
           component={Login}
         />
         <Route
-          exact path='/release-date' render={() => {
+          exact path='/movies' render={() => {
             return <MoviesList movies={this.props.movies} />
           }} 
         />

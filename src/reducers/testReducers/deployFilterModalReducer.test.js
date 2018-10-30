@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { deployFilterModalReducer } from '../deployFilterModalReducer';
 
 describe('deployFilterModalReducer', () => {

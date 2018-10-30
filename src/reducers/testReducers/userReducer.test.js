@@ -1,3 +1,4 @@
+/* eslint-disable */
 import userReducer from '../userReducer';
 import * as Actions from '../../actions';
 

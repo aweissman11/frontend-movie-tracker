@@ -1,3 +1,4 @@
+/* eslint-disable */
 import hasErroredReducer from '../hasErroredReducer'
 
 describe('hasErroredReducer', () => {

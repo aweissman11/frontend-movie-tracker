@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getMovieList } from '../FiltersThunk'
 import { isLoading, setHasErrored, setMovieList, setIsOk } from '../../index'
 

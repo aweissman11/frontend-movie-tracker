@@ -1,3 +1,4 @@
+/* eslint-disable */
 import fetchCall from '../fetchCall';
 
 describe('fetchCall', () => {

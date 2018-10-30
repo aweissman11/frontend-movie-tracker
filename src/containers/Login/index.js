@@ -17,7 +17,7 @@ export class Login extends Component {
 
   render() {
     if (this.props.user.id) {
-      return (<Redirect to='/release-date' />)
+      return (<Redirect to='/movies' />)
     } else {
       return (
         <main className='login-page'>
