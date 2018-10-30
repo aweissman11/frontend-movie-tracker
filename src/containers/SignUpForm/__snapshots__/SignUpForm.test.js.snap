@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <SignUpForm
     displayLogin={[MockFunction]}
     logUserIn={[MockFunction]}
+    setIsLoading={[MockFunction]}
     showSignUp={true}
     store={
       Object {
