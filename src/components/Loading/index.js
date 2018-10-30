@@ -7,7 +7,7 @@ const Loading = () => {
   <div className='triangle'>
     <h3>MT</h3>
   </div>
-  )
-}
+  );
+};
 
 export default Loading;

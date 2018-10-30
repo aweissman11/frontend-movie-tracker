@@ -7,7 +7,7 @@ const Logo = () => {
     <div className='logo'>
       <h3>MT</h3>
     </div>
-  )
-}
+  );
+};
 
 export default Logo;

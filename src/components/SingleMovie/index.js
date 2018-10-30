@@ -27,7 +27,7 @@ const SingleMovie = (props) => {
       <h3>{year}</h3>
     </section>
   </div>
-)}
+)};
 
 
 SingleMovie.propTypes = {
