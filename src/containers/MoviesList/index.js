@@ -17,7 +17,6 @@ import './MoviesList.css'
 export class MoviesList extends Component {
 
   componentDidMount() {
-    console.log('this.props.movies:', this.props.movies);
     this.props.setFetchedMovies(this.props.movies)
     
     if (localStorage.getItem('userInfo')) {
