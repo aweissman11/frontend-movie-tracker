@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logUserOut, setFavorites } from '../../actions'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 export class LogButton extends Component {
   
@@ -38,5 +39,11 @@ export const mapDispatchToProps = (dispatch) => ({
   logOut: () => dispatch(logUserOut()),
   removeFavorites: () => dispatch(setFavorites())
 })
+
+LogButton.propTypes = {
+  user: PropTypes.object,
+  logOut: PropTypes.func,
+  removeFavorites: PropTypes.func
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogButton)

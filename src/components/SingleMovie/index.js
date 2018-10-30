@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import FavoriteBtn from '../../containers/FavoriteBtn';
 
@@ -16,5 +17,10 @@ const SingleMovie = (props) => {
   </div>
 )}
 
+
+SingleMovie.propTypes = {
+  date: PropTypes.object,
+  year: PropTypes.object
+};
 
 export default SingleMovie;
