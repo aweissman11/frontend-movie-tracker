@@ -52,6 +52,15 @@ export class FavoriteBtn extends Component {
   removeFavorite = async (userId, movieId) => {
     await this.state.userDataBaseFetch.removeFavorite(userId, movieId)
   }
+
+  getPosterPath = (posterPath) => {
+    if (!posterPath) {
+      console.log('fake poster')
+      return 'http://www.beguilingbooksandart.com/wp-content/uploads/2015/01/at_marcy.png'
+    } else {
+      return `https://image.tmdb.org/t/p/w400_and_h600_bestv2${posterPath}`
+    }
+  }
   
   formatFavorite = (movies, user, movieId) => {
     const movie = movies.filter( movie => movie.id === movieId)[0]
@@ -59,7 +68,7 @@ export class FavoriteBtn extends Component {
       movie_id: movie.id,
       user_id: user.id,
       title: movie.title,
-      poster_path: movie.poster_path || 'test.jpg',
+      poster_path: this.getPosterPath(movie.poster_path),
       release_date: movie.release_date,
       vote_average: movie.vote_average,
       overview: movie.overview,
