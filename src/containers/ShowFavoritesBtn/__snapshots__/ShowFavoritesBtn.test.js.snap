@@ -1,10 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`showFavoritesBtn should match the snapshot MoviesList 1`] = `
+exports[`ShowFavoritesBtn should match the snapshot MoviesList 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <showFavoritesBtn
-    showFavorites={[MockFunction]}
+  Symbol(enzyme.__unrendered__): <ShowFavoritesBtn
+    favorites={
+      Array [
+        Object {
+          "movie_id": 4,
+        },
+        Object {
+          "movie_id": 3,
+        },
+      ]
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -19,11 +28,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "showFavorites": [MockFunction],
+      "children": "favorites",
+      "className": "show-favorites",
+      "onClick": [Function],
     },
     "ref": null,
-    "rendered": null,
-    "type": "showFavoritesBtn",
+    "rendered": "favorites",
+    "type": "button",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -31,11 +42,13 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "showFavorites": [MockFunction],
+        "children": "favorites",
+        "className": "show-favorites",
+        "onClick": [Function],
       },
       "ref": null,
-      "rendered": null,
-      "type": "showFavoritesBtn",
+      "rendered": "favorites",
+      "type": "button",
     },
   ],
   Symbol(enzyme.__options__): Object {
