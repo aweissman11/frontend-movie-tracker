@@ -6,7 +6,7 @@ export const getMovieList = () => {
   return async (dispatch) => {
     dispatch(isLoading(true))
     try {
-      const movies = await fetchCall(Cleaners.movieListUrl)
+      const movies = await fetchCall(Cleaners.movieListUrl);
       if (movies === 'failed') {
         dispatch(setIsOk(true))
       }

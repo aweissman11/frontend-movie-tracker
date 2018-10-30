@@ -23,7 +23,7 @@ export const getMoviePosterUrl = (movies) => {
 
 export const today = getTodaysDate()
 
-export const movieListUrl = fetchCall(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}&append_to_response=videos`)
+export const movieListUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&/movie?primary_release_date.lte=${today}&append_to_response=videos`
 
 export const getFavoritesInfo = async (IDs) => {
   return Promise.all(IDs.map( async (id) => {
