@@ -42,7 +42,7 @@ it('calls dispatch with isLoading(true)', () => {
     }))
 
     const thunk = getMovieList(mockFavoriteInfo)
-
+sh
     await thunk(mockDispatch)
 
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
