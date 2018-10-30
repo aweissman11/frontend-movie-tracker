@@ -31,5 +31,23 @@ it('should dispatch Error if the response is not ok', async () => {
     expect(mockDispatch).toHaveBeenCalledWith(setHasErrored(true))
   })
 
+it.skip('should dispatch isLoading(false) if the response is ok', async () => {
+
+  const mockDispatch = jest.fn().mockImplementation(() => {
+    return { "isLoading": false, "type": "IS_LOADING"}
+  })
+
+  console.log(mockDispatch)
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true
+    }))
+
+    const thunk = getMovieList(mockSearchMovies)
+
+    await thunk(mockDispatch)
+
+    expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
+  })
 
 })
