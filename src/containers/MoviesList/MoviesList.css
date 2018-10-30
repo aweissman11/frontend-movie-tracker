@@ -8,7 +8,11 @@
   align-self: center;
   position: relative;
   display: flex;
-  z-index: -1;
+  z-index: 1;
+}
+
+.movies-wrapper.true {
+  z-index: -1
 }
 
 .movies-stripe {
@@ -57,27 +61,6 @@
 
 .single-movie-wrapper h3 {
   font-size: 14px;
-}
-
-/* -- MODAL BUTTON CLOSE -- */
-.close-modal-btn-wrapper {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-}
-
-.close-modal-btn {
-  height: 30px;
-  width: 30px;
-  transition: .3s;
-}
-
-.close-modal-btn-wrapper:hover .close-modal-btn {
-  transform: rotate(90deg);
-}
-
-.close-modal-btn-wrapper:hover {
-  cursor: pointer;
 }
 
 

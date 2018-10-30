@@ -65,7 +65,7 @@ export class MoviesList extends Component {
               <SearchBar />
             </section>
           </header>
-          <section className='movies-wrapper'>
+          <section className={`movies-wrapper ${this.props.filterModalDeployed}`}>
             <div className='movies-stripe'></div>
             {this.getMovies()}
           </section>
