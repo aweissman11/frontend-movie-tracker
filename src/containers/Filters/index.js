@@ -89,7 +89,6 @@ export class Filters extends Component {
         sortState: ''
       });
     } else if (name === 'sort') {
-      console.log(e.target)
       this.setState({
         sort: e.target.id,
         sortName: e.target.innerText,
