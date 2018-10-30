@@ -158,19 +158,20 @@ export class Filters extends Component {
     return (
       <aside className='filters'>
         <section className='filters-desktop'>
-          <section className='genre-filter'>
+          <section className='genre-filter' aria-label='filter-by-genre-section'>
             <h3 
               className='genre-slct'
               onClick={(e) => {this.deployList(e)}}
               id='genreState'
+              aria-label='genre-select'
             >
               {this.state.genreName || 'genre'}
             </h3>
-            <ul className={`${this.state.genreState} genre-list`}>
+            <ul className={`${this.state.genreState} genre-list`} aria-label='genre-list'>
               {this.getGenreOptions()}
             </ul>
           </section>
-          <section className='year-filter'>
+          <section className='year-filter' aria-label='filter-by-year-section'>
             <h3
               className='year-slct'
               onClick={(e) => {this.deployList(e)}}
@@ -178,11 +179,11 @@ export class Filters extends Component {
             >
               {this.state.year || 'year'}
             </h3>
-            <ul className={`${this.state.yearState} year-list`}>
+            <ul className={`${this.state.yearState} year-list`} aria-label='year-list'>
               {this.getYearOptions()}
             </ul>
           </section>
-          <section className='rating-filter'>
+          <section className='rating-filter' aria-label='filter-by-rating-section'>
            <h3
               className='rating-slct'
               onClick={(e) => {this.deployList(e)}}
@@ -190,30 +191,32 @@ export class Filters extends Component {
             >
               {this.state.rating || 'rating'}
             </h3>
-            <ul className={`${this.state.ratingState} rating-list`}>
+            <ul className={`${this.state.ratingState} rating-list`} aria-label='rating-list'>
               {this.getRatingOptions()}
             </ul>
           </section>
-          <section className='sort-filter'>
+          <section className='sort-filter' aria-label='sort-by-category-section'>
             <h3
               className='sort-by-slct'
               onClick={(e) => {this.deployList(e)}}
               id='sortState'
             >{this.state.sortName || 'sort-by'}
             </h3>
-            <ul className={`${this.state.sortState} sort-list`}>
+            <ul className={`${this.state.sortState} sort-list`} aria-label='sort-parameters'>
               {this.getSortOptions()}
             </ul>
           </section>
           <button
             className='filter-submit'
             onClick={this.handleSubmitFilters}
+            aria-label='submit-filter'
           >
             submit
           </button>
           <button 
             className='filter-clear'
             onClick={this.clearFilters}
+            aria-label='clear-filters'
           >
             clear
           </button>

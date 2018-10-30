@@ -19,11 +19,13 @@ export class LogButton extends Component {
        <button 
         onClick={() => this.logOutUser()}
         className='login-logout-btn'
+        aria-label='logout'
       >log out</button> 
       }
       {!this.props.user.id && 
         <button
           className='login-logout-btn'
+          aria-label='login'
         >login</button>
       }
       </NavLink>

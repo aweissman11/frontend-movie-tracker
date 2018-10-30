@@ -7,7 +7,7 @@ const SingleMovie = (props) => {
   const date = props.release_date;
   const year = date.split('').splice(0, 4).join('');
   return (
-  <div className='single-movie-wrapper'>
+  <div className='single-movie-wrapper' aria-label='single-movie-card'>
     <div className='favorite-btn-wrapper'>
       <FavoriteBtn movieId={props.id}/>
     </div>
@@ -22,7 +22,7 @@ const SingleMovie = (props) => {
       alt={props.title}
       />
     }
-    <section className='movie-poster-text'>
+    <section className='movie-poster-text' aria-label='movie-info'>
       <h2>{props.title}</h2>
       <h3>{year}</h3>
     </section>

@@ -4,7 +4,7 @@ import './Logo.css'
 
 const Logo = () => {
   return (
-    <div className='logo'>
+    <div className='logo' aria-label='movie-tracker-logo'>
       <h3>MT</h3>
     </div>
   );
