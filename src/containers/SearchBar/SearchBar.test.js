@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { SearchBar, mapDispatchToProps } from './';
 import { getMovieList } from '../../actions/thunkActions/SearchBarThunk';

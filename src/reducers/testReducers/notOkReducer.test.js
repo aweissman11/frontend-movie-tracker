@@ -1,3 +1,4 @@
+/* eslint-disable */
 import setIsOk from '../notOkReducer'
 
 describe('setIsOk', () => {

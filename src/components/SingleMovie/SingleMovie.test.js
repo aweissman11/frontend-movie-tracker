@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import SingleMovie from './';
 import { shallow } from 'enzyme';

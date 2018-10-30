@@ -1,3 +1,4 @@
+/* eslint-disable */
 import isLoadingReducer from '../isLoadingReducer';
 
 describe('isLoadingReducer', () => {

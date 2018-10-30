@@ -1,3 +1,4 @@
+/* eslint-disable */
 import showSignupReducer from '../showSignupReducer';
 import * as Actions from '../../actions';
 

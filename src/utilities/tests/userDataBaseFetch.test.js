@@ -1,3 +1,4 @@
+/* eslint-disable */
 import fetchCall from '../userDatabaseFetch';
 import { checkUserList } from '../../utilities/userDatabaseFetch';
 

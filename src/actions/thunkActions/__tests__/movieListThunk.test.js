@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getMovieList, updateFavorites } from '../movieListThunk'
 import { isLoading, setHasErrored, setMovieList } from '../../index'
 

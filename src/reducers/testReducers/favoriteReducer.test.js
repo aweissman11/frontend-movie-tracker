@@ -1,3 +1,4 @@
+/* eslint-disable */
 import favoritesReducer from '../favoritesReducer';
 import * as Actions from '../../actions';
 

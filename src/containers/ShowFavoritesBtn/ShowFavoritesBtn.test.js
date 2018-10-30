@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ShowFavoritesBtn, mapStateToProps, mapDispatchToProps } from './index'

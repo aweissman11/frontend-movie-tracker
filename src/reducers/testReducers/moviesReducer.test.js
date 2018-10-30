@@ -1,3 +1,4 @@
+/* eslint-disable */
 import moviesReducer from '../moviesReducer';
 
 describe('moviesReducer', () => {

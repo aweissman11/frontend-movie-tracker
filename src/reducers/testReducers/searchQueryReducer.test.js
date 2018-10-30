@@ -1,3 +1,4 @@
+/* eslint-disable */
 import searchQueryReducer from '../searchQueryReducer';
 
 describe('searchQueryReducer', () => {
