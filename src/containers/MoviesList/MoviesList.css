@@ -8,7 +8,11 @@
   align-self: center;
   position: relative;
   display: flex;
-  z-index: -1;
+  z-index: 1;
+}
+
+.movies-wrapper.true {
+  z-index: -1
 }
 
 .movies-stripe {

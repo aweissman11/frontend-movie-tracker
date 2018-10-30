@@ -150,7 +150,7 @@ aside.filters {
   position: absolute;
   height: 0;
   top: 35px;
-  left: -41px;
+  left: -40px;
   overflow: hidden;
   transition: .3s;
   background: #fff;
@@ -175,7 +175,6 @@ aside.filters {
 .filters-mobile .year-list.deployed,
 .filters-mobile .rating-list.deployed,
 .filters-mobile .sort-list.deployed {
-  background: #fff;
   z-index: 99;
   height: 500%;
   overflow-y: scroll; 
