@@ -17,6 +17,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
+      "aria-label": "loading",
       "children": <h3>
         MT
       </h3>,
@@ -42,6 +43,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
+        "aria-label": "loading",
         "children": <h3>
           MT
         </h3>,

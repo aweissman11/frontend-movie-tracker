@@ -30,9 +30,11 @@ export class SearchBar extends Component {
     return(
       <form 
         className='search-form'
+        aria-label='search-form'
         onSubmit={this.handleSubmitSearch}
       >
         <input 
+          aria-label='search-input'
           className='search-input'
           value={this.state.searchInput}
           name='searchInput'
@@ -40,6 +42,7 @@ export class SearchBar extends Component {
           placeholder='search'
         />
         <input 
+          aria-label='submit-search'
           className='search-submit'
           type='submit'
           value=''

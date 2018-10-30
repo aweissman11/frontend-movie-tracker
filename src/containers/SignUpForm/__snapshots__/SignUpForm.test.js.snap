@@ -50,6 +50,7 @@ ShallowWrapper {
           <Logo />
         </div>,
         <input
+          aria-label="name-input"
           className="name-input"
           name="name"
           onChange={[Function]}
@@ -62,6 +63,7 @@ ShallowWrapper {
           src="./user.png"
         />,
         <input
+          aria-label="email-input"
           className="email-input"
           name="email"
           onChange={[Function]}
@@ -76,6 +78,7 @@ ShallowWrapper {
           src="./email.png"
         />,
         <input
+          aria-label="password-input"
           className="password-input"
           name="password"
           onChange={[Function]}
@@ -94,6 +97,7 @@ ShallowWrapper {
           src="./password.png"
         />,
         <input
+          aria-label="confirm-password-input"
           className="password-confirm-input"
           name="confirmPassword"
           onChange={[Function]}
@@ -102,6 +106,7 @@ ShallowWrapper {
           value=""
         />,
         <input
+          aria-label="submit-new-user-info"
           className="create-user-btn"
           type="submit"
           value="sign up"
@@ -112,6 +117,7 @@ ShallowWrapper {
           to="/login"
         >
           <button
+            aria-label="back-to-login"
             className="skip-sign-up-button"
             onClick={[MockFunction]}
           >
@@ -203,6 +209,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "name-input",
           "className": "name-input",
           "name": "name",
           "onChange": [Function],
@@ -231,6 +238,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "email-input",
           "className": "email-input",
           "name": "email",
           "onChange": [Function],
@@ -261,6 +269,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "password-input",
           "className": "password-input",
           "name": "password",
           "onChange": [Function],
@@ -303,6 +312,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "confirm-password-input",
           "className": "password-confirm-input",
           "name": "confirmPassword",
           "onChange": [Function],
@@ -319,6 +329,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "submit-new-user-info",
           "className": "create-user-btn",
           "type": "submit",
           "value": "sign up",
@@ -333,6 +344,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": <button
+            aria-label="back-to-login"
             className="skip-sign-up-button"
             onClick={[MockFunction]}
           >
@@ -348,6 +360,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "back-to-login",
             "children": "already a user",
             "className": "skip-sign-up-button",
             "onClick": [MockFunction],
@@ -431,6 +444,7 @@ ShallowWrapper {
             <Logo />
           </div>,
           <input
+            aria-label="name-input"
             className="name-input"
             name="name"
             onChange={[Function]}
@@ -443,6 +457,7 @@ ShallowWrapper {
             src="./user.png"
           />,
           <input
+            aria-label="email-input"
             className="email-input"
             name="email"
             onChange={[Function]}
@@ -457,6 +472,7 @@ ShallowWrapper {
             src="./email.png"
           />,
           <input
+            aria-label="password-input"
             className="password-input"
             name="password"
             onChange={[Function]}
@@ -475,6 +491,7 @@ ShallowWrapper {
             src="./password.png"
           />,
           <input
+            aria-label="confirm-password-input"
             className="password-confirm-input"
             name="confirmPassword"
             onChange={[Function]}
@@ -483,6 +500,7 @@ ShallowWrapper {
             value=""
           />,
           <input
+            aria-label="submit-new-user-info"
             className="create-user-btn"
             type="submit"
             value="sign up"
@@ -493,6 +511,7 @@ ShallowWrapper {
             to="/login"
           >
             <button
+              aria-label="back-to-login"
               className="skip-sign-up-button"
               onClick={[MockFunction]}
             >
@@ -584,6 +603,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "name-input",
             "className": "name-input",
             "name": "name",
             "onChange": [Function],
@@ -612,6 +632,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "email-input",
             "className": "email-input",
             "name": "email",
             "onChange": [Function],
@@ -642,6 +663,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "password-input",
             "className": "password-input",
             "name": "password",
             "onChange": [Function],
@@ -684,6 +706,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "confirm-password-input",
             "className": "password-confirm-input",
             "name": "confirmPassword",
             "onChange": [Function],
@@ -700,6 +723,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "submit-new-user-info",
             "className": "create-user-btn",
             "type": "submit",
             "value": "sign up",
@@ -714,6 +738,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": <button
+              aria-label="back-to-login"
               className="skip-sign-up-button"
               onClick={[MockFunction]}
             >
@@ -729,6 +754,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "aria-label": "back-to-login",
               "children": "already a user",
               "className": "skip-sign-up-button",
               "onClick": [MockFunction],

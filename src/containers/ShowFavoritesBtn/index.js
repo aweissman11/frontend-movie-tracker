@@ -14,7 +14,10 @@ export class ShowFavoritesBtn extends Component {
 
   render() {
     return (
-      <button onClick={this.showFavorites} className='show-favorites'>
+      <button 
+        aria-label='show-favorites-button'
+        onClick={this.showFavorites} 
+        className='show-favorites'>
         favorites
       </button>
     )

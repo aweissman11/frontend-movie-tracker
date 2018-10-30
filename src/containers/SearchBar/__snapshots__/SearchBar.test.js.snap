@@ -36,8 +36,10 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
+      "aria-label": "search-form",
       "children": Array [
         <input
+          aria-label="search-input"
           className="search-input"
           name="searchInput"
           onChange={[Function]}
@@ -45,6 +47,7 @@ ShallowWrapper {
           value=""
         />,
         <input
+          aria-label="submit-search"
           className="search-submit"
           type="submit"
           value=""
@@ -60,6 +63,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "search-input",
           "className": "search-input",
           "name": "searchInput",
           "onChange": [Function],
@@ -75,6 +79,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "aria-label": "submit-search",
           "className": "search-submit",
           "type": "submit",
           "value": "",
@@ -92,8 +97,10 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
+        "aria-label": "search-form",
         "children": Array [
           <input
+            aria-label="search-input"
             className="search-input"
             name="searchInput"
             onChange={[Function]}
@@ -101,6 +108,7 @@ ShallowWrapper {
             value=""
           />,
           <input
+            aria-label="submit-search"
             className="search-submit"
             type="submit"
             value=""
@@ -116,6 +124,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "search-input",
             "className": "search-input",
             "name": "searchInput",
             "onChange": [Function],
@@ -131,6 +140,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "aria-label": "submit-search",
             "className": "search-submit",
             "type": "submit",
             "value": "",

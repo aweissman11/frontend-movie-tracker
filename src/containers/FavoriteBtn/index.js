@@ -106,7 +106,7 @@ export class FavoriteBtn extends Component {
     }
 
     return (
-      <div className='button-component-wrapper'>
+      <div className='button-component-wrapper' aria-label='favorite-button'>
         <p className={`not-logged-in-warning ${this.state.notLoggedIn}`}>you are not logged in</p>
         <button
           onClick={() => this.toggleFavorite(this.props.movieId)}

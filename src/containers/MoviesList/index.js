@@ -45,7 +45,7 @@ export class MoviesList extends Component {
 
   render() {
       return (
-        <div className='movies-list'>
+        <div className='movies-list' aria-label='movie-scroll-section'>
           <header>
             <section className='header-wrapper'>
               <section className='left-side-header-btns'>
@@ -55,6 +55,7 @@ export class MoviesList extends Component {
                   className='display-filter'
                   onClick={() => {
                     this.props.deployFilterModal(true)}}
+                  aria-label='display-filter-button'
                 >
                   filter
                 </button>
@@ -76,11 +77,19 @@ export class MoviesList extends Component {
                 <h1><span>movie</span>Tracker</h1>
               </section>
               <section className='scroll-social-wrapper'>
-                <i className="fab fa-facebook scroll-social"></i>
-                <i className="fab fa-instagram scroll-social"></i>
-                <i className="fab fa-twitter scroll-social"></i>
+                <i  
+                  aria-label='facebook-link'
+                  className="fab fa-facebook scroll-social"></i>
+                <i 
+                  aria-label='instagram-link'
+                  className="fab fa-instagram scroll-social"></i>
+                <i 
+                  aria-label='twitter-link'
+                  className="fab fa-twitter scroll-social"></i>
               </section>
-              <h3 className='footer-copyright'>© 2018 MovieTracker - All Rights Reserved</h3>
+              <h3 
+                aria-label='copyright'
+                className='footer-copyright'>© 2018 MovieTracker - All Rights Reserved</h3>
             </div>
           </footer>
         </div>
