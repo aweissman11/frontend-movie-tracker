@@ -28,7 +28,7 @@ describe('actions', () => {
     expect(result).toEqual(expected);
   })
 
-  it('should have a type UPDATE_FAVORITES', () => {
+  it('should have a type SET_FAVORITES', () => {
     const favorites = [
       {
         title: 'Die Hard',
@@ -67,6 +67,80 @@ describe('actions', () => {
 
     const result = Actions.displaySignUp()
 
+    expect(result).toEqual(expected)
+  })
+
+  it('should have a type of UPDATE_FILTERS', () => {
+    const filters = {genre: 'comedy'}
+    const expected = {
+      type: 'UPDATE_FILTERS', 
+      filters
+    }
+
+    const result = Actions.updateFilters(filters)
+
+    expect(result).toEqual(expected)
+  })
+
+  it('should have a type of UPDATE_QUERY', () => {
+    const searchQuery = 'abc'
+
+    const expected = {
+      type: 'UPDATE_QUERY', 
+      searchQuery
+    }
+
+    const result = Actions.updateSearchQuery(searchQuery)
+
+    expect(result).toEqual(expected)
+  })
+
+  it('should have a type of SET_MOVIE_LIST', () => {
+    
+    const movies = {title: 'Pasta'}
+
+    const expected = {
+      type: 'SET_MOVIE_LIST', 
+      movies
+    }
+
+    const result = Actions.setMovieList(movies)
+    
+    expect(result).toEqual(expected)
+  })
+
+  it('should have a type of SET_HAS_ERRORED', () => {
+    
+    const bool = true
+
+    const expected = 
+    {"hasErrored": true, "type": "SET_HAS_ERRORED"}
+    
+
+    const result = Actions.setHasErrored(bool)
+    
+    expect(result).toEqual(expected)
+  })
+
+  it('should have a type of SET_IS_OK', () => {
+    
+    const bool = true
+
+    const expected = {"notOk": true, "type": "SET_IS_NOT_OK"}
+    
+    const result = Actions.setIsOk(bool)
+    
+    expect(result).toEqual(expected)
+  })
+
+  it('should have a type of IS_LOADING', () => {
+    
+    const bool = true
+
+    const expected = {"isLoading": true, "type": "IS_LOADING"}
+
+    const result = Actions.isLoading(bool)
+    
     expect(result).toEqual(expected)
   })
 })
