@@ -43,8 +43,8 @@ it('should dispatch isLoading(false) if the response is ok', async () => {
   const mockDispatch = jest.fn()
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      ok: true,
-       json: () => Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({
         movies: []
       })
     }))
