@@ -97,7 +97,7 @@ ShallowWrapper {
         </section>,
         <Link
           replace={false}
-          to="/release-date"
+          to="/movies"
         >
           <button
             className="skip-login"
@@ -317,7 +317,7 @@ ShallowWrapper {
             skip login
           </button>,
           "replace": false,
-          "to": "/release-date",
+          "to": "/movies",
         },
         "ref": null,
         "rendered": Object {
@@ -434,7 +434,7 @@ ShallowWrapper {
           </section>,
           <Link
             replace={false}
-            to="/release-date"
+            to="/movies"
           >
             <button
               className="skip-login"
@@ -654,7 +654,7 @@ ShallowWrapper {
               skip login
             </button>,
             "replace": false,
-            "to": "/release-date",
+            "to": "/movies",
           },
           "ref": null,
           "rendered": Object {

@@ -30,7 +30,7 @@ ShallowWrapper {
         />,
         <Route
           exact={true}
-          path="/release-date"
+          path="/movies"
           render={[Function]}
         />,
       ],
@@ -70,7 +70,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "exact": true,
-          "path": "/release-date",
+          "path": "/movies",
           "render": [Function],
         },
         "ref": null,
@@ -99,7 +99,7 @@ ShallowWrapper {
           />,
           <Route
             exact={true}
-            path="/release-date"
+            path="/movies"
             render={[Function]}
           />,
         ],
@@ -139,7 +139,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "exact": true,
-            "path": "/release-date",
+            "path": "/movies",
             "render": [Function],
           },
           "ref": null,
