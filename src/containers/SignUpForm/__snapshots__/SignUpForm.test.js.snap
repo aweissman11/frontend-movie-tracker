@@ -10,9 +10,9 @@ ShallowWrapper {
     showSignUp={true}
     store={
       Object {
-        "dispatch": [MockFunction],
-        "getState": [MockFunction],
-        "subscribe": [MockFunction],
+        "dispatch": undefined,
+        "getState": undefined,
+        "subscribe": undefined,
       }
     }
     user={

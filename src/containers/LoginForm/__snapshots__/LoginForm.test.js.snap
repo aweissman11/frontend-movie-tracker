@@ -6,12 +6,12 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <LoginForm
     displaySignUp={[MockFunction]}
     logUserIn={[MockFunction]}
-    showLogin={true}
+    showLogin=""
     store={
       Object {
-        "dispatch": [MockFunction],
-        "getState": [MockFunction],
-        "subscribe": [MockFunction],
+        "dispatch": undefined,
+        "getState": undefined,
+        "subscribe": undefined,
       }
     }
     user={
@@ -115,7 +115,7 @@ ShallowWrapper {
           </p>
         </div>,
       ],
-      "className": "login-form true",
+      "className": "login-form ",
       "onSubmit": [Function],
     },
     "ref": null,
@@ -452,7 +452,7 @@ ShallowWrapper {
             </p>
           </div>,
         ],
-        "className": "login-form true",
+        "className": "login-form ",
         "onSubmit": [Function],
       },
       "ref": null,

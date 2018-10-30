@@ -12,14 +12,14 @@ describe('SignUpForm', () => {
   const mockUser = {
     id: 1
   }
-  const mockShowSignUp = true;
-  const mockLogUserIn = jest.fn();
-  const mockSetIsLoading = jest.fn();
-  const mockDisplayLogin = jest.fn();
-  const mockSubscribe = jest.fn();
-  const mockDispatch = jest.fn();
-  const mockGetState = jest.fn();
-  const mockUserDatabaseFetch = {
+  let mockShowSignUp = true;
+  let mockLogUserIn;
+  let mockSetIsLoading;
+  let mockDisplayLogin;
+  let mockSubscribe;
+  let mockDispatch;
+  let mockGetState;
+  let mockUserDatabaseFetch = {
     checkUserList: jest.fn().mockImplementation(() => {
       return Promise.resolve({
         data: {
@@ -58,6 +58,13 @@ describe('SignUpForm', () => {
   }
 
   beforeEach(() => {
+    mockLogUserIn = jest.fn();
+    mockSetIsLoading = jest.fn();
+    mockDisplayLogin = jest.fn();
+    mockSubscribe = jest.fn();
+    mockDispatch = jest.fn();
+    mockGetState = jest.fn();
+
     wrapper = shallow(<SignUpForm 
       store={mockStore}
       user={mockUser}
@@ -80,6 +87,7 @@ describe('SignUpForm', () => {
     wrapper.find('.skip-sign-up-button').simulate('click', mockEvent);
 
     expect(mockDisplayLogin).toHaveBeenCalled();
+
   });
 
   describe('handleChange', () => {
@@ -90,29 +98,25 @@ describe('SignUpForm', () => {
       expect(wrapper.state().email).toEqual(expected);
     });
 
-    it.skip('should call handleChange on email input', () => {
-      const mockHandleChange = jest.fn().mockImplementation(() => {
-      });
-
-      wrapper.instance().handleChange = mockHandleChange;
+    it('should call handleChange on email input', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange')
+      wrapper.instance().forceUpdate();
 
       wrapper.find('.email-input').simulate('change', mockEvent);
 
-      expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
+      expect(spy).toHaveBeenCalledWith(mockEvent);
     });
 
-    it.skip('should call handleChange on password input', () => {
-      const mockHandleChange = jest.fn().mockImplementation(() => {
-      });
-
-      wrapper.instance().handleChange = mockHandleChange;
+    it('should call handleChange on password input', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange')
+      wrapper.instance().forceUpdate();
 
       wrapper.find('.password-input').simulate('change', mockEvent);
 
-      expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
+      expect(spy).toHaveBeenCalledWith(mockEvent);
     });
 
-    it.only('should call handleChange on confirm password input', () => {
+    it('should call handleChange on confirm password input', () => {
       const spy = spyOn(wrapper.instance(), 'handleChange')
       wrapper.instance().forceUpdate()
 
@@ -121,15 +125,13 @@ describe('SignUpForm', () => {
       expect(spy).toHaveBeenCalledWith(mockEvent);
     });
 
-    it.skip('should call handleChange on name input', () => {
-      const mockHandleChange = jest.fn().mockImplementation(() => {
-      });
-
-      wrapper.instance().handleChange = mockHandleChange;
+    it('should call handleChange on name input', () => {
+      const spy = spyOn(wrapper.instance(), 'handleChange');
+      wrapper.instance().forceUpdate()
 
       wrapper.find('.name-input').simulate('change', mockEvent);
 
-      expect(mockHandleChange).toHaveBeenCalledWith(mockEvent);
+      expect(spy).toHaveBeenCalledWith(mockEvent);
     });
   });
 
@@ -155,15 +157,8 @@ describe('SignUpForm', () => {
      expect(wrapper.state().signUpError).toEqual(mockSignUpError);
     });
 
-    // it('should call removeWarning', async () => {
-    //   const mockRemoveWarning = jest.fn();
-
-    //   wrapper.instance().removeWarning = mockRemoveWarning;
-    //   await wrapper.instance().userWarning()
-
-    //   expect(mockRemoveWarning).toHaveBeenCalled()
-    // });
   });
+
   describe('createNewUser', () => {
 
     const mockCreateNewUser = jest.fn().mockImplementation(() => {
@@ -198,49 +193,26 @@ describe('SignUpForm', () => {
       expect(mockPreventDefault).toHaveBeenCalled();
     });
 
-    it.skip('should call userWarning with the correct params when an error response is returned', async () => {
+    it('should call userWarning with the correct params when an error response is returned', async () => {
+
+      const spy = spyOn(wrapper.instance(), 'userWarning');
+      wrapper.instance().forceUpdate();
       const mockErrorResponse = jest.fn().mockImplementation(() => {
         return Promise.resolve({error: 'error'})
       });
 
-      const mockUserWarning = jest.fn()
-
-      wrapper.instance().createNewUser = mockErrorResponse; 
-      wrapper.instance().userWarning = mockUserWarning;
-
       await wrapper.instance().createNewUser(mockEvent);
 
-      expect(mockUserWarning).toHaveBeenCalledWith('signUpError', 'mock name');
+      expect(spy).toHaveBeenCalled();
     });
 
-    // it('should call userWarning on failed fetch', async () => {
-    //   const mockFailedCall = jest.fn().mockImplementation(() => {
-    //     return Promise.reject({
-    //       error: 'error'
-    //     });
-    //   });
-
-    //   const mockFailedDatabase = {checkUserList: mockFailedCall}
-    //   const mockUserWarning = jest.fn();
-
-    //   await wrapper.setState({
-    //     userDatabaseFetch: mockFailedDatabase
-    //   });
-
-    //   wrapper.instance().userWarning = mockUserWarning
-
-    //   await wrapper.instance().submitSignUp(mockEvent);
-
-    //   expect(mockUserWarning).toHaveBeenCalled();
-    // })
-
-    it.skip('should call createNewUser on submit', () => {
-      const mockSubmitSignUp = jest.fn();
-      wrapper.instance().createNewUser = mockSubmitSignUp
+    it('should call createNewUser on submit', () => {
+      const spy = spyOn(wrapper.instance(), 'createNewUser')
+      wrapper.instance().forceUpdate();
 
       wrapper.find('form').simulate('submit');
 
-      expect(mockSubmitSignUp).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalled();
     })
 
   });
