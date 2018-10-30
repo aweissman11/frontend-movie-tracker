@@ -8,7 +8,7 @@ This project is a part of the Front End Engineering Program at the Turing School
 
 ### Installation
 
-Create a director for the project and cd into it.
+Create a directory for the project and cd into it.
 
 Clone down the repo for this project:
 
