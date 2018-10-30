@@ -63,10 +63,10 @@ ShallowWrapper {
             <section
               className="left-side-header-btns"
             >
-              <Connect(Filters) />
               <Connect(LogButton) />
               <Connect(ShowFavoritesBtn) />
             </section>
+            <Connect(Filters) />
             <Connect(SearchBar) />
           </section>
         </header>,
@@ -129,10 +129,10 @@ ShallowWrapper {
             <section
               className="left-side-header-btns"
             >
-              <Connect(Filters) />
               <Connect(LogButton) />
               <Connect(ShowFavoritesBtn) />
             </section>
+            <Connect(Filters) />
             <Connect(SearchBar) />
           </section>,
         },
@@ -146,10 +146,10 @@ ShallowWrapper {
               <section
                 className="left-side-header-btns"
               >
-                <Connect(Filters) />
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
               </section>,
+              <Connect(Filters) />,
               <Connect(SearchBar) />,
             ],
             "className": "header-wrapper",
@@ -162,7 +162,6 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Connect(Filters) />,
                   <Connect(LogButton) />,
                   <Connect(ShowFavoritesBtn) />,
                 ],
@@ -188,17 +187,17 @@ ShallowWrapper {
                   "rendered": null,
                   "type": [Function],
                 },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
               ],
               "type": "section",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
             Object {
               "instance": null,
@@ -473,10 +472,10 @@ ShallowWrapper {
               <section
                 className="left-side-header-btns"
               >
-                <Connect(Filters) />
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
               </section>
+              <Connect(Filters) />
               <Connect(SearchBar) />
             </section>
           </header>,
@@ -539,10 +538,10 @@ ShallowWrapper {
               <section
                 className="left-side-header-btns"
               >
-                <Connect(Filters) />
                 <Connect(LogButton) />
                 <Connect(ShowFavoritesBtn) />
               </section>
+              <Connect(Filters) />
               <Connect(SearchBar) />
             </section>,
           },
@@ -556,10 +555,10 @@ ShallowWrapper {
                 <section
                   className="left-side-header-btns"
                 >
-                  <Connect(Filters) />
                   <Connect(LogButton) />
                   <Connect(ShowFavoritesBtn) />
                 </section>,
+                <Connect(Filters) />,
                 <Connect(SearchBar) />,
               ],
               "className": "header-wrapper",
@@ -572,7 +571,6 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    <Connect(Filters) />,
                     <Connect(LogButton) />,
                     <Connect(ShowFavoritesBtn) />,
                   ],
@@ -598,17 +596,17 @@ ShallowWrapper {
                     "rendered": null,
                     "type": [Function],
                   },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {},
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
                 ],
                 "type": "section",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
               },
               Object {
                 "instance": null,

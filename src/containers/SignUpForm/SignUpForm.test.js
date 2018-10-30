@@ -13,6 +13,7 @@ describe('SignUpForm', () => {
   }
   const mockShowSignUp = true;
   const mockLogUserIn = jest.fn();
+  const mockSetIsLoading = jest.fn();
   const mockDisplayLogin = jest.fn();
   const mockSubscribe = jest.fn();
   const mockDispatch = jest.fn();
@@ -28,6 +29,7 @@ describe('SignUpForm', () => {
     })
   }
 
+
   const mockStore = {
     subscribe: mockSubscribe,
     dispatch: mockDispatch,
@@ -39,9 +41,9 @@ describe('SignUpForm', () => {
     email: '',
     password: '',
     confirmPassword: '',
-    newUserInputsVisible: false,
     signUpError: '',
-    userDatabaseFetch: userDatabaseFetch
+    userDatabaseFetch: userDatabaseFetch,
+    activeErrorText: 'email address already registered'
   };
 
   const mockPreventDefault = jest.fn();
@@ -61,6 +63,7 @@ describe('SignUpForm', () => {
       showSignUp={mockShowSignUp}
       logUserIn={mockLogUserIn}
       displayLogin={mockDisplayLogin}
+      setIsLoading={mockSetIsLoading}
     />);
   });
 
@@ -137,18 +140,20 @@ describe('SignUpForm', () => {
 
       await wrapper.instance().removeWarning();
 
-      expect(wrapper.state().signUpError).toEqual('');
+      expect(wrapper.state().signUpError).toEqual(expected);
     });
   })
 
   describe('userWarning', () => {
     it('should call set state', async () => {
-      const mockType = 'SignUpError'
+      const mockErrorText = 'activeErrorText'
       const mockWarning = 'mock warning'
+      const mockSignUpError = 'sign-up-error-active'
 
-      await wrapper.instance().userWarning(mockType, mockWarning);
+      await wrapper.instance().userWarning(mockWarning);
 
-     expect(wrapper.state()[mockType]).toEqual(mockWarning);
+     expect(wrapper.state()[mockErrorText]).toEqual(mockWarning);
+     expect(wrapper.state().signUpError).toEqual(mockSignUpError);
     });
 
     // it('should call removeWarning', async () => {
@@ -160,22 +165,6 @@ describe('SignUpForm', () => {
     //   expect(mockRemoveWarning).toHaveBeenCalled()
     // });
   });
-
-  describe('showNewUserInputs', () => {
-    it('should call preventDefault', () => {
-      wrapper.instance().showNewUserInputs(mockEvent);
-
-      expect(mockPreventDefault).toHaveBeenCalled();
-    });
-
-    it('should call set state', async () => {
-      await wrapper.instance().showNewUserInputs(mockEvent);
-
-      expect(wrapper.state().newUserInputsVisible).toEqual(true);
-    })
-
-  });
-
   describe('createNewUser', () => {
 
     const mockCreateNewUser = jest.fn().mockImplementation(() => {
@@ -208,17 +197,6 @@ describe('SignUpForm', () => {
       await wrapper.instance().createNewUser(mockEvent);
 
       expect(mockPreventDefault).toHaveBeenCalled();
-    });
-
-    it('should call createNewUser with the correct params', async () => {
-      const expected = {
-        email: mockEmail,
-        password: mockPassword,
-        name: mockName
-      }
-      await wrapper.instance().createNewUser(mockEvent);
-
-      expect(mockCreateNewUser).toHaveBeenCalledWith(expected);
     });
 
     it.skip('should call userWarning with the correct params when an error response is returned', async () => {
