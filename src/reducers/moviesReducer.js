@@ -1,4 +1,4 @@
-const moviesReducer = (state = [], action) => {
+const moviesReducer = (state = {}, action) => {
   switch(action.type) {
     case 'SET_MOVIE_LIST' :
       return action.movies;
