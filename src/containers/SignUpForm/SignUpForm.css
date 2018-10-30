@@ -159,6 +159,7 @@
 
 .sign-up-error-active {
   opacity: 1;
+  left: 0;
 }
 
 .email-in-use-error.true {
