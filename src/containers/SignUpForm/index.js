@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getUserLoggedIn } from '../../actions'
-import { displayLogin } from '../../actions';
+import { getUserLoggedIn, displayLogin, isLoading } from '../../actions'
+import { submitNewUser } from '../../actions/thunkActions/SignUpFormThunk';
 
 import Logo from '../../components/Logo'
 
@@ -18,9 +18,9 @@ export class SignUpForm extends Component {
       email: '',
       password: '',
       confirmPassword: '',
-      newUserInputsVisible: false,
       signUpError: '',
-      userDatabaseFetch: userDatabaseFetch
+      userDatabaseFetch: userDatabaseFetch,
+      activeErrorText: 'email address already registered'
     }
   }
   
@@ -29,42 +29,42 @@ export class SignUpForm extends Component {
       [e.target.name]: e.target.value
     })
   }
-
+  
+  userWarning = async (warning) => {
+    await this.setState({
+      signUpError: 'sign-up-error-active',
+      activeErrorText: warning
+    })
+    await setTimeout(this.removeWarning, 5000)
+  }
+  
   removeWarning = () => {
     this.setState({
       signUpError: ''
     })
   }
-
-  userWarning = async (type, warning) => {
-    await this.setState({
-      [type]: warning
-    })
-    await setTimeout(this.removeWarning, 5000)
-    console.log(warning)
-  }
-
-  showNewUserInputs = (e) => {
-    e.preventDefault();
-    this.setState({ newUserInputsVisible: !this.state.newUserInputsVisible })
-  }
-
+  
   createNewUser = async (e) => {
     e.preventDefault();
-    const { name, email, password } = this.state;
-
-    try {
-      const response = await this.state.userDatabaseFetch.createNewUser({ name, email, password })
-      if (response.error) {
-        this.userWarning('signUpError', 'sign-up-error-active')
-      }
-    } catch(error) {
-      console.log(error.message)
+    const { name, email, password, confirmPassword } = this.state;
+    if (!name.length) {
+      this.userWarning('please enter a name')
+      return;
     }
-
-    // this is where we need to navigate the user to the MovieList page
-    // I think our default could be by release-date, so we could navigate them there
-    this.setState({ newUserInputsVisible: false })
+    if (!email.length) {
+      this.userWarning('please enter a valid email')
+      return;
+    }
+    if (password.length < 3) {
+      this.userWarning('password must be at least 3 characters')
+      return;
+    }
+    if (password !== confirmPassword) {
+      this.userWarning('passwords must match')
+      return;
+    } else {
+      this.props.submitNewUser(name, email, password)
+    }
   }
 
   render() {
@@ -144,7 +144,7 @@ export class SignUpForm extends Component {
               onClick={this.props.displayLogin}>already a user</button>
           </Link>
           <div className={`signup-error-wrapper ${this.state.signUpError}`}>
-            <p>email address already registered</p>
+            <p>{this.state.activeErrorText}</p>
           </div>
         </form>
       )
@@ -159,7 +159,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   logUserIn: (id, name) => dispatch(getUserLoggedIn(id, name)),
-  displayLogin: () => dispatch(displayLogin())
+  displayLogin: () => dispatch(displayLogin()),
+  setIsLoading: (bool) => dispatch(isLoading(bool)),
+  submitNewUser: (name, email, password) => dispatch(submitNewUser(name, email, password))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm)
