@@ -58,6 +58,10 @@ aside.filters {
   cursor: pointer;
 }
 
+.year-list li:hover {
+  cursor: pointer;
+}
+
 
 .filters-desktop .genre-list,
 .filters-desktop .year-list,
