@@ -22,16 +22,16 @@ export class FavoriteBtn extends Component {
 
   callAddFavorite = async (movies, user, favorites, movieId) => {
     try {
-      await this.state.userDataBaseFetch.addFavorite(this.formatFavorite(movies.results, user, movieId));
       this.setState({ isFavorite: true })
       const newFavorites = [...favorites, this.formatFavorite(movies.results, user, movieId)]
       this.props.setFavorites(newFavorites);
+      await this.state.userDataBaseFetch.addFavorite(this.formatFavorite(movies.results, user, movieId));
     } catch(error) {
       this.setState({
         failed: true
       });
 
-      this.setTimeout(this.clearFailedFav, 5000);
+      setTimeout(this.clearFailedFav, 5000);
     }
   };
 
@@ -51,11 +51,13 @@ export class FavoriteBtn extends Component {
   toggleFavorite = async (movieId) => {
     const { movies, user, favorites } = this.props;
     if (!user.id) {
+      console.log('no user id')
       this.setState({
         notLoggedIn: true
       });
-
+      
       setTimeout(this.clearNotLoggedIn, 5000);
+
     } else {
       if (!favorites.find(favorite => favorite.movie_id === movieId)) {
         await this.callAddFavorite(movies, user, favorites, movieId);
@@ -93,8 +95,7 @@ export class FavoriteBtn extends Component {
       poster_path: this.getPosterPath(movie.poster_path),
       release_date: movie.release_date,
       vote_average: movie.vote_average,
-      overview: movie.overview,
-      genre_ids: movie.genre_ids
+      overview: movie.overview
     }
   };
 

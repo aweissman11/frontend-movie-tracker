@@ -22,7 +22,7 @@ export const updateFavorites = (id) => {
   return async (dispatch) => {
     try {
       const favorites = await Cleaners.getCurrentFavorites(id);
-      dispatch(setFavorites(favorites.data));
+      dispatch(setFavorites(favorites));
     } catch(e) {
       dispatch(setHasErrored(true));
     }

@@ -1,5 +1,5 @@
 export const checkUserList = async (data) => {
-  const url = 'http://localhost:3000/api/users'
+  const url = '/api/v1/users'
 
   const optionsObject = {
     method: "POST", 
@@ -15,7 +15,7 @@ export const checkUserList = async (data) => {
 }
 
 export const createNewUser = async (data) => {
-  const url = 'http://localhost:3000/api/users/new'
+  const url = '/api/v1/users/new'
 
   const optionsObject = {
     method: "POST", 
@@ -25,13 +25,19 @@ export const createNewUser = async (data) => {
         "Content-Type": "application/json",
     }
   }
+
+  console.log('new user url:', url);
 
   const response = await fetch(url, optionsObject);
   return await response.json();
 }
 
 export const addFavorite = async (data) => {
-  const url = 'http://localhost:3000/api/users/favorites/new'
+  const url = '/api/v1/users/favorites/new'
+
+  console.log('userDB addFavorite');
+  console.log('url:', url);
+  console.log('data:', data);
 
   const optionsObject = {
     method: "POST", 
@@ -43,11 +49,14 @@ export const addFavorite = async (data) => {
   }
 
   const response = await fetch(url, optionsObject);
+
+  await console.log('userDB response:', response.json());
+
   return await response.json();
 }
 
 export const removeFavorite = async (userId, movieId) => {
-  const url = `http://localhost:3000/api/users/${userId}/favorites/${movieId}`
+  const url = `/api/v1/users/${userId}/favorites/${movieId}`
 
   const optionsObject = {
     method: "DELETE", 

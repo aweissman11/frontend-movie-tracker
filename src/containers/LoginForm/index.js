@@ -43,14 +43,12 @@ export class LoginForm extends Component {
 
   submitLogin = async (e) => {
     e.preventDefault();
-
     const { email, password } = this.state;
 
     try {
       const response = await this.state.userDatabaseFetch.checkUserList({ email, password })
-
-      await this.props.logUserIn(response.data.id, response.data.name)
-
+      await this.props.logUserIn(response.id, response.name)
+      return;
     } catch(error) {
       this.userWarning('loginError', 'login-error-active')
     }

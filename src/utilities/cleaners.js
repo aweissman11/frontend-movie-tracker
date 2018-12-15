@@ -33,8 +33,9 @@ export const getFavoritesInfo = async (IDs) => {
 }
 
 export const getCurrentFavorites = async (id) => { 
-  const url = `http://localhost:3000/api/users/${id}/favorites`;
-  return await fetchCall(url);
+  const url = `/api/v1/users/${id}/favorites`;
+  const currentFavorites = await fetchCall(url);
+  return currentFavorites;
 }
 
 export const getFullUrl = (filterProperties, searchQuery) => {
