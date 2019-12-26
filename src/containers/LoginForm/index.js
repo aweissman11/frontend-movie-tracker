@@ -21,7 +21,7 @@ export class LoginForm extends Component {
       userDatabaseFetch: userDatabaseFetch
     }
   };
-  
+
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -49,16 +49,16 @@ export class LoginForm extends Component {
     try {
       const response = await this.state.userDatabaseFetch.checkUserList({ email, password })
 
-      await this.props.logUserIn(response.data.id, response.data.name)
+      await this.props.logUserIn(response.id, response.name)
 
-    } catch(error) {
+    } catch (error) {
       this.userWarning('loginError', 'login-error-active')
     }
   };
 
   render() {
     return (
-      <form onSubmit={(e) => {this.submitLogin(e)}} className={`login-form ${this.props.showLogin}`}>
+      <form onSubmit={(e) => { this.submitLogin(e) }} className={`login-form ${this.props.showLogin}`}>
         <h1><span>movie</span>Tracker</h1>
         <h4>for the love of film</h4>
         <div className='login-form-logo-wrapper'>
@@ -72,9 +72,9 @@ export class LoginForm extends Component {
           placeholder='email'
           aria-label='email-input'
         ></input>
-        <img 
-          src='./email.png' 
-          alt='mail' 
+        <img
+          src='./email.png'
+          alt='mail'
           className='email-icon'
         />
         <input
@@ -86,9 +86,9 @@ export class LoginForm extends Component {
           placeholder='password'
           aria-label='password-input'
         ></input>
-        <img 
-          src='./password.png' 
-          alt='lock' 
+        <img
+          src='./password.png'
+          alt='lock'
           className='password-icon'
         />
         <input
@@ -97,7 +97,7 @@ export class LoginForm extends Component {
           value='login'
           aria-label='login-submit-button'
         ></input>
-        <button 
+        <button
           onClick={(e) => {
             e.preventDefault()
             this.props.displaySignUp()
@@ -109,15 +109,15 @@ export class LoginForm extends Component {
           signup
         </button>
         <section className='login-social-wrapper'>
-          <i 
+          <i
             aria-label='facebook-link'
             className="fab fa-facebook login-social"></i>
-          <i 
+          <i
             aria-label='twitter-link'
             className="fab fa-twitter login-social"></i>
         </section>
         <Link to='/movies'>
-          <button 
+          <button
             aria-label='skip-login-button'
             className='skip-login'>skip login</button>
         </Link>

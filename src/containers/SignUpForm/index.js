@@ -26,13 +26,13 @@ export class SignUpForm extends Component {
       activeErrorText: 'email address already registered'
     }
   };
-  
+
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
-  
+
   userWarning = async (warning) => {
     await this.setState({
       signUpError: 'sign-up-error-active',
@@ -40,13 +40,13 @@ export class SignUpForm extends Component {
     });
     await setTimeout(this.removeWarning, 5000);
   };
-  
+
   removeWarning = () => {
     this.setState({
       signUpError: ''
     })
   };
-  
+
   createNewUser = async (e) => {
     e.preventDefault();
     const { name, email, password, confirmPassword } = this.state;
@@ -89,10 +89,10 @@ export class SignUpForm extends Component {
             value={this.state.name}
             name='name'
             placeholder='name'
-            /> 
-          <img 
-            src='./user.png' 
-            alt='user' 
+          />
+          <img
+            src='./user.png'
+            alt='user'
             className='user-icon'
           />
           <input
@@ -104,10 +104,10 @@ export class SignUpForm extends Component {
             title='Enter a Valid Email Address'
             name='email'
             placeholder='email'
-            ></input>
-          <img 
-            src='./email.png' 
-            alt='mail' 
+          ></input>
+          <img
+            src='./email.png'
+            alt='mail'
             className='email-icon'
           />
           <input
@@ -119,14 +119,14 @@ export class SignUpForm extends Component {
             name='password'
             placeholder='password'
           ></input>
-          <img 
-            src='./password.png' 
-            alt='lock' 
+          <img
+            src='./password.png'
+            alt='lock'
             className='password-icon'
           />
-          <img 
-            src='./password.png' 
-            alt='lock' 
+          <img
+            src='./password.png'
+            alt='lock'
             className='password-confirm-icon'
           />
           <input
@@ -137,18 +137,18 @@ export class SignUpForm extends Component {
             value={this.state.confirmPassword}
             name='confirmPassword'
             placeholder='confirm password'
-          ></input> 
+          ></input>
           <input
             aria-label='submit-new-user-info'
             className='create-user-btn'
             type='submit'
             value='sign up'
           ></input>
-          <Link 
+          <Link
             className='skip-sign-up'
             to='/login'
           >
-            <button 
+            <button
               aria-label='back-to-login'
               className='skip-sign-up-button'
               onClick={this.props.displayLogin}>already a user</button>

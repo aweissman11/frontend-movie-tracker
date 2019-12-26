@@ -13,7 +13,7 @@ import isLoadingReducer from './isLoadingReducer';
 import deployFilterModalReducer from './deployFilterModalReducer';
 
 export const rootReducer = combineReducers({
-  movies: moviesReducer, 
+  movies: moviesReducer,
   user: userReducer,
   showLogin: showLoginReducer,
   showSignup: showSingupReducer,
