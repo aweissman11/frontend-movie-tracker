@@ -1,10 +1,10 @@
 export const checkUserList = async (data) => {
-  const url = 'http://localhost:3000/api/users'
+  const url = 'http://localhost:3000/api/v1/users'
 
   const optionsObject = {
-    method: "POST", 
+    method: "POST",
     body: JSON.stringify(data),
-    credentials: "same-origin", 
+    credentials: "same-origin",
     headers: {
       "Content-Type": "application/json",
     }
@@ -15,14 +15,14 @@ export const checkUserList = async (data) => {
 }
 
 export const createNewUser = async (data) => {
-  const url = 'http://localhost:3000/api/users/new'
+  const url = 'http://localhost:3000/api/v1/users/new'
 
   const optionsObject = {
-    method: "POST", 
+    method: "POST",
     body: JSON.stringify(data),
-    credentials: "same-origin", 
+    credentials: "same-origin",
     headers: {
-        "Content-Type": "application/json",
+      "Content-Type": "application/json",
     }
   }
 
@@ -31,14 +31,14 @@ export const createNewUser = async (data) => {
 }
 
 export const addFavorite = async (data) => {
-  const url = 'http://localhost:3000/api/users/favorites/new'
+  const url = 'http://localhost:3000/api/v1/users/favorites/new'
 
   const optionsObject = {
-    method: "POST", 
+    method: "POST",
     body: JSON.stringify(data),
-    credentials: "same-origin", 
+    credentials: "same-origin",
     headers: {
-        "Content-Type": "application/json",
+      "Content-Type": "application/json",
     }
   }
 
@@ -47,17 +47,17 @@ export const addFavorite = async (data) => {
 }
 
 export const removeFavorite = async (userId, movieId) => {
-  const url = `http://localhost:3000/api/users/${userId}/favorites/${movieId}`
+  const url = `http://localhost:3000/api/v1/users/${userId}/favorites/${movieId}`
 
   const optionsObject = {
-    method: "DELETE", 
+    method: "DELETE",
     body: JSON.stringify({
       user_id: userId,
       movie_id: movieId
     }),
-    credentials: "same-origin", 
+    credentials: "same-origin",
     headers: {
-        "Content-Type": "application/json",
+      "Content-Type": "application/json",
     }
   }
 

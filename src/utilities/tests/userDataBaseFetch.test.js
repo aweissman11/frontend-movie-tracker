@@ -4,13 +4,13 @@ import { checkUserList } from '../../utilities/userDatabaseFetch';
 
 
 describe('userDataBaseFetch', () => {
-  const url = 'http://localhost:3000/api/users'
-  const mockData = {email: 'kevin@yo.com', password: 'password'}
+  const url = 'http://localhost:3000/api/v1/users'
+  const mockData = { email: 'kevin@yo.com', password: 'password' }
 
   const optionsObject = {
-    method: "POST", 
+    method: "POST",
     body: JSON.stringify(mockData),
-    credentials: "same-origin", 
+    credentials: "same-origin",
     headers: {
       "Content-Type": "application/json",
     }
@@ -22,6 +22,6 @@ describe('userDataBaseFetch', () => {
     ))
 
     await checkUserList(mockData);
-    expect (window.fetch).toHaveBeenCalledWith(url, optionsObject);
+    expect(window.fetch).toHaveBeenCalledWith(url, optionsObject);
   })
 })

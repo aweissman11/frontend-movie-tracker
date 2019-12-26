@@ -17,8 +17,7 @@ describe('FavoriteBtn', () => {
     poster_path: 'mockpath',
     release_date: 20180101,
     vote_average: 5,
-    overview: 'mock overview',
-    genre_ids: [0, 1]
+    overview: 'mock overview'
   }];
 
   let formatedMovie = {
@@ -28,8 +27,7 @@ describe('FavoriteBtn', () => {
     poster_path: 'https://image.tmdb.org/t/p/w400_and_h600_bestv2mockpath',
     release_date: 20180101,
     vote_average: 5,
-    overview: 'mock overview',
-    genre_ids: [0, 1]
+    overview: 'mock overview'
   }
 
   let user = {id: 1}
@@ -41,8 +39,7 @@ describe('FavoriteBtn', () => {
     poster_path: 'https://image.tmdb.org/t/p/w400_and_h600_bestv2mockpath',
     release_date: 20180101,
     vote_average: 5,
-    overview: 'mock overview',
-    genre_ids: [0, 1]
+    overview: 'mock overview'
   }];
 
   const mockSetFavorites = jest.fn();

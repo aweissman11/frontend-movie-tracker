@@ -3,8 +3,8 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-class LocalStorage{
-  constructor(){
+class LocalStorage {
+  constructor() {
     this.store = {};
   }
 
@@ -18,7 +18,6 @@ class LocalStorage{
 
   removeItem = (key) => {
     delete this.store[key];
-    console.log('fires')
   }
 
   clear = () => {

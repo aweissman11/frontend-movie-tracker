@@ -18,9 +18,9 @@ export class App extends Component {
           component={Login}
         />
         <Route
-          exact path='/movies' render={() => {
-            return <MoviesList movies={this.props.movies} />
-          }} 
+          exact path='/movies' render={() => (
+            <MoviesList movies={this.props.movies} />
+          )}
         />
       </div>
     );

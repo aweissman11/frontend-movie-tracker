@@ -66,7 +66,7 @@ describe('updateFavorites', () => {
   it('should dispatch updateFavorites', async () => {
     const id = 67890
     const setFavorites = jest.fn().mockImplementation(() => {
-      return {"favorites": [], "type": "SET_FAVORITES"}
+      return {"favorites": {"title": "Back To The Future"}, "type": "SET_FAVORITES"}
   })
 
     const thunk = updateFavorites(id)

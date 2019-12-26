@@ -12,7 +12,7 @@ export const getMovieList = () => {
       }
       dispatch(isLoading(false));
       dispatch(setMovieList(movies));
-    } catch(e) {
+    } catch (e) {
       dispatch(setHasErrored(true));
     }
   }
@@ -22,8 +22,8 @@ export const updateFavorites = (id) => {
   return async (dispatch) => {
     try {
       const favorites = await Cleaners.getCurrentFavorites(id);
-      dispatch(setFavorites(favorites.data));
-    } catch(e) {
+      dispatch(setFavorites(favorites));
+    } catch (e) {
       dispatch(setHasErrored(true));
     }
   }

@@ -59,7 +59,7 @@ describe('LoginForm', () => {
     mockDispatch = jest.fn();
     mockGetState = jest.fn();
 
-    wrapper = shallow(<LoginForm 
+    wrapper = shallow(<LoginForm
       store={mockStore}
       user={mockUser}
       showLogin={mockShowLogin}
@@ -132,7 +132,7 @@ describe('LoginForm', () => {
 
       await wrapper.instance().userWarning(mockType, mockWarning);
 
-     expect(wrapper.state()[mockType]).toEqual(mockWarning);
+      expect(wrapper.state()[mockType]).toEqual(mockWarning);
     });
 
     // it('should call removeWarning', async () => {
@@ -149,10 +149,8 @@ describe('LoginForm', () => {
 
     const mockCheckUserList = jest.fn().mockImplementation(() => {
       return Promise.resolve({
-        data: {
-          id: 1,
-          name: 'mock name'
-        }
+        id: 1,
+        name: 'mock name'
       });
     });
 
@@ -188,9 +186,10 @@ describe('LoginForm', () => {
     });
 
     it('should call logUserIn with the correct params', async () => {
-      const expected = {data : {
-        id: 1, name: 'mock name'
-      }}
+      const expected = {
+        id: 1,
+        name: 'mock name'
+      }
 
       await wrapper.instance().submitLogin(mockEvent);
 
@@ -204,7 +203,7 @@ describe('LoginForm', () => {
         });
       });
 
-      const mockFailedDatabase = {checkUserList: mockFailedCall}
+      const mockFailedDatabase = { checkUserList: mockFailedCall }
       const mockUserWarning = jest.fn();
 
       await wrapper.setState({

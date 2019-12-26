@@ -7,7 +7,7 @@ export const getUserLoggedIn = (id, name) => {
 
 export const logUserOut = () => {
   return {
-    type:  'LOG_USER_OUT'
+    type: 'LOG_USER_OUT'
   }
 }
 
