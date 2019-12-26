@@ -33,7 +33,7 @@ ShallowWrapper {
         </div>,
         <img
           alt="test-title"
-          src="https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path"
+          src="https://image.tmdb.org/t/p/w370_and_h556_bestv2test_path"
         />,
         <section
           aria-label="movie-info"
@@ -81,7 +81,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "alt": "test-title",
-          "src": "https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path",
+          "src": "https://image.tmdb.org/t/p/w370_and_h556_bestv2test_path",
         },
         "ref": null,
         "rendered": null,
@@ -150,7 +150,7 @@ ShallowWrapper {
           </div>,
           <img
             alt="test-title"
-            src="https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path"
+            src="https://image.tmdb.org/t/p/w370_and_h556_bestv2test_path"
           />,
           <section
             aria-label="movie-info"
@@ -198,7 +198,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "alt": "test-title",
-            "src": "https://image.tmdb.org/t/p/w400_and_h600_bestv2test_path",
+            "src": "https://image.tmdb.org/t/p/w370_and_h556_bestv2test_path",
           },
           "ref": null,
           "rendered": null,

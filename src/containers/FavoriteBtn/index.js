@@ -22,16 +22,18 @@ export class FavoriteBtn extends Component {
 
   callAddFavorite = async (movies, user, favorites, movieId) => {
     try {
-      await this.state.userDataBaseFetch.addFavorite(this.formatFavorite(movies.results, user, movieId));
+      let formattedFavorite = this.formatFavorite(movies.results, user, movieId);
+
+      this.state.userDataBaseFetch.addFavorite(formattedFavorite);
       this.setState({ isFavorite: true })
-      const newFavorites = [...favorites, this.formatFavorite(movies.results, user, movieId)]
+      const newFavorites = [...favorites, formattedFavorite]
       this.props.setFavorites(newFavorites);
-    } catch(error) {
+    } catch (error) {
       this.setState({
         failed: true
       });
 
-      this.setTimeout(this.clearFailedFav, 5000);
+      window.setTimeout(this.clearFailedFav, 5000);
     }
   };
 
@@ -43,7 +45,7 @@ export class FavoriteBtn extends Component {
 
   callRemoveFavorite = async (user, movieId, favorites) => {
     await this.removeFavorite(user.id, movieId);
-    const newFavorites = favorites.filter( favorite => favorite.movie_id !== movieId)
+    const newFavorites = favorites.filter(favorite => favorite.movie_id !== movieId)
     this.props.setFavorites(newFavorites);
     await this.setState({ isFavorite: false })
   }
@@ -77,15 +79,14 @@ export class FavoriteBtn extends Component {
 
   getPosterPath = (posterPath) => {
     if (!posterPath) {
-      console.log('fake poster')
       return 'http://www.beguilingbooksandart.com/wp-content/uploads/2015/01/at_marcy.png'
     } else {
       return `https://image.tmdb.org/t/p/w400_and_h600_bestv2${posterPath}`
     }
   };
-  
+
   formatFavorite = (movies, user, movieId) => {
-    const movie = movies.filter( movie => movie.id === movieId)[0]
+    const movie = movies.filter(movie => movie.id === movieId)[0]
     return {
       movie_id: movie.id,
       user_id: user.id,
@@ -93,8 +94,7 @@ export class FavoriteBtn extends Component {
       poster_path: this.getPosterPath(movie.poster_path),
       release_date: movie.release_date,
       vote_average: movie.vote_average,
-      overview: movie.overview,
-      genre_ids: movie.genre_ids
+      overview: movie.overview
     }
   };
 
@@ -117,7 +117,7 @@ export class FavoriteBtn extends Component {
   }
 };
 
-export const mapStateToProps = ({movies, user, favorites}) => ({movies, user, favorites});
+export const mapStateToProps = ({ movies, user, favorites }) => ({ movies, user, favorites });
 
 
 export const mapDispatchToProps = (dispatch) => ({

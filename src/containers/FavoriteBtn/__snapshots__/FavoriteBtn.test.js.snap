@@ -7,10 +7,6 @@ ShallowWrapper {
     favorites={
       Array [
         Object {
-          "genre_ids": Array [
-            0,
-            1,
-          ],
           "movie_id": 1,
           "overview": "mock overview",
           "poster_path": "https://image.tmdb.org/t/p/w400_and_h600_bestv2mockpath",
@@ -24,10 +20,6 @@ ShallowWrapper {
     movies={
       Array [
         Object {
-          "genre_ids": Array [
-            0,
-            1,
-          ],
           "id": 1,
           "movie_id": 1,
           "overview": "mock overview",
