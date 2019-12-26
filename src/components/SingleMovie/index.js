@@ -5,7 +5,7 @@ import FavoriteBtn from '../../containers/FavoriteBtn';
 
 const SingleMovie = (props) => {
   const date = props.release_date;
-  const year = date.split('').splice(0, 4).join('');
+  const year = date ? date.split('').splice(0, 4).join('') : 'today';
   return (
     <div className='single-movie-wrapper' aria-label='single-movie-card'>
       <div className='favorite-btn-wrapper'>

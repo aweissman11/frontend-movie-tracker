@@ -6,17 +6,18 @@ import { getMovieList } from '../../actions/thunkActions/ShowFavoritesButtonThun
 
 export class ShowFavoritesBtn extends Component {
   showFavorites = () => {
-    const IDs = this.props.favorites.map( favorite => {
+    const IDs = this.props.favorites.map(favorite => {
       return favorite.movie_id
     })
+
     this.props.setFavorites(IDs)
   };
 
   render() {
     return (
-      <button 
+      <button
         aria-label='show-favorites-button'
-        onClick={this.showFavorites} 
+        onClick={this.showFavorites}
         className='show-favorites'>
         favorites
       </button>
